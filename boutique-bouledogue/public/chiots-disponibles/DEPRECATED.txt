@@ -1,0 +1,7 @@
+Ce dossier n’est plus utilisé.
+
+Mettez vos photos ici à la place :
+
+  public/images/chiots/
+
+Voir : public/images/chiots/LISEZMOI.txt

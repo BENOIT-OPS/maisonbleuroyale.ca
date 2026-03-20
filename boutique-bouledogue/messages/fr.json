@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "homeTitle": "Élevage premium de bouledogues français au Canada",
+    "homeDescription": "Réservez votre chiot avec acompte sécurisé, suivi vétérinaire et accompagnement personnalisé."
+  },
+  "LocaleLayout": {
+    "title": "Maison Bleu Royale | Élevage premium de bouledogues français"
+  },
+  "chatBubble": {
+    "ariaWhatsApp": "Ouvrir WhatsApp pour discuter",
+    "ariaContact": "Aller au formulaire de contact",
+    "titleWhatsApp": "Discuter sur WhatsApp",
+    "titleContact": "Nous écrire"
+  },
+  "nav": {
+    "home": "Accueil",
+    "puppies": "Chiots",
+    "puppiesAvailable": "Chiots disponibles",
+    "breeders": "Nos reproducteurs",
+    "about": "À propos",
+    "blog": "Blog",
+    "blogTips": "Conseils & blog",
+    "contact": "Contact",
+    "contactHint": "Nous écrire — formulaire sur la page d'accueil",
+    "admin": "Admin",
+    "reserve": "Réserver",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "language": "Langue"
+  },
+  "hero": {
+    "aria": "Accueil",
+    "badge": "Élevage familial · Canada",
+    "badgeSub": "Portées limitées · Suivi santé",
+    "titleLine1": "Le bouledogue français,",
+    "titleLine2": "élevé comme un membre de la famille.",
+    "lead": "Chez {name}, chaque chiot grandit dans le calme de notre foyer québécois — entre soins vétérinaires exigeants, socialisation bienveillante et transparence totale. Nous ne vendons pas un « produit » : nous accueillons avec vous une vie qui comptera pour quinze ans.",
+    "leadBold": "Peu de naissances, une attention absolue.",
+    "ctaPrimary": "Voir les chiots disponibles",
+    "ctaSecondary": "Réserver un chiot",
+    "trustBefore": "Dossier de santé complet, conseils personnalisés et soutien après l'accueil —",
+    "trustEmphasis": "parce que la confiance se construit dans la durée",
+    "imageAlt": "Bouledogue français, portrait élégant en lumière douce",
+    "floatTitle": "Exclusivité assumée",
+    "floatText": "Nous réservons nos portées à un nombre limité de familles — pour garantir suivi, qualité et sérénité, de la réservation à la vie quotidienne avec votre compagnon."
+  },
+  "reassurance": {
+    "eyebrow": "Votre sérénité, notre priorité",
+    "title": "L'élevage tel que vous le souhaitez : rigoureux, humain, transparent.",
+    "healthTitle": "Suivi santé",
+    "healthText": "Examens vétérinaires, vaccins, vermifuges et dossier complet — chaque chiot part avec un historique clair et à jour.",
+    "socialTitle": "Socialisation",
+    "socialText": "Habitudes de vie familiale, bruits du quotidien et contacts bienveillants pour des chiots équilibrés et confiants.",
+    "beforeTitle": "Avant adoption",
+    "beforeText": "Entrevues, conseils personnalisés et accompagnement pour préparer votre foyer — sans précipitation, avec du sens.",
+    "trustTitle": "Transparence",
+    "trustText": "Photos sincères, explications sur le caractère et les lignées. Pas de promesses irréalistes : une confiance qui se mérite."
+  },
+  "featuredPuppies": {
+    "eyebrow": "Sélection",
+    "title": "Chiots disponibles",
+    "subtitle": "Nos chiots en vedette : mis en avant pour leur profil, en harmonie avec notre exigence de qualité. Chaque fiche est honnête, chaque photo reflète le vivant.",
+    "viewAll": "Voir tous les chiots",
+    "empty": "Aucun chiot en vedette pour le moment. Consultez le catalogue complet ou écrivez-nous."
+  },
+  "upcomingLitters": {
+    "eyebrow": "À venir",
+    "title": "Prochaines portées",
+    "subtitle": "Annonces et pré-inscriptions : chaque fiche résume ce qui est prévu. Pour les dates précises et les places, contactez-nous ou consultez le catalogue filtré « Portées à venir ».",
+    "viewAll": "Voir toutes les portées à venir",
+    "contactCta": "Nous écrire",
+    "empty": "Aucune portée n’est annoncée pour le moment. Écrivez-nous pour être informé des prochaines naissances."
+  },
+  "canadianBreeds": {
+    "eyebrow": "Tendances d'adoption au Canada",
+    "title": "Les races les plus convoitées par les Canadiens",
+    "intro": "Les familles québécoises et canadiennes recherchent souvent des compagnons à la fois attachants et adaptés à la vie urbaine ou à la maison. Plusieurs races reviennent régulièrement dans les listes des plus populaires — dont le bouledogue français, très prisé pour son caractère doux et sa taille idéale pour les logements.",
+    "highlightKicker": "Notre cœur de métier",
+    "highlightTitle": "Bouledogue français",
+    "highlightText": "Parmi les races les plus recherchées au pays, le bouledogue français s’impose comme un favori : calme, sociable et profondément fidèle. C’est autour de cette race que nous avons construit notre élevage, avec exigence et transparence.",
+    "cta": "Voir nos chiots bouledogue",
+    "tagsTitle": "Autres races souvent plébiscitées au Canada",
+    "b1": "Labrador retriever",
+    "b2": "Golden retriever",
+    "b3": "Berger allemand",
+    "b4": "Caniche (toutes tailles)",
+    "b5": "Goldendoodle & Bernedoodle",
+    "b6": "Husky de Sibérie",
+    "b7": "Retriever à poil plat",
+    "b8": "Carlin",
+    "b9": "Beagle",
+    "b10": "Border collie"
+  },
+  "whyChoose": {
+    "eyebrow": "Notre engagement",
+    "title": "Pourquoi choisir notre élevage",
+    "body": "Parce qu'un chiot n'est pas un accessoire de mode : c'est une vie auprès de vous. Nous élevons avec lenteur, tendresse et exigence — pour des bouledogues français sains de corps et d'esprit, prêts à rejoindre une famille qui les aimera autant que nous les avons aimés.",
+    "adv1": "Portées limitées et présence quotidienne auprès des mères et des chiots.",
+    "adv2": "Dialogue direct avec les éleveurs — jamais un centre d'appels.",
+    "adv3": "Contrats clairs, santé documentée et suivi après l'accueil.",
+    "adv4": "Une éthique de respect : nous disons non lorsque la correspondance n'est pas la bonne.",
+    "imageAlt": "Chiot bouledogue en environnement calme et lumineux"
+  },
+  "ctaMid": {
+    "title": "Prêt à franchir le pas ?",
+    "subtitle": "Le premier pas est souvent un simple message — nous vous accueillons avec écoute et sans jugement.",
+    "button": "Réserver un chiot"
+  },
+  "adoptionSteps": {
+    "title": "Comment adopter votre chiot",
+    "subtitle": "Quatre étapes simples, pensées pour votre tranquillité d'esprit et le bien-être du chiot.",
+    "step1Title": "Découvrir les chiots",
+    "step1Desc": "Parcourez les fiches, regardez les photos, lisez avec calme. Les profils sont décrits avec authenticité.",
+    "step2Title": "Nous contacter",
+    "step2Desc": "Écrivez-nous : nous répondons personnellement pour répondre à vos questions et convenir d'un échange.",
+    "step3Title": "Réserver avec acompte",
+    "step3Desc": "Une fois l'entente trouvée, un acompte officialise votre place — en toute sécurité et transparence.",
+    "step4Title": "Préparer l'arrivée",
+    "step4Desc": "Nous vous guidons pour l'équipement, l'alimentation et le grand jour où il franchit votre seuil."
+  },
+  "testimonials": {
+    "big": "100+",
+    "sub": "familles nous ont fait confiance",
+    "title": "Des mots qui comptent",
+    "body": "Sélection d’avis représentatifs : professionnalisme, santé des chiots et relation de confiance sur la durée sont au cœur des retours que nous recevons.",
+    "scrollHint": "Faites défiler horizontalement pour parcourir les témoignages",
+    "verifiedStyle": "Avis famille",
+    "noteLang": ""
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "q1": "Comment réserver un chiot ?",
+    "a1": "Commencez par nous contacter ou remplir le formulaire : nous vérifions ensemble la disponibilité et la correspondance. Ensuite, un acompte officialise la réservation selon notre contrat.",
+    "q2": "Proposez-vous un suivi après adoption ?",
+    "a2": "Oui. Nous restons disponibles pour les questions sur l'alimentation, le comportement ou la santé — vous n'êtes jamais seuls après l'arrivée.",
+    "q3": "Les chiots sont-ils vaccinés ?",
+    "a3": "Chaque chiot part avec un protocole de vaccination et de vermifugation documenté. Nous vous expliquons les dates et la suite à donner avec votre vétérinaire.",
+    "q4": "Peut-on visiter ou parler avec vous avant réservation ?",
+    "a4": "Absolument. Nous privilégions les échanges honnêtes — appel, visioconférence ou visite sur rendez-vous, selon ce qui convient à tous et au bien-être des chiots.",
+    "q5": "Quels sont les délais ?",
+    "a5": "Cela dépend des portées et du chiot choisi. Nous vous indiquons dès le départ une fourchette réaliste ; pas de promesse hâtive, mais une vision claire du calendrier."
+  },
+  "contactStrip": {
+    "title": "Une question ? Un battement de cœur pour l'un de nos chiots ?",
+    "body": "Écrivez-nous : nous lisons chaque message avec attention. Pas de réponse automatique froide — seulement une équipe qui comprend l'importance de ce moment.",
+    "emailCta": "Nous écrire",
+    "whatsapp": "WhatsApp",
+    "whatsappHint": "WhatsApp : ajoutez NEXT_PUBLIC_WHATSAPP_PHONE dans .env",
+    "fullForm": "Formulaire complet"
+  },
+  "contactFormSection": {
+    "eyebrow": "Contact approfondi",
+    "title": "Écrivez-nous en détail",
+    "body": "Pour les questions longues ou les dossiers particuliers : formulaire sécurisé, réponse personnalisée sous quelques jours ouvrables."
+  },
+  "quickContact": {
+    "name": "Nom",
+    "email": "Courriel",
+    "phone": "Téléphone (optionnel)",
+    "subject": "Sujet",
+    "subjectPh": "Réservation, question santé…",
+    "message": "Message",
+    "submit": "Envoyer",
+    "sending": "Envoi…",
+    "ok": "Merci. Nous vous recontactons très bientôt.",
+    "errSend": "Envoi impossible.",
+    "errNet": "Erreur réseau. Réessayez plus tard."
+  },
+  "footer": {
+    "tagline": "Élevage familial de bouledogues français au Canada. Engagement, transparence et bien-être animal avant tout.",
+    "navLabel": "Navigation",
+    "infoLabel": "Informations",
+    "infoAboutUs": "À propos de nous",
+    "infoTerms": "Conditions de vente",
+    "infoDelivery": "Livraison",
+    "infoFaq": "FAQ",
+    "infoReservationDeposit": "Réservation en ligne & acompte",
+    "procedures": "Liens utiles",
+    "puppiesAvailable": "Chiots disponibles",
+    "blogAdvice": "Conseils & blog",
+    "contactUs": "Contact",
+    "contactLabel": "Contact",
+    "region": "Québec, Canada",
+    "emailLabel": "Courriel :",
+    "appointment": "Sur rendez-vous uniquement.",
+    "rights": "Tous droits réservés.",
+    "taglineEnd": "Élevage responsable — Santé et socialisation prioritaires."
+  },
+  "catalog": {
+    "eyebrow": "Catalogue",
+    "title": "Nos chiots",
+    "intro": "Filtrez par statut, sexe ou couleur. Chaque fiche est honnête et complète : santé, caractère et transparence avant toute chose.",
+    "filterStatus": "Statut",
+    "filterSex": "Sexe",
+    "filterColor": "Couleur",
+    "allStatus": "Tous les statuts",
+    "statusAvailable": "Disponibles",
+    "statusReserved": "Réservés",
+    "statusSold": "Vendus",
+    "statusComing": "Portées à venir",
+    "allSexes": "Tous",
+    "allColors": "Toutes",
+    "reset": "Réinitialiser les filtres",
+    "empty": "Aucun chiot ne correspond à ces critères."
+  },
+  "puppyCard": {
+    "sex": "Sexe",
+    "age": "Âge",
+    "color": "Couleur",
+    "profileCta": "Voir le profil"
+  },
+  "puppyDetail": {
+    "sex": "Sexe",
+    "age": "Âge",
+    "color": "Couleur",
+    "city": "Ville",
+    "price": "Prix",
+    "depositOnline": "Acompte en ligne",
+    "depositCustom": "(montant défini pour ce chiot)",
+    "comingSoonNote": "Portée annoncée : contactez-nous pour être informé des naissances et des prochaines étapes."
+  },
+  "blogPage": {
+    "title": "Conseils d'élevage et santé",
+    "read": "Lire l'article"
+  },
+  "reservation": {
+    "notAvailable": "Ce chiot n'est plus disponible à la réservation en ligne (réservé ou vendu). Contactez-nous pour d'autres disponibilités.",
+    "demo": "Affichage démonstration sans base de données : ajoutez un vrai chiot dans l'admin avec PostgreSQL pour activer le paiement Stripe.",
+    "onRequestTitle": "Réserver {name}",
+    "onRequestBody": "Le prix et l'acompte se définissent avec vous sur mesure. Écrivez-nous ou appelez-nous : nous revenons vers vous rapidement avec une proposition claire.",
+    "contactUs": "Nous contacter",
+    "stripeConfig": "Le paiement en ligne est en configuration. Réglez STRIPE_SECRET_KEY et NEXT_PUBLIC_APP_URL, puis redéployez.",
+    "reserveTitle": "Réserver {name}",
+    "askedPrice": "Prix demandé :",
+    "depositToday": "Acompte à payer aujourd'hui :",
+    "depositStripe": "(CAD, sécurisé par Stripe)",
+    "depositLater": "Acompte : nous fixons le montant avec vous après entente (paiement Stripe ensuite).",
+    "balanceNote": "Le solde du prix et les modalités finales sont confirmés avec l'élevage après réception de l'acompte.",
+    "namePh": "Nom complet",
+    "emailPh": "Courriel",
+    "phonePh": "Téléphone",
+    "messagePh": "Message (optionnel)",
+    "payStripe": "Payer l'acompte sur Stripe",
+    "redirecting": "Redirection vers Stripe…",
+    "payErr": "Erreur lors du paiement.",
+    "payOpenErr": "Impossible d'ouvrir le paiement. Contactez-nous."
+  },
+  "reservationBanner": {
+    "success": "Merci ! Paiement reçu — votre réservation est effective. Vous allez recevoir un courriel avec les moyens de paiement pour le solde et la suite des démarches (vérifiez vos indésirables).",
+    "cancel": "Paiement annulé. Vous pouvez recommencer quand vous voulez — le chiot reste disponible si personne d'autre ne réserve entre-temps.",
+    "close": "Fermer"
+  },
+  "pageAbout": {
+    "title": "À propos de nous",
+    "body": "Fondée en 2010, Maison Bleu Royale est un élevage familial de bouledogues français implanté au Québec (Canada), structuré pour offrir des chiots équilibrés, un suivi de santé rigoureux et un accompagnement clair pour chaque famille adoptante.\n\nNotre ancienneté et notre façon de travailler. Depuis 2010, nous intervenons auprès du bouledogue français avec une présence quotidienne sur place : conduite des portées, observation du comportement, coordination avec notre équipe vétérinaire et préparation progressive des chiots à la vie en foyer. Cette expérience nous aide à anticiper les besoins des mères et des nouveau-nés, à ajuster la socialisation selon le tempérament de chaque individu et à répondre avec précision aux questions des futurs adoptants, sans précipitation.\n\nUne maîtrise fondée sur des critères exigeants. Nos choix d’élevage reposent sur la sélection des reproducteurs, le respect du type de la race et les démarches sanitaires adaptées à la lignée — et non sur la recherche de volume. Nous assumons volontairement des portées limitées, des temps de repos entre les saillies pour nos reproductrices, ainsi qu’une information factuelle sur l’état des chiots à la date de votre visite ou de votre prise de contact.\n\nTransparence et cadre contractuel. Avant tout engagement financier, nous privilégions des échanges écrits et un contrat qui fixe les obligations de chacun ; le dossier de santé et les documents remis au départ complètent cette assise professionnelle.\n\nLes contenus de ce site ont une valeur informative et ne remplacent pas les conseils de votre clinique vétérinaire pour votre animal."
+  },
+  "pageBreeders": {
+    "title": "Nos reproducteurs",
+    "body": "Nos reproducteurs sont sélectionnés pour le caractère, la morphologie conforme à la race et le dépistage santé recommandé pour la lignée. Les fiches détaillées et tests pertinents sont communiqués aux familles sérieusement intéressées, dans le respect de la vie privée et des accords contractuels.\n\nLes visites se font sur rendez-vous lorsque la politique de l’élevage et la réglementation le permettent ; merci de nous écrire pour convenir d’un échange ou d’une visite encadrée.\n\nNous refusons tout excès d’élevage et privilégions le bien-être des reproducteurs (repos entre portées, suivi vétérinaire)."
+  },
+  "pageTerms": {
+    "title": "Conditions de vente",
+    "body": "La réservation ou l’achat d’un chiot fait l’objet d’un contrat écrit entre l’éleveur et l’acquéreur, incluant identité du chiot, prix, modalités de paiement et mentions légales applicables au Québec / Canada selon le cas.\n\nLes garanties sanitaires éventuelles sont précisées au contrat ; elles ne couvrent pas les pathologies liées à une mauvaise maintenance, aux accidents ou à l’absence de suivi vétérinaire après le départ.\n\nTout acompte versé confirme l’engagement de la famille sous les conditions indiquées sur la fiche du chiot et dans les échanges écrits. En cas de doute, demandez une relecture avant paiement.\n\nCe texte est une synthèse : seul le contrat signé et les lois en vigueur font foi."
+  },
+  "pageDelivery": {
+    "title": "Livraison",
+    "body": "Le retrait du chiot se fait en priorité sur place, avec remise des documents (santé, identification si applicable) et temps d’échange avec l’éleveur.\n\nPour les familles éloignées, des options de transport conformes au bien-être (véhicule, transporteur réputé) peuvent être étudiées ensemble. Les frais et la responsabilité du transport sont définis clairement avant l’engagement.\n\nNous déconseillons tout transport non sécurisé ou prolongé sans préparation (eau, pauses, température). Pour les vols ou longs trajets, planifiez avec nous et votre vétérinaire si besoin."
+  },
+  "pageFaq": {
+    "title": "Foire aux questions",
+    "body": "À partir de quel âge le chiot peut-il quitter l’élevage ? La séparation intervient au minimum aux âges et conditions prévus par la réglementation applicable ; nous visons aussi une socialisation suffisante.\n\nLes chiots sont-ils identifiés et vaccinés ? Le carnet et l’historique vous sont remis selon ce qui a été réalisé à l’élevage ; la suite du protocole est assurée avec votre vétérinaire.\n\nPuis-je visiter avant de réserver ? Les visites se planifient selon la politique sanitaire et de l’élevage ; contactez-nous pour les modalités.\n\nQue couvre l’acompte en ligne ? Il fige la réservation du chiot concerné selon les termes affichés sur la fiche et le contrat ; le solde et les détails sont confirmés avec vous.\n\nPour toute autre question, utilisez la page Contact ou le formulaire en bas de l’accueil."
+  },
+  "pageReservation": {
+    "title": "Réservation en ligne & acompte",
+    "body": "Sur les fiches des chiots marqués disponibles, un encart permet de régler un acompte sécurisé via Stripe lorsque la boutique est connectée à une base de données et que les clés de paiement sont configurées.\n\nLe montant de l’acompte peut être un pourcentage du prix avec un minimum ; des montants personnalisés sont possibles selon la fiche. Après paiement, des courriels de confirmation et les instructions pour le solde peuvent être envoyés (selon configuration Resend).\n\nEn mode démonstration sans base de données, le bouton de paiement peut être désactivé : écrivez-nous alors pour réserver et convenir du versement.\n\nConservez une copie de vos échanges et du reçu Stripe ; pour toute difficulté technique, contactez-nous immédiatement."
+  }
+}

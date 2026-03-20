@@ -1,0 +1,13 @@
+Photos des chiots
+=================
+
+Dossier à utiliser :
+
+    public/images/chiots/
+
+• Nom du fichier = slug de la fiche, ex. lolita.jpg pour /chiots/lolita
+• Autre nom de fichier possible : src/data/chiot-covers.ts
+
+Guide détaillé : public/images/chiots/LISEZMOI.txt
+
+(L’ancien dossier public/chiots-disponibles/ n’est plus utilisé.)

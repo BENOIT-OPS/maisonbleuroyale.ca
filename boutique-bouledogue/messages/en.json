@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "homeTitle": "Premium French bulldog breeder in Canada",
+    "homeDescription": "Reserve your puppy with secure deposit, veterinary follow-up and personalized support."
+  },
+  "LocaleLayout": {
+    "title": "Maison Bleu Royale | Premium French bulldog breeding"
+  },
+  "chatBubble": {
+    "ariaWhatsApp": "Open WhatsApp to chat",
+    "ariaContact": "Go to contact form",
+    "titleWhatsApp": "Chat on WhatsApp",
+    "titleContact": "Contact us"
+  },
+  "nav": {
+    "home": "Home",
+    "puppies": "Puppies",
+    "puppiesAvailable": "Available puppies",
+    "breeders": "Our breeding dogs",
+    "about": "About",
+    "blog": "Blog",
+    "blogTips": "Tips & blog",
+    "contact": "Contact",
+    "contactHint": "Write to us — form on the home page",
+    "admin": "Admin",
+    "reserve": "Reserve",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "hero": {
+    "aria": "Home",
+    "badge": "Family breeder · Canada",
+    "badgeSub": "Limited litters · Health follow-up",
+    "titleLine1": "The French bulldog,",
+    "titleLine2": "raised like a member of the family.",
+    "lead": "At {name}, each puppy grows in the calm of our Quebec home — with demanding veterinary care, gentle socialization and full transparency. We do not sell a \"product\": together we welcome a life that will matter for fifteen years.",
+    "leadBold": "Few births, absolute attention.",
+    "ctaPrimary": "View available puppies",
+    "ctaSecondary": "Reserve a puppy",
+    "trustBefore": "Complete health file, personalized advice and support after arrival —",
+    "trustEmphasis": "because trust is built over time",
+    "imageAlt": "French bulldog, elegant portrait in soft light",
+    "floatTitle": "Assumed exclusivity",
+    "floatText": "We limit our litters to a small number of families — to ensure follow-up, quality and peace of mind, from reservation to daily life with your companion."
+  },
+  "reassurance": {
+    "eyebrow": "Your peace of mind, our priority",
+    "title": "Breeding the way you expect it: rigorous, human, transparent.",
+    "healthTitle": "Health follow-up",
+    "healthText": "Vet exams, vaccines, deworming and a complete file — every puppy leaves with a clear, up-to-date history.",
+    "socialTitle": "Socialization",
+    "socialText": "Family routines, everyday sounds and gentle contact for balanced, confident puppies.",
+    "beforeTitle": "Before adoption",
+    "beforeText": "Interviews, tailored guidance and preparation for your home — no rush, with meaning.",
+    "trustTitle": "Transparency",
+    "trustText": "Honest photos, clear notes on temperament and lines. No unrealistic promises — trust is earned."
+  },
+  "featuredPuppies": {
+    "eyebrow": "Selection",
+    "title": "Puppies available",
+    "subtitle": "Our featured puppies: highlighted for their profile and our quality standards. Every profile is honest; every photo shows the real dog.",
+    "viewAll": "View all puppies",
+    "empty": "No featured puppies right now. Browse the full catalog or write to us."
+  },
+  "upcomingLitters": {
+    "eyebrow": "Coming soon",
+    "title": "Upcoming litters",
+    "subtitle": "Announcements and pre-registration: each profile summarizes what is planned. For exact timing and availability, contact us or open the catalog filtered to “Upcoming litters”.",
+    "viewAll": "View all upcoming litters",
+    "contactCta": "Contact us",
+    "empty": "No litter is announced right now. Write to us to be notified of future births."
+  },
+  "canadianBreeds": {
+    "eyebrow": "Adoption trends in Canada",
+    "title": "Dog breeds most sought after by Canadians",
+    "intro": "Families across Quebec and Canada often look for companions that are affectionate and suited to city life or home life. Several breeds regularly top popularity lists — including the French bulldog, prized for its gentle temperament and ideal size for apartments.",
+    "highlightKicker": "Our specialty",
+    "highlightTitle": "French bulldog",
+    "highlightText": "Among the most sought-after breeds nationwide, the French bulldog stands out as a favourite: calm, sociable and deeply loyal. Our breeding program is built around this breed, with high standards and full transparency.",
+    "cta": "View our French bulldog puppies",
+    "tagsTitle": "Other breeds often popular in Canada",
+    "b1": "Labrador retriever",
+    "b2": "Golden retriever",
+    "b3": "German shepherd",
+    "b4": "Poodle (all sizes)",
+    "b5": "Goldendoodle & Bernedoodle",
+    "b6": "Siberian husky",
+    "b7": "Flat-coated retriever",
+    "b8": "Pug",
+    "b9": "Beagle",
+    "b10": "Border collie"
+  },
+  "whyChoose": {
+    "eyebrow": "Our commitment",
+    "title": "Why choose our breeding program",
+    "body": "Because a puppy is not a fashion accessory: it is a life beside yours. We raise slowly, tenderly and with high standards — for French bulldogs healthy in body and mind, ready for a family that will love them as much as we have.",
+    "adv1": "Limited litters and daily presence with mothers and puppies.",
+    "adv2": "Direct dialogue with the breeders — never a call centre.",
+    "adv3": "Clear contracts, documented health and follow-up after arrival.",
+    "adv4": "An ethic of respect: we say no when the match is not right.",
+    "imageAlt": "French bulldog puppy in a calm, bright setting"
+  },
+  "ctaMid": {
+    "title": "Ready to take the next step?",
+    "subtitle": "The first step is often a simple message — we welcome you with listening and without judgement.",
+    "button": "Reserve a puppy"
+  },
+  "adoptionSteps": {
+    "title": "How to adopt your puppy",
+    "subtitle": "Four simple steps, designed for your peace of mind and the puppy’s well-being.",
+    "step1Title": "Discover the puppies",
+    "step1Desc": "Browse profiles, look at photos, read calmly. Descriptions are authentic.",
+    "step2Title": "Contact us",
+    "step2Desc": "Write to us: we answer personally, answer your questions and arrange a conversation.",
+    "step3Title": "Reserve with a deposit",
+    "step3Desc": "Once we agree, a deposit secures your place — safely and transparently.",
+    "step4Title": "Prepare for arrival",
+    "step4Desc": "We guide you on supplies, food and the big day when they cross your threshold."
+  },
+  "testimonials": {
+    "big": "100+",
+    "sub": "families have trusted us",
+    "title": "Words that matter",
+    "body": "A representative selection of feedback: professionalism, puppy health and a lasting relationship of trust are what families mention most often.",
+    "scrollHint": "Scroll horizontally to browse testimonials",
+    "verifiedStyle": "Family review",
+    "noteLang": "These testimonials are shared in the language families originally wrote them in."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "q1": "How do I reserve a puppy?",
+    "a1": "Start by contacting us or filling out the form: together we check availability and fit. Then a deposit finalizes the reservation under our contract.",
+    "q2": "Do you offer follow-up after adoption?",
+    "a2": "Yes. We stay available for questions on diet, behaviour or health — you are never alone after arrival.",
+    "q3": "Are puppies vaccinated?",
+    "a3": "Each puppy leaves with a documented vaccination and deworming schedule. We explain dates and next steps with your veterinarian.",
+    "q4": "Can we visit or talk before reserving?",
+    "a4": "Absolutely. We favour honest exchanges — call, video visit or appointment, as suits everyone and the puppies’ welfare.",
+    "q5": "What are the timelines?",
+    "a5": "It depends on litters and the puppy chosen. From the outset we give a realistic range — no rushed promises, but a clear timeline."
+  },
+  "contactStrip": {
+    "title": "A question? A crush on one of our puppies?",
+    "body": "Write to us: we read every message with care. No cold auto-reply — only a team that understands how important this moment is.",
+    "emailCta": "Email us",
+    "whatsapp": "WhatsApp",
+    "whatsappHint": "WhatsApp: add NEXT_PUBLIC_WHATSAPP_PHONE to .env",
+    "fullForm": "Full contact form"
+  },
+  "contactFormSection": {
+    "eyebrow": "In-depth contact",
+    "title": "Write to us in detail",
+    "body": "For longer questions or special cases: secure form, personalized reply within a few business days."
+  },
+  "quickContact": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "subject": "Subject",
+    "subjectPh": "Reservation, health question…",
+    "message": "Message",
+    "submit": "Send",
+    "sending": "Sending…",
+    "ok": "Thank you. We will get back to you very soon.",
+    "errSend": "Could not send.",
+    "errNet": "Network error. Please try again later."
+  },
+  "footer": {
+    "tagline": "Family French bulldog breeding in Canada. Commitment, transparency and animal welfare first.",
+    "navLabel": "Navigation",
+    "infoLabel": "Information",
+    "infoAboutUs": "About us",
+    "infoTerms": "Terms of sale",
+    "infoDelivery": "Delivery",
+    "infoFaq": "FAQ",
+    "infoReservationDeposit": "Online booking & deposit",
+    "procedures": "Quick links",
+    "puppiesAvailable": "Available puppies",
+    "blogAdvice": "Tips & blog",
+    "contactUs": "Contact",
+    "contactLabel": "Contact",
+    "region": "Quebec, Canada",
+    "emailLabel": "Email:",
+    "appointment": "By appointment only.",
+    "rights": "All rights reserved.",
+    "taglineEnd": "Responsible breeding — Health and socialization first."
+  },
+  "catalog": {
+    "eyebrow": "Catalog",
+    "title": "Our puppies",
+    "intro": "Filter by status, sex or color. Every profile is honest and complete: health, temperament and transparency come first.",
+    "filterStatus": "Status",
+    "filterSex": "Sex",
+    "filterColor": "Color",
+    "allStatus": "All statuses",
+    "statusAvailable": "Available",
+    "statusReserved": "Reserved",
+    "statusSold": "Sold",
+    "statusComing": "Upcoming litters",
+    "allSexes": "All",
+    "allColors": "All",
+    "reset": "Reset filters",
+    "empty": "No puppies match these filters."
+  },
+  "puppyCard": {
+    "sex": "Sex",
+    "age": "Age",
+    "color": "Color",
+    "profileCta": "View profile"
+  },
+  "puppyDetail": {
+    "sex": "Sex",
+    "age": "Age",
+    "color": "Color",
+    "city": "City",
+    "price": "Price",
+    "depositOnline": "Online deposit",
+    "depositCustom": "(amount set for this puppy)",
+    "comingSoonNote": "Litter announced: contact us to be informed of births and next steps."
+  },
+  "blogPage": {
+    "title": "Professional breeding & health guidance",
+    "read": "Read article"
+  },
+  "reservation": {
+    "notAvailable": "This puppy is no longer available for online reservation (reserved or sold). Contact us for other options.",
+    "demo": "Demo mode without database: add a real puppy in admin with PostgreSQL to enable Stripe payment.",
+    "onRequestTitle": "Reserve {name}",
+    "onRequestBody": "Price and deposit are tailored with you. Write or call us — we respond quickly with a clear proposal.",
+    "contactUs": "Contact us",
+    "stripeConfig": "Online payment is being configured. Set STRIPE_SECRET_KEY and NEXT_PUBLIC_APP_URL, then redeploy.",
+    "reserveTitle": "Reserve {name}",
+    "askedPrice": "Listed price:",
+    "depositToday": "Deposit due today:",
+    "depositStripe": "(CAD, secured by Stripe)",
+    "depositLater": "Deposit: we set the amount with you after agreement (Stripe payment follows).",
+    "balanceNote": "Balance and final terms are confirmed with the breeder after the deposit is received.",
+    "namePh": "Full name",
+    "emailPh": "Email",
+    "phonePh": "Phone",
+    "messagePh": "Message (optional)",
+    "payStripe": "Pay deposit with Stripe",
+    "redirecting": "Redirecting to Stripe…",
+    "payErr": "Payment error.",
+    "payOpenErr": "Could not open payment. Contact us."
+  },
+  "reservationBanner": {
+    "success": "Thank you! Payment received — your reservation is confirmed. You will receive an email with payment options for the balance and next steps (check your spam folder).",
+    "cancel": "Payment cancelled. You can try again anytime — the puppy stays available if no one else reserves in the meantime.",
+    "close": "Close"
+  },
+  "pageAbout": {
+    "title": "About us",
+    "body": "Founded in 2010, Maison Bleu Royale is a family French bulldog kennel based in Quebec, Canada, organized around healthy, well-balanced puppies, rigorous health follow-up and clear guidance for every adopting family.\n\nOur experience and professional practice. Since 2010, we have dedicated ourselves to the French bulldog with daily hands-on care on site: managing litters, observing behaviour, coordinating with our veterinary team and gradually preparing puppies for life in a home. That depth of experience helps us anticipate the needs of mothers and newborns, tailor socialization to each puppy’s temperament and answer future owners with accuracy — without rushing the process.\n\nGrounded expertise and demanding standards. Our breeding decisions rest on breeding-dog selection, respect for breed type and appropriate health screening for the pedigree — not on maximizing volume. We deliberately keep fewer litters, allow proper rest between cycles for our females, and share factual information about each puppy’s status at the time of your inquiry or visit.\n\nTransparency and a clear framework. Before any payment, we favour written communication and a contract that sets out each party’s responsibilities; the health file and paperwork provided at pickup complete this professional foundation.\n\nThis website is for general information only and does not replace your veterinarian’s advice."
+  },
+  "pageBreeders": {
+    "title": "Our breeding dogs",
+    "body": "Breeding dogs are chosen for temperament, breed type and relevant health screening. Details and documents are shared with seriously interested families, with respect for privacy and contract terms.\n\nVisits may be scheduled by appointment where policy and regulations allow — contact us to arrange a conversation or a supervised visit.\n\nWe avoid over-breeding and prioritize the welfare of our dogs (rest between litters, veterinary care)."
+  },
+  "pageTerms": {
+    "title": "Terms of sale",
+    "body": "Purchase or reservation is documented in a written contract (identity of the puppy, price, payment terms and applicable legal notices in Quebec / Canada as relevant).\n\nAny health guarantee is defined in that contract; it does not cover poor maintenance, accidents or lack of follow-up care after pickup.\n\nDeposits secure the puppy under the terms shown on the profile and in writing. When in doubt, review before you pay.\n\nThis page is a summary — the signed contract and applicable law prevail."
+  },
+  "pageDelivery": {
+    "title": "Delivery",
+    "body": "Pickup on site is preferred, with paperwork (health, ID if applicable) and time with the breeder.\n\nFor distant families, transport options that protect welfare can be planned together. Fees and responsibilities are agreed in advance.\n\nAvoid unsafe or prolonged transport without preparation (water, breaks, temperature). For flights or long trips, plan with us and your vet if needed."
+  },
+  "pageFaq": {
+    "title": "FAQ",
+    "body": "When can the puppy leave? Separation follows applicable minimum ages and our socialization goals.\n\nAre puppies ID’d and vaccinated? You receive records for what was done on our side; your vet continues the protocol.\n\nCan I visit before reserving? Visits depend on biosecurity and policy — message us for options.\n\nWhat does the online deposit cover? It holds the puppy per the profile/contract terms; balance and details are confirmed with you.\n\nMore questions? Use Contact or the form at the bottom of the home page."
+  },
+  "pageReservation": {
+    "title": "Online booking & deposit",
+    "body": "For available puppies, a block may let you pay a secure deposit via Stripe when the database and payment keys are configured.\n\nThe deposit may be a percentage with a minimum; custom amounts can apply per puppy. After payment, confirmation emails and balance instructions may be sent (if Resend is set up).\n\nIn demo mode without a database, online pay may be disabled — write to us to reserve.\n\nKeep copies of messages and your Stripe receipt; if anything fails, contact us right away."
+  }
+}

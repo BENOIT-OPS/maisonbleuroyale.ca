@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "homeTitle": "Cría premium de bulldog francés en Canadá",
+    "homeDescription": "Reserve su cachorro con señal segura, seguimiento veterinario y acompañamiento personalizado."
+  },
+  "LocaleLayout": {
+    "title": "Maison Bleu Royale | Cría premium de bulldog francés"
+  },
+  "chatBubble": {
+    "ariaWhatsApp": "Abrir WhatsApp para chatear",
+    "ariaContact": "Ir al formulario de contacto",
+    "titleWhatsApp": "Chatear en WhatsApp",
+    "titleContact": "Contáctenos"
+  },
+  "nav": {
+    "home": "Inicio",
+    "puppies": "Cachorros",
+    "puppiesAvailable": "Cachorros disponibles",
+    "breeders": "Nuestros reproductores",
+    "about": "Nosotros",
+    "blog": "Blog",
+    "blogTips": "Consejos y blog",
+    "contact": "Contacto",
+    "contactHint": "Escríbanos — formulario en la página de inicio",
+    "admin": "Admin",
+    "reserve": "Reservar",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "language": "Idioma"
+  },
+  "hero": {
+    "aria": "Inicio",
+    "badge": "Cría familiar · Canadá",
+    "badgeSub": "Camadas limitadas · Seguimiento de salud",
+    "titleLine1": "El bulldog francés,",
+    "titleLine2": "criado como un miembro de la familia.",
+    "lead": "En {name}, cada cachorro crece en la calma de nuestro hogar en Quebec — con atención veterinaria exigente, socialización benevolente y transparencia total. No vendemos un «producto»: damos la bienvenida, junto a usted, a una vida que importará durante quince años.",
+    "leadBold": "Pocos nacimientos, una atención absoluta.",
+    "ctaPrimary": "Ver cachorros disponibles",
+    "ctaSecondary": "Reservar un cachorro",
+    "trustBefore": "Historial de salud completo, consejos personalizados y apoyo después de la llegada —",
+    "trustEmphasis": "porque la confianza se construye con el tiempo",
+    "imageAlt": "Bulldog francés, retrato elegante con luz suave",
+    "floatTitle": "Exclusividad asumida",
+    "floatText": "Reservamos nuestras camadas a un número limitado de familias — para garantizar seguimiento, calidad y serenidad, desde la reserva hasta la vida diaria con su compañero."
+  },
+  "reassurance": {
+    "eyebrow": "Su tranquilidad, nuestra prioridad",
+    "title": "La cría como usted la desea: rigurosa, humana, transparente.",
+    "healthTitle": "Seguimiento de salud",
+    "healthText": "Exámenes veterinarios, vacunas, desparasitación y expediente completo — cada cachorro sale con un historial claro y actualizado.",
+    "socialTitle": "Socialización",
+    "socialText": "Rutinas familiares, ruidos del día a día y contactos benevolentes para cachorros equilibrados y seguros.",
+    "beforeTitle": "Antes de la adopción",
+    "beforeText": "Entrevistas, consejos personalizados y acompañamiento para preparar su hogar — sin prisas, con sentido.",
+    "trustTitle": "Transparencia",
+    "trustText": "Fotos sinceras, información sobre carácter y líneas. Sin promesas irreales: una confianza que se merece."
+  },
+  "featuredPuppies": {
+    "eyebrow": "Selección",
+    "title": "Cachorros disponibles",
+    "subtitle": "Nuestros cachorros destacados: seleccionados por su perfil y nuestros estándares de calidad. Cada ficha es honesta; cada foto refleja la realidad.",
+    "viewAll": "Ver todos los cachorros",
+    "empty": "No hay cachorros destacados por el momento. Consulte el catálogo completo o escríbanos."
+  },
+  "upcomingLitters": {
+    "eyebrow": "Próximamente",
+    "title": "Próximas camadas",
+    "subtitle": "Anuncios y preinscripción: cada ficha resume lo previsto. Para fechas exactas y disponibilidad, contáctenos o abra el catálogo filtrado en «Próxima camada».",
+    "viewAll": "Ver todas las camadas anunciadas",
+    "contactCta": "Escríbanos",
+    "empty": "Por el momento no hay camada anunciada. Escríbanos para ser informado de futuros nacimientos."
+  },
+  "canadianBreeds": {
+    "eyebrow": "Tendencias de adopción en Canadá",
+    "title": "Razas más codiciadas por los canadienses",
+    "intro": "Las familias en Quebec y en todo Canadá buscan a menudo compañeros cariñosos y adaptados a la vida urbana o casa. Varias razas encabezan con frecuencia las listas de popularidad — entre ellas el bulldog francés, apreciado por su carácter dulce y su talla ideal para apartamentos.",
+    "highlightKicker": "Nuestra especialidad",
+    "highlightTitle": "Bulldog francés",
+    "highlightText": "Entre las razas más buscadas en el país, el bulldog francés destaca como favorito: tranquilo, sociable y muy leal. Nuestro programa de cría gira en torno a esta raza, con exigencia y transparencia.",
+    "cta": "Ver nuestros cachorros bulldog francés",
+    "tagsTitle": "Otras razas populares en Canadá",
+    "b1": "Labrador retriever",
+    "b2": "Golden retriever",
+    "b3": "Pastor alemán",
+    "b4": "Caniche (todos los tamaños)",
+    "b5": "Goldendoodle y Bernedoodle",
+    "b6": "Husky siberiano",
+    "b7": "Retriever de pelo liso",
+    "b8": "Carlino",
+    "b9": "Beagle",
+    "b10": "Border collie"
+  },
+  "whyChoose": {
+    "eyebrow": "Nuestro compromiso",
+    "title": "Por qué elegir nuestra cría",
+    "body": "Porque un cachorro no es un accesorio de moda: es una vida a su lado. Criamos con lentitud, cariño y exigencia — para bulldog francés sanos de cuerpo y espíritu, listos para una familia que los amará tanto como nosotros.",
+    "adv1": "Camadas limitadas y presencia diaria con las madres y los cachorros.",
+    "adv2": "Diálogo directo con los criadores — nunca un centro de llamadas.",
+    "adv3": "Contratos claros, salud documentada y seguimiento después de la llegada.",
+    "adv4": "Ética de respeto: decimos no cuando la correspondencia no es la adecuada.",
+    "imageAlt": "Cachorro bulldog francés en un entorno tranquilo y luminoso"
+  },
+  "ctaMid": {
+    "title": "¿Listo para dar el paso?",
+    "subtitle": "El primer paso suele ser un simple mensaje — le recibimos con escucha y sin juicio.",
+    "button": "Reservar un cachorro"
+  },
+  "adoptionSteps": {
+    "title": "Cómo adoptar su cachorro",
+    "subtitle": "Cuatro pasos sencillos, pensados para su tranquilidad y el bienestar del cachorro.",
+    "step1Title": "Descubrir los cachorros",
+    "step1Desc": "Explore las fichas, mire las fotos, lea con calma. Los perfiles se describen con autenticidad.",
+    "step2Title": "Contactarnos",
+    "step2Desc": "Escríbanos: respondemos personalmente para resolver dudas y acordar un intercambio.",
+    "step3Title": "Reservar con señal",
+    "step3Desc": "Una vez encontrado el acuerdo, una señal oficializa su lugar — con seguridad y transparencia.",
+    "step4Title": "Preparar la llegada",
+    "step4Desc": "Le guiamos en el equipamiento, la alimentación y el gran día en que cruza su umbral."
+  },
+  "testimonials": {
+    "big": "100+",
+    "sub": "familias han confiado en nosotros",
+    "title": "Palabras que importan",
+    "body": "Selección representativa de opiniones: profesionalismo, salud de los cachorros y confianza duradera son lo que más valoran las familias.",
+    "scrollHint": "Desplace horizontalmente para ver más testimonios",
+    "verifiedStyle": "Opinión de familia",
+    "noteLang": "Estos testimonios se comparten en el idioma en que las familias los escribieron originalmente."
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "q1": "¿Cómo reservo un cachorro?",
+    "a1": "Comience por contactarnos o rellenar el formulario: verificamos juntos la disponibilidad y la adecuación. Luego, una señal oficializa la reserva según nuestro contrato.",
+    "q2": "¿Ofrecen seguimiento después de la adopción?",
+    "a2": "Sí. Seguimos disponibles para preguntas sobre alimentación, comportamiento o salud — nunca está solo después de la llegada.",
+    "q3": "¿Los cachorros están vacunados?",
+    "a3": "Cada cachorro sale con un protocolo de vacunación y desparasitación documentado. Le explicamos las fechas y los siguientes pasos con su veterinario.",
+    "q4": "¿Podemos visitar o hablar antes de reservar?",
+    "a4": "Por supuesto. Priorizamos intercambios honestos — llamada, videollamada o visita con cita, según convenga a todos y al bienestar de los cachorros.",
+    "q5": "¿Cuáles son los plazos?",
+    "a5": "Depende de las camadas y del cachorro elegido. Desde el inicio le indicamos un rango realista; sin promesas apresuradas, pero con visión clara del calendario."
+  },
+  "contactStrip": {
+    "title": "¿Una pregunta? ¿Un flechazo con uno de nuestros cachorros?",
+    "body": "Escríbanos: leemos cada mensaje con atención. Sin respuestas automáticas frías — solo un equipo que entiende la importancia de este momento.",
+    "emailCta": "Escríbanos",
+    "whatsapp": "WhatsApp",
+    "whatsappHint": "WhatsApp: añada NEXT_PUBLIC_WHATSAPP_PHONE en .env",
+    "fullForm": "Formulario completo"
+  },
+  "contactFormSection": {
+    "eyebrow": "Contacto detallado",
+    "title": "Escríbanos con detalle",
+    "body": "Para preguntas largas o casos particulares: formulario seguro, respuesta personalizada en unos días laborables."
+  },
+  "quickContact": {
+    "name": "Nombre",
+    "email": "Correo",
+    "phone": "Teléfono (opcional)",
+    "subject": "Asunto",
+    "subjectPh": "Reserva, pregunta de salud…",
+    "message": "Mensaje",
+    "submit": "Enviar",
+    "sending": "Enviando…",
+    "ok": "Gracias. Nos pondremos en contacto muy pronto.",
+    "errSend": "No se pudo enviar.",
+    "errNet": "Error de red. Inténtelo más tarde."
+  },
+  "footer": {
+    "tagline": "Cría familiar de bulldog francés en Canadá. Compromiso, transparencia y bienestar animal ante todo.",
+    "navLabel": "Navegación",
+    "infoLabel": "Información",
+    "infoAboutUs": "Sobre nosotros",
+    "infoTerms": "Condiciones de venta",
+    "infoDelivery": "Entrega",
+    "infoFaq": "FAQ",
+    "infoReservationDeposit": "Reserva en línea y señal",
+    "procedures": "Enlaces útiles",
+    "puppiesAvailable": "Cachorros disponibles",
+    "blogAdvice": "Consejos y blog",
+    "contactUs": "Contacto",
+    "contactLabel": "Contacto",
+    "region": "Quebec, Canadá",
+    "emailLabel": "Correo:",
+    "appointment": "Solo con cita previa.",
+    "rights": "Todos los derechos reservados.",
+    "taglineEnd": "Cría responsable — Salud y socialización prioritarias."
+  },
+  "catalog": {
+    "eyebrow": "Catálogo",
+    "title": "Nuestros cachorros",
+    "intro": "Filtra por estado, sexo o color. Cada ficha es honesta y completa: salud, carácter y transparencia antes que nada.",
+    "filterStatus": "Estado",
+    "filterSex": "Sexo",
+    "filterColor": "Color",
+    "allStatus": "Todos los estados",
+    "statusAvailable": "Disponibles",
+    "statusReserved": "Reservados",
+    "statusSold": "Vendidos",
+    "statusComing": "Próximas camadas",
+    "allSexes": "Todos",
+    "allColors": "Todos",
+    "reset": "Restablecer filtros",
+    "empty": "Ningún cachorro coincide con estos criterios."
+  },
+  "puppyCard": {
+    "sex": "Sexo",
+    "age": "Edad",
+    "color": "Color",
+    "profileCta": "Ver perfil"
+  },
+  "puppyDetail": {
+    "sex": "Sexo",
+    "age": "Edad",
+    "color": "Color",
+    "city": "Ciudad",
+    "price": "Precio",
+    "depositOnline": "Señal en línea",
+    "depositCustom": "(importe definido para este cachorro)",
+    "comingSoonNote": "Camada anunciada: contáctenos para informarse sobre nacimientos y próximos pasos."
+  },
+  "blogPage": {
+    "title": "Consejos profesionales de cría y salud",
+    "read": "Leer artículo"
+  },
+  "reservation": {
+    "notAvailable": "Este cachorro ya no está disponible para reserva en línea (reservado o vendido). Contáctenos para otras opciones.",
+    "demo": "Modo demostración sin base de datos: añada un cachorro real en el admin con PostgreSQL para activar el pago Stripe.",
+    "onRequestTitle": "Reservar {name}",
+    "onRequestBody": "El precio y la señal se definen con usted a medida. Escríbanos o llámenos: respondemos pronto con una propuesta clara.",
+    "contactUs": "Contáctenos",
+    "stripeConfig": "El pago en línea se está configurando. Configure STRIPE_SECRET_KEY y NEXT_PUBLIC_APP_URL, luego vuelva a desplegar.",
+    "reserveTitle": "Reservar {name}",
+    "askedPrice": "Precio indicado:",
+    "depositToday": "Señal a pagar hoy:",
+    "depositStripe": "(CAD, seguro con Stripe)",
+    "depositLater": "Señal: fijamos el importe con usted tras el acuerdo (pago Stripe después).",
+    "balanceNote": "El saldo y las modalidades finales se confirman con la cría tras recibir la señal.",
+    "namePh": "Nombre completo",
+    "emailPh": "Correo",
+    "phonePh": "Teléfono",
+    "messagePh": "Mensaje (opcional)",
+    "payStripe": "Pagar la señal con Stripe",
+    "redirecting": "Redirigiendo a Stripe…",
+    "payErr": "Error en el pago.",
+    "payOpenErr": "No se pudo abrir el pago. Contáctenos."
+  },
+  "reservationBanner": {
+    "success": "¡Gracias! Pago recibido — su reserva queda confirmada. Recibirá un correo con los medios de pago del saldo y los siguientes pasos (revise el spam).",
+    "cancel": "Pago cancelado. Puede intentarlo de nuevo cuando quiera — el cachorro sigue disponible si nadie más reserva mientras tanto.",
+    "close": "Cerrar"
+  },
+  "pageAbout": {
+    "title": "Sobre nosotros",
+    "body": "Fundada en 2010, Maison Bleu Royale es una cría familiar de bulldog francés con base en Quebec, Canadá, organizada para ofrecer cachorros equilibrados, un seguimiento sanitario riguroso y un acompañamiento claro a cada familia adoptante.\n\nAntigüedad y forma de trabajo. Desde 2010 trabajamos la raza con presencia diaria en el criadero: manejo de camadas, observación del comportamiento, coordinación con nuestro equipo veterinario y preparación progresiva de los cachorros para la vida en hogar. Esa experiencia nos permite anticipar necesidades de madres y recién nacidos, adaptar la socialización al temperamento de cada individuo y responder con precisión a futuros adoptantes, sin precipitación.\n\nDominio basado en criterios exigentes. Nuestras decisiones se apoyan en la selección de reproductores, el respeto al tipo racial y las pruebas de salud pertinentes para la línea — no en maximizar volumen. Asumimos camadas limitadas, tiempos de descanso entre celos para nuestras hembras e información objetiva sobre el estado de los cachorros en la fecha de su consulta o visita.\n\nTransparencia y marco contractual. Antes de cualquier pago, priorizamos intercambios por escrito y un contrato que fije las responsabilidades; el historial sanitario y la documentación al entrega completan esta base profesional.\n\nEste sitio es informativo y no sustituye el consejo de su veterinario."
+  },
+  "pageBreeders": {
+    "title": "Nuestros reproductores",
+    "body": "Seleccionamos por carácter, morfología y pruebas de salud pertinentes. Los detalles se comparten con familias serias, respetando la privacidad y el contrato.\n\nLas visitas son con cita cuando la norma y la bioseguridad lo permitan — escríbanos para coordinar.\n\nEvitamos el sobre-esfuerzo reproductivo y priorizamos el bienestar (descanso entre camadas, veterinario)."
+  },
+  "pageTerms": {
+    "title": "Condiciones de venta",
+    "body": "La compra o reserva se formaliza por contrato (identidad del cachorro, precio, pagos y avisos legales aplicables en Québec / Canadá).\n\nLas garantías sanitarias, si las hay, figuran en el contrato; no cubren negligencia, accidentes o falta de seguimiento veterinario tras la salida.\n\nLa señal vincula según la ficha y lo acordado por escrito. Ante dudas, revise antes de pagar.\n\nEste texto resume — prevalecen el contrato firmado y la ley."
+  },
+  "pageDelivery": {
+    "title": "Entrega",
+    "body": "Preferimos la recogida en el criadero con documentación y tiempo de intercambio.\n\nPara distancias largas, estudiamos transporte respetuoso; costes y responsabilidades se fijan antes.\n\nEvite transportes inseguros o sin pausas/hidratación. Para vuelos o trayectos largos, planifique con nosotros y su veterinario."
+  },
+  "pageFaq": {
+    "title": "Preguntas frecuentes",
+    "body": "¿Cuándo puede irse el cachorro? Según edades mínimas legales y nuestra socialización.\n\n¿Van identificados y vacunados? Recibe el historial hecho aquí; su veterinario continúa el calendario.\n\n¿Puedo visitar antes de reservar? Depende de política y bioseguridad — consúltenos.\n\n¿Qué cubre la señal en línea? Bloquea el cachorro según ficha/contrato; el saldo se confirma con usted.\n\nMás dudas: use Contacto o el formulario del inicio."
+  },
+  "pageReservation": {
+    "title": "Reserva en línea y señal",
+    "body": "En las fichas disponibles puede figurar el pago de señal con Stripe si la base de datos y las claves están activas.\n\nLa señal puede ser un porcentaje con mínimo; hay importes personalizados por cachorro. Tras pagar, puede enviarse confirmación por correo (si Resend está configurado).\n\nEn demo sin base de datos, el botón puede estar inactivo — escríbanos para reservar.\n\nGuarde mensajes y el recibo de Stripe; ante fallos, contáctenos."
+  }
+}
