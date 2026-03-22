@@ -232,6 +232,7 @@
     "stripeConfig": "El pago en línea se está configurando. Configure STRIPE_SECRET_KEY y NEXT_PUBLIC_APP_URL, luego vuelva a desplegar.",
     "reserveTitle": "Reservar {name}",
     "askedPrice": "Precio indicado:",
+    "simpleNote": "Complete este formulario para enviar su solicitud de reserva.",
     "depositToday": "Señal a pagar hoy:",
     "depositStripe": "(CAD, seguro con Stripe)",
     "depositLater": "Señal: fijamos el importe con usted tras el acuerdo (pago Stripe después).",
@@ -240,7 +241,7 @@
     "emailPh": "Correo",
     "phonePh": "Teléfono",
     "messagePh": "Mensaje (opcional)",
-    "payStripe": "Pagar la señal con Stripe",
+    "payStripe": "Reservar ahora",
     "redirecting": "Redirigiendo a Stripe…",
     "payErr": "Error en el pago.",
     "payOpenErr": "No se pudo abrir el pago. Contáctenos."

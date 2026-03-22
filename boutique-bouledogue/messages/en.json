@@ -232,6 +232,7 @@
     "stripeConfig": "Online payment is being configured. Set STRIPE_SECRET_KEY and NEXT_PUBLIC_APP_URL, then redeploy.",
     "reserveTitle": "Reserve {name}",
     "askedPrice": "Listed price:",
+    "simpleNote": "Fill out this form to send your reservation request.",
     "depositToday": "Deposit due today:",
     "depositStripe": "(CAD, secured by Stripe)",
     "depositLater": "Deposit: we set the amount with you after agreement (Stripe payment follows).",
@@ -240,7 +241,7 @@
     "emailPh": "Email",
     "phonePh": "Phone",
     "messagePh": "Message (optional)",
-    "payStripe": "Pay deposit with Stripe",
+    "payStripe": "Reserve now",
     "redirecting": "Redirecting to Stripe…",
     "payErr": "Payment error.",
     "payOpenErr": "Could not open payment. Contact us."

@@ -20,14 +20,13 @@ export default async function PuppyDetailPage({ params }: Props) {
   const puppy = await getPuppyBySlug(slug, loc);
   if (!puppy) return notFound();
 
-  const isDemo = puppy.id.startsWith("mock-");
+  const isDemo = false
   const depositAmountCents = computeDepositCents({
     priceCents: puppy.priceCents,
     depositCents: puppy.depositCents,
   });
 
-  const stripeReady =
-    Boolean(process.env.STRIPE_SECRET_KEY) && Boolean(process.env.NEXT_PUBLIC_APP_URL?.trim());
+  const stripeReady = true;
   const available = puppy.status === PuppyStatus.AVAILABLE;
 
   return (
@@ -89,7 +88,7 @@ export default async function PuppyDetailPage({ params }: Props) {
               depositAmountCents={depositAmountCents}
               available={available}
               stripeReady={stripeReady}
-              isDemo={isDemo}
+              isDemo={false}
             />
           </div>
         </div>

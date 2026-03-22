@@ -35,8 +35,8 @@ export function ReservationForm({
   priceOnRequest,
   depositAmountCents,
   available,
-  stripeReady,
-  isDemo = false,
+  stripeReady: _stripeReady,
+  isDemo: _isDemo = false,
 }: Props) {
   const t = useTranslations("reservation");
   const locale = useLocale();
@@ -71,12 +71,6 @@ export function ReservationForm({
     );
   }
 
-  if (isDemo) {
-    return (
-      <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-950">{t("demo")}</div>
-    );
-  }
-
   if (priceOnRequest) {
     return (
       <div className="space-y-4 rounded-2xl border border-[#d7c9b0] bg-white p-5">
@@ -92,37 +86,57 @@ export function ReservationForm({
     );
   }
 
-  if (!stripeReady) {
-    return (
-      <div className="rounded-2xl border border-[#d7c9b0] bg-white p-5 text-sm text-[#463d33]">{t("stripeConfig")}</div>
-    );
-  }
-
   return (
-    <form onSubmit={onSubmit} className="space-y-3 rounded-2xl border border-[#d7c9b0] bg-white p-5">
-      <div className="flex flex-col gap-1 border-b border-[#efe4d4] pb-3">
-        <h3 className="text-lg font-semibold">{t("reserveTitle", { name: puppyName })}</h3>
-        <p className="text-sm text-[#6f6454]">
-          {t("askedPrice")} <strong>{priceDisplay}</strong>
-        </p>
-        {!priceOnRequest ? (
+    <form 
+    onSubmit={onSubmit} 
+    className="space-y-3 rounded-2xl border border-[#d7c9b0] bg-white p-5"
+    >
+      <header className="flex flex-col gap-1 border-b border-[#efe4d4] pb-3">
+        <h3 className="text-lg font-semibold">
+          {t("reserveTitle", { name: puppyName })}
+          </h3>
           <p className="text-sm text-[#463d33]">
-            {t("depositToday")}{" "}
-            <strong className="text-[#8c6a3f]">{formatCadFromCents(depositAmountCents)}</strong> {t("depositStripe")}
+            {t("askedPrice")} <strong>{priceDisplay}</strong>
           </p>
-        ) : (
-          <p className="text-sm text-[#463d33]">{t("depositLater")}</p>
-        )}
-        <p className="text-xs text-[#6f6454]">{t("balanceNote")}</p>
-      </div>
-      <input className="w-full rounded-xl border p-3" placeholder={t("namePh")} {...form.register("customerName")} />
-      <input className="w-full rounded-xl border p-3" placeholder={t("emailPh")} {...form.register("customerEmail")} />
-      <input className="w-full rounded-xl border p-3" placeholder={t("phonePh")} {...form.register("customerPhone")} />
-      <textarea className="w-full rounded-xl border p-3" placeholder={t("messagePh")} rows={4} {...form.register("message")} />
-      <button className="w-full rounded-xl bg-[#8c6a3f] px-4 py-3 text-white hover:bg-[#715330]" type="submit">
-        {t("payStripe")}
-      </button>
-      {status ? <p className="text-sm text-[#6f6454]">{status}</p> : null}
-    </form>
-  );
+          <p className="text-sm text-[#463d33]">
+            {t("simpleNote")}
+          </p>
+        </header>
+        <div className="space-y-3">
+          <input 
+          className="w-full rounded-xl border p-3" 
+          placeholder={t("namePh")} 
+          {...form.register("customerName")}
+           />
+
+          <input
+           className="w-full rounded-xl border p-3" 
+           placeholder={t("emailPh")} 
+           {...form.register("customerEmail")} 
+           />
+
+          <input 
+          className="w-full rounded-xl border p-3" 
+          placeholder={t("phonePh")} 
+          {...form.register("customerPhone")} 
+          />
+
+          <textarea 
+          className="w-full rounded-xl border p-3" 
+          placeholder={t("messagePh")} 
+          rows={4} 
+          {...form.register("message")} 
+          />
+
+          <button
+           className="w-full rounded-xl bg-[#8c6a3f] px-4 py-3 text-white hover:bg-[#715330]" 
+           type="submit"
+           >
+            {t("payStripe")}
+          </button>
+
+          {status ? <p className="text-sm text-[#463d33]">{status}</p> : null}
+        </div>
+      </form>
+);
 }

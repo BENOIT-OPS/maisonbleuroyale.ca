@@ -3,8 +3,57 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Puppy {
+  id             String        @id @default(cuid())
+  name           String
+  slug           String        @unique
+  gender         String
+  color          String
+  birthDate      DateTime
+  priceCents     Int
+  priceOnRequest Boolean       @default(false)
+  featured       Boolean       @default(false)
+  depositCents   Int?
+  description    String
+  pedigree       String
+  city           String
+  status         PuppyStatus   @default(AVAILABLE)
+  coverImage     String
+  gallery        String[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  reservations   Reservation[]
+}
+
+model Reservation {
+  id                    String            @id @default(cuid())
+  puppyId               String
+  customerName          String
+  customerEmail         String
+  customerPhone         String
+  message               String?
+  depositAmountCents    Int?
+  status                ReservationStatus @default(PENDING)
+  stripeCheckoutSession String?           @unique
+  stripePaymentIntent   String?
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  puppy                 Puppy             @relation(fields: [puppyId], references: [id], onDelete: Cascade)
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  content   String
+  createdAt DateTime @default(now())
 }
 
 enum PuppyStatus {
@@ -19,56 +68,4 @@ enum ReservationStatus {
   PENDING
   PAID
   CANCELLED
-}
-
-model Puppy {
-  id             String        @id @default(cuid())
-  name           String
-  slug           String        @unique
-  gender         String
-  color          String
-  birthDate      DateTime
-  priceCents     Int
-  /// Si true, afficher "Sur demande" au lieu du prix (priceCents ignore pour l'affichage).
-  priceOnRequest Boolean       @default(false)
-  /// Mis en avant sur l'accueil (chiots disponibles en vedette).
-  featured       Boolean       @default(false)
-  /// Acompte fixe en cents CAD (optionnel). Sinon calcul auto via RESERVATION_DEPOSIT_*.
-  depositCents   Int?
-  description    String
-  pedigree       String
-  city           String
-  status         PuppyStatus   @default(AVAILABLE)
-  coverImage     String
-  gallery        String[]
-  reservations   Reservation[]
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
-}
-
-model Reservation {
-  id                    String            @id @default(cuid())
-  puppyId               String
-  customerName          String
-  customerEmail         String
-  customerPhone         String
-  message               String?
-  /// Acompte facture Stripe (cents CAD), enregistre a la creation de la session.
-  depositAmountCents    Int?
-  status                ReservationStatus @default(PENDING)
-  stripeCheckoutSession String?           @unique
-  stripePaymentIntent   String?
-  puppy                 Puppy             @relation(fields: [puppyId], references: [id], onDelete: Cascade)
-  createdAt             DateTime          @default(now())
-  updatedAt             DateTime          @updatedAt
-}
-
-model ContactMessage {
-  id        String   @id @default(cuid())
-  name      String
-  email     String
-  phone     String?
-  subject   String
-  content   String
-  createdAt DateTime @default(now())
 }
