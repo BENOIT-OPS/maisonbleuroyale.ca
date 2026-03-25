@@ -285,12 +285,18 @@ function shouldUseSeedData(): boolean {
   return !process.env.DATABASE_URL;
 }
 
+/** Statut pour filtrage catalogue / seeds : `recordStatus` à l’exécution si présent, sinon `status` (compat. types sans `recordStatus`). */
+function puppyStatusForFilter(c: ChiotPublic): PuppyStatus {
+  const x = c as ChiotPublic & { recordStatus?: PuppyStatus };
+  return x.recordStatus ?? x.status;
+}
+
 function filterCatalog(list: ChiotPublic[], filters: CatalogueFilters): ChiotPublic[] {
   const statut = filters.statut ?? "all";
   const sexe = filters.sexe ?? "all";
   const couleur = filters.couleur ?? "all";
   let out = list;
-  if (statut !== "all") out = out.filter((c) => c.recordStatus === statut);
+  if (statut !== "all") out = out.filter((c) => puppyStatusForFilter(c) === statut);
   if (sexe !== "all") out = out.filter((c) => c.gender.toLowerCase() === sexe.toLowerCase());
   if (couleur !== "all") out = out.filter((c) => c.color.toLowerCase() === couleur.toLowerCase());
   return out;
@@ -361,7 +367,7 @@ export async function getPuppiesCatalog(
 export async function getUpcomingLittersForHome(locale: AppLocale): Promise<ChiotPublic[]> {
   const fallback = getFallbackChiots(locale);
   const fromSeed = fallback
-    .filter((c) => c.recordStatus === PuppyStatus.COMING_SOON && isHomePorteeSlug(c.slug))
+    .filter((c) => puppyStatusForFilter(c) === PuppyStatus.COMING_SOON && isHomePorteeSlug(c.slug))
     .slice(0, HOME_UPCOMING_LITTER_LIMIT);
 
   if (shouldUseSeedData()) {
