@@ -5,6 +5,62 @@ import type { AppLocale } from "@/i18n/routing";
 import { mapPuppyToPublic, type ChiotPublic } from "@/lib/chiot-types";
 import { chiotCoverPublicPath } from "@/lib/chiot-media";
 
+/**
+ * Chiots réservés à l’accueil (vedette Mélanie + bloc « portée à venir »), exclus du catalogue `/chiots`.
+ * Ne pas renommer les slugs ici sans aligner BDD / seeds / médias.
+ */
+export const HOME_ONLY_SLUGS = ["melanie", "porte-a-venir", "portee-ete-2026"] as const;
+
+export const CATALOG_EXCLUDED_SLUGS = HOME_ONLY_SLUGS;
+
+/** Vedette unique sur l’accueil (formulaire réservation : fiche `/chiots/melanie`). */
+export const FEATURED_HOME_PUPPY_SLUG = "melanie" as const;
+
+/** Comparaison insensible à la casse (évite les doublons catalogue si le slug BDD diffère légèrement). */
+const CATALOG_EXCLUDED_SLUG_LOWER = new Set(
+  HOME_ONLY_SLUGS.map((s) => s.toLowerCase()),
+);
+
+function slugExcludedFromCatalog(slug: string): boolean {
+  return CATALOG_EXCLUDED_SLUG_LOWER.has(slug.trim().toLowerCase());
+}
+
+function isHomePorteeSlug(slug: string): boolean {
+  const n = slug.trim().toLowerCase();
+  if (n === FEATURED_HOME_PUPPY_SLUG) return false;
+  return slugExcludedFromCatalog(n);
+}
+
+function excludeCatalogOnlyPuppies(list: ChiotPublic[]): ChiotPublic[] {
+  return list.filter((c) => !slugExcludedFromCatalog(c.slug));
+}
+
+function catalogSlugKey(slug: string): string {
+  return slug.trim().toLowerCase();
+}
+
+/**
+ * Fusion catalogue `/chiots` : BDD puis seeds pour les slugs manquants (mêmes filtres URL).
+ * Même slug en BDD et seed → la fiche BDD est conservée. Prisma peut ne renvoyer qu’une ligne :
+ * les seeds manquants complètent jusqu’à la liste autorisée (ex. 6 fiches démo hors accueil).
+ */
+function mergeCatalogDbWithSeedDefaults(dbList: ChiotPublic[], seedFiltered: ChiotPublic[]): ChiotPublic[] {
+  const map = new Map<string, ChiotPublic>();
+  for (const c of dbList) {
+    map.set(catalogSlugKey(c.slug), c);
+  }
+  for (const c of seedFiltered) {
+    const k = catalogSlugKey(c.slug);
+    if (!map.has(k)) map.set(k, c);
+  }
+  return Array.from(map.values()).sort(
+    (a, b) => new Date(b.birthDate).getTime() - new Date(a.birthDate).getTime(),
+  );
+}
+
+/** Accueil : section « Portées à venir » — nombre de cartes portée. */
+export const HOME_UPCOMING_LITTER_LIMIT = 1;
+
 export type { ChiotPublic };
 export type PuppyCard = ChiotPublic;
 
@@ -118,7 +174,7 @@ const FALLBACK_SEEDS: PuppySeed[] = [
     city: "Montreal",
     priceCents: 250000,
     priceOnRequest: false,
-    featured: true,
+    featured: false,
     birthDate: new Date(Date.now() - 100 * 24 * 60 * 60 * 1000),
     description: "Douce et curieuse, sociabilisation familiale en cours.",
     status: PuppyStatus.AVAILABLE,
@@ -168,7 +224,7 @@ const FALLBACK_SEEDS: PuppySeed[] = [
     city: "Quebec",
     priceCents: 261000,
     priceOnRequest: false,
-    featured: true,
+    featured: false,
     birthDate: (() => {
       const d = new Date();
       d.setMonth(d.getMonth() - 5);
@@ -196,6 +252,11 @@ const FALLBACK_SEEDS: PuppySeed[] = [
   },
 ];
 
+/** Slugs seeds présents sur Réserver sans filtres (exclus : `melanie`, `porte-a-venir`, `portee-ete-2026`). */
+export const CATALOG_SEED_SLUGS: readonly string[] = FALLBACK_SEEDS.filter(
+  (s) => !slugExcludedFromCatalog(s.slug),
+).map((s) => s.slug);
+
 function getFallbackChiots(locale: AppLocale): ChiotPublic[] {
   return FALLBACK_SEEDS.map((s) => chiotFromSeed(s, locale));
 }
@@ -217,21 +278,23 @@ function filterCatalog(list: ChiotPublic[], filters: CatalogueFilters): ChiotPub
 
 export async function getFeaturedPuppiesForHome(locale: AppLocale): Promise<ChiotPublic[]> {
   const fallback = getFallbackChiots(locale);
+  const melanieSeed = fallback.find(
+    (c) =>
+      c.slug.trim().toLowerCase() === FEATURED_HOME_PUPPY_SLUG &&
+      c.status === PuppyStatus.AVAILABLE,
+  );
+
   if (shouldUseSeedData()) {
-    return fallback.filter((c) => c.featured && c.status === PuppyStatus.AVAILABLE).slice(0, 6);
+    return melanieSeed ? [melanieSeed] : [];
   }
   try {
-    const rows = await prisma.puppy.findMany({
-      where: { featured: true, status: PuppyStatus.AVAILABLE },
-      orderBy: { createdAt: "desc" },
-      take: 6,
+    const row = await prisma.puppy.findFirst({
+      where: { slug: FEATURED_HOME_PUPPY_SLUG, status: PuppyStatus.AVAILABLE },
     });
-    if (rows.length === 0) {
-      return fallback.filter((c) => c.featured && c.status === PuppyStatus.AVAILABLE);
-    }
-    return rows.map((row) => mapPuppyToPublic(row, locale));
+    if (row) return [mapPuppyToPublic(row, locale)];
+    return melanieSeed ? [melanieSeed] : [];
   } catch {
-    return fallback.filter((c) => c.featured && c.status === PuppyStatus.AVAILABLE);
+    return melanieSeed ? [melanieSeed] : [];
   }
 }
 
@@ -246,15 +309,18 @@ export async function getPuppiesCatalog(
   filters: CatalogueFilters = {},
 ): Promise<ChiotPublic[]> {
   const fallback = getFallbackChiots(locale);
+  const seedCatalogFiltered = excludeCatalogOnlyPuppies(filterCatalog(fallback, filters));
   if (shouldUseSeedData()) {
-    return filterCatalog(fallback, filters);
+    return seedCatalogFiltered;
   }
   try {
     const statut = filters.statut ?? "all";
     const sexe = filters.sexe ?? "all";
     const couleur = filters.couleur ?? "all";
 
-    const where: import("@prisma/client").Prisma.PuppyWhereInput = {};
+    const where: import("@prisma/client").Prisma.PuppyWhereInput = {
+      slug: { notIn: [...CATALOG_EXCLUDED_SLUGS] },
+    };
     if (statut !== "all") where.status = statut;
     if (sexe !== "all") where.gender = { equals: sexe, mode: "insensitive" };
     if (couleur !== "all") where.color = { equals: couleur, mode: "insensitive" };
@@ -263,16 +329,43 @@ export async function getPuppiesCatalog(
       where,
       orderBy: { createdAt: "desc" },
     });
-    return rows.map((row) => mapPuppyToPublic(row, locale));
+    /** BDD vide pour ce filtre → seeds filtrés seuls. */
+    if (rows.length === 0) {
+      return seedCatalogFiltered;
+    }
+    const fromDb = excludeCatalogOnlyPuppies(rows.map((row) => mapPuppyToPublic(row, locale)));
+    /** Toujours fusionner : une seule ligne Prisma ne doit pas réduire la grille à une carte. */
+    return mergeCatalogDbWithSeedDefaults(fromDb, seedCatalogFiltered);
   } catch {
-    return filterCatalog(fallback, filters);
+    return seedCatalogFiltered;
   }
 }
 
-/** Portées annoncées (`COMING_SOON`) pour l'accueil — max 6. */
+/** Portées annoncées (`COMING_SOON`) pour l’accueil uniquement (slugs `porte-a-venir` / `portee-ete-2026`). */
 export async function getUpcomingLittersForHome(locale: AppLocale): Promise<ChiotPublic[]> {
-  const rows = await getPuppiesCatalog(locale, { statut: PuppyStatus.COMING_SOON });
-  return rows.slice(0, 6);
+  const fallback = getFallbackChiots(locale);
+  const fromSeed = fallback
+    .filter((c) => c.status === PuppyStatus.COMING_SOON && isHomePorteeSlug(c.slug))
+    .slice(0, HOME_UPCOMING_LITTER_LIMIT);
+
+  if (shouldUseSeedData()) {
+    return fromSeed;
+  }
+  try {
+    const porteeSlugs = HOME_ONLY_SLUGS.filter((s) => s !== FEATURED_HOME_PUPPY_SLUG);
+    const rows = await prisma.puppy.findMany({
+      where: {
+        status: PuppyStatus.COMING_SOON,
+        slug: { in: [...porteeSlugs] },
+      },
+      orderBy: { createdAt: "desc" },
+      take: HOME_UPCOMING_LITTER_LIMIT,
+    });
+    if (rows.length > 0) return rows.map((row) => mapPuppyToPublic(row, locale));
+    return fromSeed;
+  } catch {
+    return fromSeed;
+  }
 }
 
 export async function getAvailablePuppies(locale: AppLocale = "fr"): Promise<ChiotPublic[]> {
@@ -299,6 +392,9 @@ export async function getDistinctPuppyColors(): Promise<string[]> {
   }
   try {
     const rows = await prisma.puppy.findMany({ select: { color: true }, distinct: ["color"] });
+    if (rows.length === 0) {
+      return [...new Set(FALLBACK_SEEDS.map((c) => c.color))].sort();
+    }
     return rows.map((r) => r.color).sort();
   } catch {
     return [...new Set(FALLBACK_SEEDS.map((c) => c.color))].sort();
@@ -311,6 +407,9 @@ export async function getDistinctPuppyGenders(): Promise<string[]> {
   }
   try {
     const rows = await prisma.puppy.findMany({ select: { gender: true }, distinct: ["gender"] });
+    if (rows.length === 0) {
+      return [...new Set(FALLBACK_SEEDS.map((c) => c.gender))].sort();
+    }
     return rows.map((r) => r.gender).sort();
   } catch {
     return [...new Set(FALLBACK_SEEDS.map((c) => c.gender))].sort();
