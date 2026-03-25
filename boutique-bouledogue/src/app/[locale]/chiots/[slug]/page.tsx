@@ -20,8 +20,6 @@ export default async function PuppyDetailPage({ params }: Props) {
   const puppy = await getPuppyBySlug(slug, loc);
   if (!puppy) return notFound();
 
-  /** DISPONIBLE → formulaire de demande par courriel ; RÉSERVÉ / VENDU → message seul (voir ReservationForm). */
-  const available = puppy.status === PuppyStatus.AVAILABLE;
   const rawDeposit = puppy.depositCents;
   const depositCentsDisplay =
     rawDeposit != null && rawDeposit >= 100 ? rawDeposit : null;
@@ -79,8 +77,8 @@ export default async function PuppyDetailPage({ params }: Props) {
               puppyName={puppy.name}
               priceDisplay={puppy.priceDisplay}
               priceOnRequest={puppy.priceOnRequest}
-              available={available}
               puppyStatus={puppy.status}
+              statusLabel={puppy.statusLabel}
             />
           </div>
         </div>

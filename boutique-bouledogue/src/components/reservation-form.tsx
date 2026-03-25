@@ -30,8 +30,9 @@ type Props = {
   puppyName: string;
   priceDisplay: string;
   priceOnRequest: boolean;
-  available: boolean;
   puppyStatus: PuppyStatus;
+  /** Libellé de statut localisé (fiche). */
+  statusLabel: string;
 };
 
 export function ReservationForm({
@@ -40,14 +41,16 @@ export function ReservationForm({
   puppyName,
   priceDisplay,
   priceOnRequest,
-  available,
   puppyStatus,
+  statusLabel,
 }: Props) {
   const t = useTranslations("reservation");
   const locale = useLocale();
   const [status, setStatus] = useState("");
 
   const isComingSoon = puppyStatus === PuppyStatus.COMING_SOON;
+  const showReservedSoldNotice =
+    puppyStatus === PuppyStatus.RESERVED || puppyStatus === PuppyStatus.SOLD;
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -71,7 +74,7 @@ export function ReservationForm({
     opts?: { includeListedPrice?: boolean },
   ): Promise<boolean> {
     setStatus(t("sendingInterest"));
-    let meta = `Chiot : ${puppyName}\nIdentifiant : ${puppyId}\nFiche (slug) : ${puppySlug}\nLangue du site : ${locale}\n`;
+    let meta = `Chiot : ${puppyName}\nIdentifiant : ${puppyId}\nFiche (slug) : ${puppySlug}\nStatut affiché : ${statusLabel}\nLangue du site : ${locale}\n`;
     if (opts?.includeListedPrice) {
       meta += `Prix affiché : ${priceDisplay}\n`;
     }
@@ -132,6 +135,13 @@ export function ReservationForm({
     if (ok) onRequestForm.reset();
   });
 
+  const statusNotice =
+    showReservedSoldNotice ? (
+      <div className="mb-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">
+        {t("notAvailable")}
+      </div>
+    ) : null;
+
   if (isComingSoon) {
     return (
       <form
@@ -168,93 +178,91 @@ export function ReservationForm({
             className="w-full rounded-xl bg-[#8c6a3f] px-4 py-3 text-white hover:bg-[#715330]"
             type="submit"
           >
-            {t("sendInterest")}
+            {t("reserveNow")}
           </button>
           {status ? <p className="text-sm text-[#463d33]">{status}</p> : null}
         </div>
       </form>
-    );
-  }
-
-  if (!available) {
-    return (
-      <div className="rounded-2xl border border-[#d7c9b0] bg-[#f5f0e8] p-5 text-sm text-[#463d33]">
-        {t("notAvailable")}
-      </div>
     );
   }
 
   if (priceOnRequest) {
     return (
-      <form
-        onSubmit={onSubmitPriceOnRequest}
-        className="space-y-3 rounded-2xl border border-[#d7c9b0] bg-white p-5"
-      >
-        <header className="flex flex-col gap-1 border-b border-[#efe4d4] pb-3">
-          <h3 className="text-lg font-semibold">{t("onRequestTitle", { name: puppyName })}</h3>
-          <p className="text-sm text-[#463d33]">{t("onRequestBody")}</p>
-        </header>
-        <div className="space-y-3">
-          <input
-            className="w-full rounded-xl border p-3"
-            placeholder={t("namePh")}
-            {...onRequestForm.register("customerName")}
-          />
-          <input
-            className="w-full rounded-xl border p-3"
-            placeholder={t("emailPh")}
-            {...onRequestForm.register("customerEmail")}
-          />
-          <input
-            className="w-full rounded-xl border p-3"
-            placeholder={t("phonePh")}
-            {...onRequestForm.register("customerPhone")}
-          />
-          <textarea
-            className="w-full rounded-xl border p-3"
-            placeholder={t("messagePh")}
-            rows={4}
-            {...onRequestForm.register("message")}
-          />
-          <button
-            className="w-full rounded-xl bg-[#8c6a3f] px-4 py-3 text-white hover:bg-[#715330]"
-            type="submit"
-          >
-            {t("sendInterest")}
-          </button>
-          {status ? <p className="text-sm text-[#463d33]">{status}</p> : null}
-        </div>
-      </form>
+      <>
+        {statusNotice}
+        <form
+          onSubmit={onSubmitPriceOnRequest}
+          className="space-y-3 rounded-2xl border border-[#d7c9b0] bg-white p-5"
+        >
+          <header className="flex flex-col gap-1 border-b border-[#efe4d4] pb-3">
+            <h3 className="text-lg font-semibold">{t("onRequestTitle", { name: puppyName })}</h3>
+            <p className="text-sm text-[#463d33]">{t("onRequestBody")}</p>
+          </header>
+          <div className="space-y-3">
+            <input
+              className="w-full rounded-xl border p-3"
+              placeholder={t("namePh")}
+              {...onRequestForm.register("customerName")}
+            />
+            <input
+              className="w-full rounded-xl border p-3"
+              placeholder={t("emailPh")}
+              {...onRequestForm.register("customerEmail")}
+            />
+            <input
+              className="w-full rounded-xl border p-3"
+              placeholder={t("phonePh")}
+              {...onRequestForm.register("customerPhone")}
+            />
+            <textarea
+              className="w-full rounded-xl border p-3"
+              placeholder={t("messagePh")}
+              rows={4}
+              {...onRequestForm.register("message")}
+            />
+            <button
+              className="w-full rounded-xl bg-[#8c6a3f] px-4 py-3 text-white hover:bg-[#715330]"
+              type="submit"
+            >
+              {t("reserveNow")}
+            </button>
+            {status ? <p className="text-sm text-[#463d33]">{status}</p> : null}
+          </div>
+        </form>
+      </>
     );
   }
 
   return (
-    <form onSubmit={onSubmitFixedPrice} className="space-y-3 rounded-2xl border border-[#d7c9b0] bg-white p-5">
-      <header className="flex flex-col gap-1 border-b border-[#efe4d4] pb-3">
-        <h3 className="text-lg font-semibold">{t("reserveTitle", { name: puppyName })}</h3>
-        <p className="text-sm text-[#463d33]">
-          {t("askedPrice")} <strong>{priceDisplay}</strong>
-        </p>
-        <p className="text-sm text-[#463d33]">{t("simpleNote")}</p>
-      </header>
-      <div className="space-y-3">
-        <input className="w-full rounded-xl border p-3" placeholder={t("namePh")} {...form.register("customerName")} />
-        <input
-          className="w-full rounded-xl border p-3"
-          placeholder={t("emailPh")}
-          {...form.register("customerEmail")}
-        />
-        <input
-          className="w-full rounded-xl border p-3"
-          placeholder={t("phonePh")}
-          {...form.register("customerPhone")}
-        />
-        <textarea className="w-full rounded-xl border p-3" placeholder={t("messagePh")} rows={4} {...form.register("message")} />
-        <button className="w-full rounded-xl bg-[#8c6a3f] px-4 py-3 text-white hover:bg-[#715330]" type="submit">
-          {t("reserveNow")}
-        </button>
-        {status ? <p className="text-sm text-[#463d33]">{status}</p> : null}
-      </div>
-    </form>
+    <>
+      {statusNotice}
+      <form onSubmit={onSubmitFixedPrice} className="space-y-3 rounded-2xl border border-[#d7c9b0] bg-white p-5">
+        <header className="flex flex-col gap-1 border-b border-[#efe4d4] pb-3">
+          <h3 className="text-lg font-semibold">{t("reserveTitle", { name: puppyName })}</h3>
+          <p className="text-sm text-[#463d33]">
+            {t("askedPrice")} <strong>{priceDisplay}</strong>
+          </p>
+          <p className="text-sm text-[#463d33]">{t("simpleNote")}</p>
+        </header>
+        <div className="space-y-3">
+          <input className="w-full rounded-xl border p-3" placeholder={t("namePh")} {...form.register("customerName")} />
+          <input
+            className="w-full rounded-xl border p-3"
+            placeholder={t("emailPh")}
+            {...form.register("customerEmail")}
+          />
+          <input
+            className="w-full rounded-xl border p-3"
+            placeholder={t("phonePh")}
+            {...form.register("customerPhone")}
+          />
+          <textarea className="w-full rounded-xl border p-3" placeholder={t("messagePh")} rows={4} {...form.register("message")} />
+          <button className="w-full rounded-xl bg-[#8c6a3f] px-4 py-3 text-white hover:bg-[#715330]" type="submit">
+            {t("reserveNow")}
+          </button>
+          {status ? <p className="text-sm text-[#463d33]">{status}</p> : null}
+        </div>
+      </form>
+    </>
   );
 }
