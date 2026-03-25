@@ -207,7 +207,8 @@
     "sex": "Sex",
     "age": "Age",
     "color": "Color",
-    "profileCta": "View profile"
+    "profileCta": "View profile",
+    "reserveCta": "Reserve"
   },
   "puppyDetail": {
     "sex": "Sex",
@@ -227,7 +228,9 @@
     "notAvailable": "This puppy is no longer available for online reservation (reserved or sold). Contact us for other options.",
     "demo": "Demo mode without database: add a real puppy in admin with PostgreSQL to enable Stripe payment.",
     "onRequestTitle": "Reserve {name}",
-    "onRequestBody": "Price and deposit are tailored with you. Write or call us — we respond quickly with a clear proposal.",
+    "onRequestBody": "Price and deposit are tailored with you. Send your request below — we’ll respond quickly with a clear proposal.",
+    "onRequestContactSubject": "Reservation (price on request) — {name}",
+    "onRequestLetter": "I would like a proposal to reserve {name} and to know the next steps.",
     "contactUs": "Contact us",
     "stripeConfig": "Online payment is being configured. Set STRIPE_SECRET_KEY and NEXT_PUBLIC_APP_URL, then redeploy.",
     "reserveTitle": "Reserve {name}",
@@ -244,7 +247,14 @@
     "payStripe": "Reserve now",
     "redirecting": "Redirecting to Stripe…",
     "payErr": "Payment error.",
-    "payOpenErr": "Could not open payment. Contact us."
+    "payOpenErr": "Could not open payment. Contact us.",
+    "comingSoonInterestIntro": "Register your interest for this litter — we’ll follow up with the timeline and next steps.",
+    "comingSoonSubject": "Litter interest — {name}",
+    "comingSoonInterestLetter": "I would like to be kept informed about the « {name} » litter and the reservation process.",
+    "sendingInterest": "Sending…",
+    "sendInterest": "Send my request",
+    "interestSent": "Thank you! Your request has been received. We’ll get back to you shortly.",
+    "interestErr": "We couldn’t save your request. Try again or email us."
   },
   "reservationBanner": {
     "success": "Thank you! Payment received — your reservation is confirmed. You will receive an email with payment options for the balance and next steps (check your spam folder).",

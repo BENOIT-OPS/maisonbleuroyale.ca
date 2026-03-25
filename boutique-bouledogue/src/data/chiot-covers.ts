@@ -1,15 +1,16 @@
 /**
- * Photos des chiots : fichiers dans `public/images/chiots/`.
- *
- * Par défaut, le site charge : `/images/chiots/{slug}.jpg`
- * (slug = partie URL de la fiche, ex. lolita → lolita.jpg).
- *
- * Si votre fichier porte un autre nom, ajoutez une ligne ci‑dessous :
- *   lolita: "ma-photo-lolita.webp",
- * Vous pouvez aussi mettre une URL https (ex. hébergement externe).
+ * Mapping slug → URL publique (`public/images/chiots/…`).
+ * Les clés doivent correspondre exactement à `Puppy.slug` / `FALLBACK_SEEDS` dans `src/lib/puppies.ts`.
  */
+export const CHIOT_PLACEHOLDER_PUBLIC = "/images/chiots/placeholder.svg";
+
 export const CHIOT_COVER_FILENAME_OVERRIDES: Record<string, string> = {
-  "portee-ete-2026": "porte a venir.jpg",
-  // Exemple quand le nom du fichier ≠ slug.jpg :
-  // lolita: "lolita-portrait.jpg",
+  "oscar-bleu": "/images/chiots/oscar-bleu.webp",
+  melanie: "/images/chiots/melanie.jpg",
+  "ruby-fawn": "/images/chiots/ruby-fawn.jpg",
+  "luna-platinum": "/images/chiots/luna-platinum.jpg",
+  lolita: "/images/chiots/lolita.jpg",
+  "max-reserve": "/images/chiots/max-reserve.jpg",
+  "bella-adopte": "/images/chiots/bella-adopte.webp",
+  "portee-ete-2026": "/images/chiots/porte%20a%20venir.jpg",
 };

@@ -207,7 +207,8 @@
     "sex": "Sexo",
     "age": "Edad",
     "color": "Color",
-    "profileCta": "Ver perfil"
+    "profileCta": "Ver perfil",
+    "reserveCta": "Reservar"
   },
   "puppyDetail": {
     "sex": "Sexo",
@@ -227,7 +228,9 @@
     "notAvailable": "Este cachorro ya no está disponible para reserva en línea (reservado o vendido). Contáctenos para otras opciones.",
     "demo": "Modo demostración sin base de datos: añada un cachorro real en el admin con PostgreSQL para activar el pago Stripe.",
     "onRequestTitle": "Reservar {name}",
-    "onRequestBody": "El precio y la señal se definen con usted a medida. Escríbanos o llámenos: respondemos pronto con una propuesta clara.",
+    "onRequestBody": "El precio y la señal se definen con usted a medida. Envíe su solicitud abajo: respondemos pronto con una propuesta clara.",
+    "onRequestContactSubject": "Reserva (precio bajo consulta) — {name}",
+    "onRequestLetter": "Deseo recibir una propuesta para reservar {name} y conocer las modalidades.",
     "contactUs": "Contáctenos",
     "stripeConfig": "El pago en línea se está configurando. Configure STRIPE_SECRET_KEY y NEXT_PUBLIC_APP_URL, luego vuelva a desplegar.",
     "reserveTitle": "Reservar {name}",
@@ -244,7 +247,14 @@
     "payStripe": "Reservar ahora",
     "redirecting": "Redirigiendo a Stripe…",
     "payErr": "Error en el pago.",
-    "payOpenErr": "No se pudo abrir el pago. Contáctenos."
+    "payOpenErr": "No se pudo abrir el pago. Contáctenos.",
+    "comingSoonInterestIntro": "Indique su interés por esta camada: le enviaremos el calendario y los siguientes pasos.",
+    "comingSoonSubject": "Interés camada — {name}",
+    "comingSoonInterestLetter": "Deseo recibir información sobre la camada « {name} » y sobre el proceso de reserva.",
+    "sendingInterest": "Enviando…",
+    "sendInterest": "Enviar mi solicitud",
+    "interestSent": "¡Gracias! Hemos recibido su solicitud. Nos pondremos en contacto pronto.",
+    "interestErr": "No se pudo registrar la solicitud. Inténtelo de nuevo o escríbanos."
   },
   "reservationBanner": {
     "success": "¡Gracias! Pago recibido — su reserva queda confirmada. Recibirá un correo con los medios de pago del saldo y los siguientes pasos (revise el spam).",

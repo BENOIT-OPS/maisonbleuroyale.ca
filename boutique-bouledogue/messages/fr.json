@@ -207,7 +207,8 @@
     "sex": "Sexe",
     "age": "Âge",
     "color": "Couleur",
-    "profileCta": "Voir le profil"
+    "profileCta": "Voir le profil",
+    "reserveCta": "Réserver"
   },
   "puppyDetail": {
     "sex": "Sexe",
@@ -230,7 +231,9 @@
     "notAvailable": "Ce chiot n'est plus disponible à la réservation en ligne (réservé ou vendu). Contactez-nous pour d'autres disponibilités.",
     "demo": "Affichage démonstration sans base de données : ajoutez un vrai chiot dans l'admin avec PostgreSQL.",
     "onRequestTitle": "Réserver {name}",
-    "onRequestBody": "Le prix se définit avec vous sur mesure. Écrivez-nous ou appelez-nous : nous revenons vers vous rapidement avec une proposition claire.",
+    "onRequestBody": "Le prix se définit avec vous sur mesure. Envoyez votre demande ci-dessous : nous revenons vers vous rapidement avec une proposition claire.",
+    "onRequestContactSubject": "Réservation (prix sur demande) — {name}",
+    "onRequestLetter": "Je souhaite recevoir une proposition pour réserver {name} et connaître les modalités.",
     "contactUs": "Nous contacter",
     "reserveTitle": "Réserver {name}",
     "askedPrice": "Prix demandé :",
@@ -243,6 +246,13 @@
     "redirecting": "Redirection vers Stripe…",
     "payErr": "Erreur de paiement.",
     "payOpenErr": "Impossible d’ouvrir le paiement. Contactez-nous.",
+    "comingSoonInterestIntro": "Inscrivez-vous pour cette portée : nous vous recontactons avec le calendrier et les prochaines étapes.",
+    "comingSoonSubject": "Intérêt portée — {name}",
+    "comingSoonInterestLetter": "Je souhaite être informé(e) des nouvelles concernant la portée « {name} » et des étapes de réservation.",
+    "sendingInterest": "Envoi en cours…",
+    "sendInterest": "Envoyer ma demande",
+    "interestSent": "Merci ! Votre demande a bien été enregistrée. Nous vous recontactons rapidement.",
+    "interestErr": "Impossible d’enregistrer la demande. Réessayez ou contactez-nous par courriel.",
     "sendOk": "Votre demande de réservation a été envoyée avec succès.",
     "sendErr": "Impossible d'envoyer la réservation.",
     "sendNetErr": "Erreur réseau. Réessayez plus tard."

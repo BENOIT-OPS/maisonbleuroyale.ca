@@ -10,11 +10,14 @@ import type { ChiotPublic } from "@/lib/puppies";
 type Props = {
   chiot: ChiotPublic;
   className?: string;
+  /** `reserve` : CTA « Réserver » (ex. portée à venir sur l’accueil). */
+  primaryAction?: "profile" | "reserve";
 };
 
-export function PuppyCardPremium({ chiot, className = "" }: Props) {
+export function PuppyCardPremium({ chiot, className = "", primaryAction = "profile" }: Props) {
   const t = useTranslations("puppyCard");
   const href = `/chiots/${chiot.slug}`;
+  const ctaLabel = primaryAction === "reserve" ? t("reserveCta") : t("profileCta");
   const [coverSrc, setCoverSrc] = useState(chiot.coverImage);
 
   return (
@@ -73,7 +76,7 @@ export function PuppyCardPremium({ chiot, className = "" }: Props) {
           href={href}
           className="mt-auto inline-flex items-center justify-center rounded-full border border-ink-900 bg-transparent py-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-900 transition-colors group-hover:bg-ink-900 group-hover:text-cream-50"
         >
-          {t("profileCta")}
+          {ctaLabel}
         </Link>
       </div>
     </article>

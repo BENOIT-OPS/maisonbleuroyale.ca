@@ -27,6 +27,7 @@ export default async function PuppyDetailPage({ params }: Props) {
   });
 
   const stripeReady = true;
+  /** DISPONIBLE → Stripe ou formulaire « sur demande » ; RÉSERVÉ / VENDU → message seul (voir ReservationForm). */
   const available = puppy.status === PuppyStatus.AVAILABLE;
 
   return (
@@ -87,6 +88,7 @@ export default async function PuppyDetailPage({ params }: Props) {
               priceOnRequest={puppy.priceOnRequest}
               depositAmountCents={depositAmountCents}
               available={available}
+              puppyStatus={puppy.status}
               stripeReady={stripeReady}
               isDemo={false}
             />

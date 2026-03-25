@@ -145,7 +145,7 @@ export async function UpcomingLittersSection({ chiots }: { chiots: ChiotPublic[]
           <ul className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {chiots.map((chiot) => (
               <li key={chiot.id}>
-                <PuppyCardPremium chiot={chiot} />
+                <PuppyCardPremium chiot={chiot} primaryAction="reserve" />
               </li>
             ))}
           </ul>

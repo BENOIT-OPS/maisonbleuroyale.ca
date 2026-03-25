@@ -189,6 +189,7 @@ export default async function ChiotsPage({ params, searchParams }: Props) {
               ))}
             </ul>
           )}
+          {/* Liste = intégralité de getPuppiesCatalog (fusion BDD + seeds), sans limite ni slice. */}
         </div>
       </section>
     </SiteShell>
