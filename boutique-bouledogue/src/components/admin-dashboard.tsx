@@ -389,7 +389,7 @@ export function AdminDashboard({ userEmail }: { userEmail: string }) {
                 <div className="md:col-span-2">
                   <input
                     className="w-full rounded-xl border px-3 py-2"
-                    placeholder="Acompte Stripe (CAD), laisser vide = calcul auto"
+                    placeholder="Acompte (CAD), laisser vide = calcul auto"
                     value={form.depositCad}
                     onChange={(e) => setForm((f) => ({ ...f, depositCad: e.target.value }))}
                   />

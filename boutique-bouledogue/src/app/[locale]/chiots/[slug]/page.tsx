@@ -5,7 +5,6 @@ import { ReservationForm } from "@/components/reservation-form";
 import { ReservationStatusBanner } from "@/components/reservation-status-banner";
 import { SiteShell } from "@/components/site-shell";
 import type { AppLocale } from "@/i18n/routing";
-import { computeDepositCents, formatCadFromCents } from "@/lib/deposit";
 import { getPuppyBySlug } from "@/lib/puppies";
 import { PuppyStatus } from "@prisma/client";
 
@@ -20,14 +19,7 @@ export default async function PuppyDetailPage({ params }: Props) {
   const puppy = await getPuppyBySlug(slug, loc);
   if (!puppy) return notFound();
 
-  const isDemo = false
-  const depositAmountCents = computeDepositCents({
-    priceCents: puppy.priceCents,
-    depositCents: puppy.depositCents,
-  });
-
-  const stripeReady = true;
-  /** DISPONIBLE → Stripe ou formulaire « sur demande » ; RÉSERVÉ / VENDU → message seul (voir ReservationForm). */
+  /** DISPONIBLE → formulaire de demande par courriel ; RÉSERVÉ / VENDU → message seul (voir ReservationForm). */
   const available = puppy.status === PuppyStatus.AVAILABLE;
 
   return (
@@ -65,15 +57,6 @@ export default async function PuppyDetailPage({ params }: Props) {
                 <span className="text-stone-500">{t("price")} : </span>
                 <strong>{puppy.priceDisplay}</strong>
               </li>
-              {available && !puppy.priceOnRequest ? (
-                <li>
-                  <span className="text-stone-500">{t("depositOnline")} : </span>
-                  <strong>{formatCadFromCents(depositAmountCents)}</strong>
-                  {puppy.depositCents != null ? (
-                    <span className="text-stone-500"> {t("depositCustom")}</span>
-                  ) : null}
-                </li>
-              ) : null}
             </ul>
             {puppy.status === PuppyStatus.COMING_SOON ? (
               <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">
@@ -82,15 +65,12 @@ export default async function PuppyDetailPage({ params }: Props) {
             ) : null}
             <ReservationForm
               puppyId={puppy.id}
+              puppySlug={puppy.slug}
               puppyName={puppy.name}
-              priceCents={puppy.priceCents}
               priceDisplay={puppy.priceDisplay}
               priceOnRequest={puppy.priceOnRequest}
-              depositAmountCents={depositAmountCents}
               available={available}
               puppyStatus={puppy.status}
-              stripeReady={stripeReady}
-              isDemo={false}
             />
           </div>
         </div>

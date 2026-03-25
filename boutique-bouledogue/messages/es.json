@@ -1,7 +1,7 @@
 {
   "meta": {
     "homeTitle": "Cría premium de bulldog francés en Canadá",
-    "homeDescription": "Reserve su cachorro con señal segura, seguimiento veterinario y acompañamiento personalizado."
+    "homeDescription": "Solicite la reserva de un cachorro con seguimiento veterinario y acompañamiento personalizado."
   },
   "LocaleLayout": {
     "title": "Maison Bleu Royale | Cría premium de bulldog francés"
@@ -174,7 +174,7 @@
     "infoTerms": "Condiciones de venta",
     "infoDelivery": "Entrega",
     "infoFaq": "FAQ",
-    "infoReservationDeposit": "Reserva en línea y señal",
+    "infoReservationDeposit": "Reserva y señal",
     "procedures": "Enlaces útiles",
     "puppiesAvailable": "Cachorros disponibles",
     "blogAdvice": "Consejos y blog",
@@ -216,8 +216,6 @@
     "color": "Color",
     "city": "Ciudad",
     "price": "Precio",
-    "depositOnline": "Señal en línea",
-    "depositCustom": "(importe definido para este cachorro)",
     "comingSoonNote": "Camada anunciada: contáctenos para informarse sobre nacimientos y próximos pasos."
   },
   "blogPage": {
@@ -225,29 +223,22 @@
     "read": "Leer artículo"
   },
   "reservation": {
-    "notAvailable": "Este cachorro ya no está disponible para reserva en línea (reservado o vendido). Contáctenos para otras opciones.",
-    "demo": "Modo demostración sin base de datos: añada un cachorro real en el admin con PostgreSQL para activar el pago Stripe.",
+    "notAvailable": "Este cachorro ya no está disponible para reserva (reservado o vendido). Contáctenos para otras opciones.",
     "onRequestTitle": "Reservar {name}",
-    "onRequestBody": "El precio y la señal se definen con usted a medida. Envíe su solicitud abajo: respondemos pronto con una propuesta clara.",
+    "onRequestBody": "El precio se define con usted a medida. Envíe su solicitud abajo: respondemos pronto con una propuesta clara.",
     "onRequestContactSubject": "Reserva (precio bajo consulta) — {name}",
     "onRequestLetter": "Deseo recibir una propuesta para reservar {name} y conocer las modalidades.",
     "contactUs": "Contáctenos",
-    "stripeConfig": "El pago en línea se está configurando. Configure STRIPE_SECRET_KEY y NEXT_PUBLIC_APP_URL, luego vuelva a desplegar.",
     "reserveTitle": "Reservar {name}",
+    "reserveFixedSubject": "Solicitud de reserva — {name}",
+    "reserveFixedLetter": "Deseo reservar {name} y recibir las modalidades por correo.",
     "askedPrice": "Precio indicado:",
     "simpleNote": "Complete este formulario para enviar su solicitud de reserva.",
-    "depositToday": "Señal a pagar hoy:",
-    "depositStripe": "(CAD, seguro con Stripe)",
-    "depositLater": "Señal: fijamos el importe con usted tras el acuerdo (pago Stripe después).",
-    "balanceNote": "El saldo y las modalidades finales se confirman con la cría tras recibir la señal.",
     "namePh": "Nombre completo",
     "emailPh": "Correo",
     "phonePh": "Teléfono",
     "messagePh": "Mensaje (opcional)",
-    "payStripe": "Reservar ahora",
-    "redirecting": "Redirigiendo a Stripe…",
-    "payErr": "Error en el pago.",
-    "payOpenErr": "No se pudo abrir el pago. Contáctenos.",
+    "reserveNow": "Reservar ahora",
     "comingSoonInterestIntro": "Indique su interés por esta camada: le enviaremos el calendario y los siguientes pasos.",
     "comingSoonSubject": "Interés camada — {name}",
     "comingSoonInterestLetter": "Deseo recibir información sobre la camada « {name} » y sobre el proceso de reserva.",
@@ -257,8 +248,8 @@
     "interestErr": "No se pudo registrar la solicitud. Inténtelo de nuevo o escríbanos."
   },
   "reservationBanner": {
-    "success": "¡Gracias! Pago recibido — su reserva queda confirmada. Recibirá un correo con los medios de pago del saldo y los siguientes pasos (revise el spam).",
-    "cancel": "Pago cancelado. Puede intentarlo de nuevo cuando quiera — el cachorro sigue disponible si nadie más reserva mientras tanto.",
+    "success": "Gracias. Si venía de una antigua página de pago, tenga en cuenta que las solicitudes se gestionan solo con el formulario en la ficha del cachorro; le responderemos por correo.",
+    "cancel": "Puede cerrar este aviso. Para cualquier solicitud, use el formulario en la ficha del cachorro.",
     "close": "Cerrar"
   },
   "pageAbout": {
@@ -279,10 +270,10 @@
   },
   "pageFaq": {
     "title": "Preguntas frecuentes",
-    "body": "¿Cuándo puede irse el cachorro? Según edades mínimas legales y nuestra socialización.\n\n¿Van identificados y vacunados? Recibe el historial hecho aquí; su veterinario continúa el calendario.\n\n¿Puedo visitar antes de reservar? Depende de política y bioseguridad — consúltenos.\n\n¿Qué cubre la señal en línea? Bloquea el cachorro según ficha/contrato; el saldo se confirma con usted.\n\nMás dudas: use Contacto o el formulario del inicio."
+    "body": "¿Cuándo puede irse el cachorro? Según edades mínimas legales y nuestra socialización.\n\n¿Van identificados y vacunados? Recibe el historial hecho aquí; su veterinario continúa el calendario.\n\n¿Puedo visitar antes de reservar? Depende de política y bioseguridad — consúltenos.\n\n¿Cómo funciona la reserva? Envía una solicitud desde la ficha por correo; respondemos y la señal, si aplica, se acuerda por escrito y en contrato, no con pago inmediato en la web.\n\nMás dudas: use Contacto o el formulario del inicio."
   },
   "pageReservation": {
-    "title": "Reserva en línea y señal",
-    "body": "En las fichas disponibles puede figurar el pago de señal con Stripe si la base de datos y las claves están activas.\n\nLa señal puede ser un porcentaje con mínimo; hay importes personalizados por cachorro. Tras pagar, puede enviarse confirmación por correo (si Resend está configurado).\n\nEn demo sin base de datos, el botón puede estar inactivo — escríbanos para reservar.\n\nGuarde mensajes y el recibo de Stripe; ante fallos, contáctenos."
+    "title": "Reserva y señal",
+    "body": "Para un cachorro mostrado como disponible, la ficha incluye un formulario: su solicitud llega a la cría por correo (según nuestra configuración de envío).\n\nRespondemos para aclarar disponibilidad, marco y, si corresponde, importe y modalidades de una señal: todo se confirma por escrito y contrato, no con pago instantáneo en el sitio.\n\nPara camadas próximas o precio bajo consulta, el mismo principio: mensaje desde la ficha y seguimiento con el equipo.\n\nGuarde copia de sus mensajes; si el formulario falla, escríbanos desde Contacto."
   }
 }

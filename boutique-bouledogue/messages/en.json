@@ -1,7 +1,7 @@
 {
   "meta": {
     "homeTitle": "Premium French bulldog breeder in Canada",
-    "homeDescription": "Reserve your puppy with secure deposit, veterinary follow-up and personalized support."
+    "homeDescription": "Request a puppy reservation with veterinary follow-up and personalized support."
   },
   "LocaleLayout": {
     "title": "Maison Bleu Royale | Premium French bulldog breeding"
@@ -174,7 +174,7 @@
     "infoTerms": "Terms of sale",
     "infoDelivery": "Delivery",
     "infoFaq": "FAQ",
-    "infoReservationDeposit": "Online booking & deposit",
+    "infoReservationDeposit": "Reservation & deposit",
     "procedures": "Quick links",
     "puppiesAvailable": "Available puppies",
     "blogAdvice": "Tips & blog",
@@ -216,8 +216,6 @@
     "color": "Color",
     "city": "City",
     "price": "Price",
-    "depositOnline": "Online deposit",
-    "depositCustom": "(amount set for this puppy)",
     "comingSoonNote": "Litter announced: contact us to be informed of births and next steps."
   },
   "blogPage": {
@@ -225,29 +223,22 @@
     "read": "Read article"
   },
   "reservation": {
-    "notAvailable": "This puppy is no longer available for online reservation (reserved or sold). Contact us for other options.",
-    "demo": "Demo mode without database: add a real puppy in admin with PostgreSQL to enable Stripe payment.",
+    "notAvailable": "This puppy is no longer available for reservation (reserved or sold). Contact us for other options.",
     "onRequestTitle": "Reserve {name}",
-    "onRequestBody": "Price and deposit are tailored with you. Send your request below — we’ll respond quickly with a clear proposal.",
+    "onRequestBody": "The price is tailored with you. Send your request below — we’ll respond quickly with a clear proposal.",
     "onRequestContactSubject": "Reservation (price on request) — {name}",
     "onRequestLetter": "I would like a proposal to reserve {name} and to know the next steps.",
     "contactUs": "Contact us",
-    "stripeConfig": "Online payment is being configured. Set STRIPE_SECRET_KEY and NEXT_PUBLIC_APP_URL, then redeploy.",
     "reserveTitle": "Reserve {name}",
+    "reserveFixedSubject": "Reservation request — {name}",
+    "reserveFixedLetter": "I would like to reserve {name} and receive the next steps by email.",
     "askedPrice": "Listed price:",
     "simpleNote": "Fill out this form to send your reservation request.",
-    "depositToday": "Deposit due today:",
-    "depositStripe": "(CAD, secured by Stripe)",
-    "depositLater": "Deposit: we set the amount with you after agreement (Stripe payment follows).",
-    "balanceNote": "Balance and final terms are confirmed with the breeder after the deposit is received.",
     "namePh": "Full name",
     "emailPh": "Email",
     "phonePh": "Phone",
     "messagePh": "Message (optional)",
-    "payStripe": "Reserve now",
-    "redirecting": "Redirecting to Stripe…",
-    "payErr": "Payment error.",
-    "payOpenErr": "Could not open payment. Contact us.",
+    "reserveNow": "Reserve now",
     "comingSoonInterestIntro": "Register your interest for this litter — we’ll follow up with the timeline and next steps.",
     "comingSoonSubject": "Litter interest — {name}",
     "comingSoonInterestLetter": "I would like to be kept informed about the « {name} » litter and the reservation process.",
@@ -257,8 +248,8 @@
     "interestErr": "We couldn’t save your request. Try again or email us."
   },
   "reservationBanner": {
-    "success": "Thank you! Payment received — your reservation is confirmed. You will receive an email with payment options for the balance and next steps (check your spam folder).",
-    "cancel": "Payment cancelled. You can try again anytime — the puppy stays available if no one else reserves in the meantime.",
+    "success": "Thank you. If you arrived from an old payment page, please note that requests are now handled only through the form on the puppy page — we’ll reply by email.",
+    "cancel": "You can dismiss this notice. For any request, use the form on the puppy page.",
     "close": "Close"
   },
   "pageAbout": {
@@ -279,10 +270,10 @@
   },
   "pageFaq": {
     "title": "FAQ",
-    "body": "When can the puppy leave? Separation follows applicable minimum ages and our socialization goals.\n\nAre puppies ID’d and vaccinated? You receive records for what was done on our side; your vet continues the protocol.\n\nCan I visit before reserving? Visits depend on biosecurity and policy — message us for options.\n\nWhat does the online deposit cover? It holds the puppy per the profile/contract terms; balance and details are confirmed with you.\n\nMore questions? Use Contact or the form at the bottom of the home page."
+    "body": "When can the puppy leave? Separation follows applicable minimum ages and our socialization goals.\n\nAre puppies ID’d and vaccinated? You receive records for what was done on our side; your vet continues the protocol.\n\nCan I visit before reserving? Visits depend on biosecurity and policy — message us for options.\n\nHow does reservation work? You send a request from the puppy page by email; we reply and any deposit is agreed in writing and in the contract, not as immediate payment on this website.\n\nMore questions? Use Contact or the form at the bottom of the home page."
   },
   "pageReservation": {
-    "title": "Online booking & deposit",
-    "body": "For available puppies, a block may let you pay a secure deposit via Stripe when the database and payment keys are configured.\n\nThe deposit may be a percentage with a minimum; custom amounts can apply per puppy. After payment, confirmation emails and balance instructions may be sent (if Resend is set up).\n\nIn demo mode without a database, online pay may be disabled — write to us to reserve.\n\nKeep copies of messages and your Stripe receipt; if anything fails, contact us right away."
+    "title": "Reservation & deposit",
+    "body": "For puppies shown as available, the profile includes a form: your request is emailed to the kennel (through our mail setup).\n\nWe reply to confirm availability, the framework and, when relevant, the amount and terms of a deposit — everything is then confirmed in writing and by contract, not via immediate payment on this website.\n\nFor upcoming litters or price-on-request puppies, the same idea applies: message from the profile, then follow up with the team.\n\nKeep copies of your messages; if the form fails, reach us from the Contact page."
   }
 }

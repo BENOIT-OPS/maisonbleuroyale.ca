@@ -26,27 +26,22 @@ type ComingSoonFormValues = z.infer<typeof comingSoonSchema>;
 
 type Props = {
   puppyId: string;
+  puppySlug: string;
   puppyName: string;
-  priceCents: number;
   priceDisplay: string;
   priceOnRequest: boolean;
-  depositAmountCents: number;
   available: boolean;
   puppyStatus: PuppyStatus;
-  stripeReady: boolean;
-  isDemo?: boolean;
 };
 
 export function ReservationForm({
   puppyId,
+  puppySlug,
   puppyName,
   priceDisplay,
   priceOnRequest,
-  depositAmountCents: _depositAmountCents,
   available,
   puppyStatus,
-  stripeReady: _stripeReady,
-  isDemo: _isDemo = false,
 }: Props) {
   const t = useTranslations("reservation");
   const locale = useLocale();
@@ -69,85 +64,72 @@ export function ReservationForm({
     defaultValues: { customerName: "", customerEmail: "", customerPhone: "", message: "" },
   });
 
-  const onSubmitCheckout = form.handleSubmit(async (values) => {
-    setStatus(t("redirecting"));
-    const res = await fetch("/api/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ puppyId, locale, ...values }),
-    });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) {
-      setStatus(typeof data.error === "string" ? data.error : t("payErr"));
-      return;
+  async function postReservationEmail(
+    values: { customerName: string; customerEmail: string; customerPhone?: string; message?: string },
+    subject: string,
+    defaultLetter: string,
+    opts?: { includeListedPrice?: boolean },
+  ): Promise<boolean> {
+    setStatus(t("sendingInterest"));
+    let meta = `Chiot : ${puppyName}\nIdentifiant : ${puppyId}\nFiche (slug) : ${puppySlug}\nLangue du site : ${locale}\n`;
+    if (opts?.includeListedPrice) {
+      meta += `Prix affiché : ${priceDisplay}\n`;
     }
-    if (data.checkoutUrl) {
-      window.location.assign(data.checkoutUrl as string);
-      return;
+    meta += "\n";
+    const extra = values.message?.trim() ?? "";
+    const content =
+      extra.length >= 8 ? `${meta}${extra}` : `${meta}${defaultLetter}${extra ? `\n\n${extra}` : ""}`;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.customerName,
+          email: values.customerEmail,
+          phone: values.customerPhone?.trim() || undefined,
+          subject,
+          content,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setStatus(typeof data.error === "string" ? data.error : t("interestErr"));
+        return false;
+      }
+      setStatus(t("interestSent"));
+      return true;
+    } catch {
+      setStatus(t("interestErr"));
+      return false;
     }
-    setStatus(t("payOpenErr"));
+  }
+
+  const onSubmitFixedPrice = form.handleSubmit(async (values) => {
+    const ok = await postReservationEmail(
+      values,
+      t("reserveFixedSubject", { name: puppyName }),
+      t("reserveFixedLetter", { name: puppyName }),
+      { includeListedPrice: true },
+    );
+    if (ok) form.reset();
   });
 
   const onSubmitInterest = comingSoonForm.handleSubmit(async (values) => {
-    setStatus(t("sendingInterest"));
-    const extra = values.message?.trim() ?? "";
-    const content =
-      extra.length >= 8
-        ? extra
-        : `${t("comingSoonInterestLetter", { name: puppyName })}${extra ? `\n\n${extra}` : ""}`;
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: values.customerName,
-          email: values.customerEmail,
-          phone: values.customerPhone?.trim() || undefined,
-          subject: t("comingSoonSubject", { name: puppyName }),
-          content,
-        }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setStatus(typeof data.error === "string" ? data.error : t("interestErr"));
-        return;
-      }
-      setStatus(t("interestSent"));
-      comingSoonForm.reset();
-    } catch {
-      setStatus(t("interestErr"));
-    }
+    const ok = await postReservationEmail(
+      values,
+      t("comingSoonSubject", { name: puppyName }),
+      t("comingSoonInterestLetter", { name: puppyName }),
+    );
+    if (ok) comingSoonForm.reset();
   });
 
   const onSubmitPriceOnRequest = onRequestForm.handleSubmit(async (values) => {
-    setStatus(t("sendingInterest"));
-    const extra = values.message?.trim() ?? "";
-    const content =
-      extra.length >= 8
-        ? extra
-        : `${t("onRequestLetter", { name: puppyName })}${extra ? `\n\n${extra}` : ""}`;
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: values.customerName,
-          email: values.customerEmail,
-          phone: values.customerPhone?.trim() || undefined,
-          subject: t("onRequestContactSubject", { name: puppyName }),
-          content,
-        }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setStatus(typeof data.error === "string" ? data.error : t("interestErr"));
-        return;
-      }
-      setStatus(t("interestSent"));
-      onRequestForm.reset();
-    } catch {
-      setStatus(t("interestErr"));
-    }
+    const ok = await postReservationEmail(
+      values,
+      t("onRequestContactSubject", { name: puppyName }),
+      t("onRequestLetter", { name: puppyName }),
+    );
+    if (ok) onRequestForm.reset();
   });
 
   if (isComingSoon) {
@@ -247,7 +229,7 @@ export function ReservationForm({
   }
 
   return (
-    <form onSubmit={onSubmitCheckout} className="space-y-3 rounded-2xl border border-[#d7c9b0] bg-white p-5">
+    <form onSubmit={onSubmitFixedPrice} className="space-y-3 rounded-2xl border border-[#d7c9b0] bg-white p-5">
       <header className="flex flex-col gap-1 border-b border-[#efe4d4] pb-3">
         <h3 className="text-lg font-semibold">{t("reserveTitle", { name: puppyName })}</h3>
         <p className="text-sm text-[#463d33]">
@@ -269,7 +251,7 @@ export function ReservationForm({
         />
         <textarea className="w-full rounded-xl border p-3" placeholder={t("messagePh")} rows={4} {...form.register("message")} />
         <button className="w-full rounded-xl bg-[#8c6a3f] px-4 py-3 text-white hover:bg-[#715330]" type="submit">
-          {t("payStripe")}
+          {t("reserveNow")}
         </button>
         {status ? <p className="text-sm text-[#463d33]">{status}</p> : null}
       </div>

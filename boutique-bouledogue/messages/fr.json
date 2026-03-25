@@ -1,7 +1,7 @@
 {
   "meta": {
     "homeTitle": "Élevage premium de bouledogues français au Canada",
-    "homeDescription": "Réservez votre chiot avec acompte sécurisé, suivi vétérinaire et accompagnement personnalisé."
+    "homeDescription": "Demandez la réservation d’un chiot, avec suivi vétérinaire et accompagnement personnalisé."
   },
   "LocaleLayout": {
     "title": "Maison Bleu Royale | Élevage premium de bouledogues français"
@@ -174,7 +174,7 @@
     "infoTerms": "Conditions de vente",
     "infoDelivery": "Livraison",
     "infoFaq": "FAQ",
-    "infoReservationDeposit": "Réservation en ligne & acompte",
+    "infoReservationDeposit": "Réservation & acompte",
     "procedures": "Liens utiles",
     "puppiesAvailable": "Chiots disponibles",
     "blogAdvice": "Conseils & blog",
@@ -216,8 +216,6 @@
     "color": "Couleur",
     "city": "Ville",
     "price": "Prix",
-    "depositOnline": "Acompte en ligne",
-    "depositCustom": "(montant défini pour ce chiot)",
     "comingSoonNote": "Portée annoncée : contactez-nous pour être informé des naissances et des prochaines étapes."
   },
   "blogPage": {
@@ -225,41 +223,33 @@
     "read": "Lire l'article"
   },
   "reservation": {
-    "depositToday": "Acompte à payer aujourd'hui :",
-    "depositStripe": "",
-    "balanceNote": "",
-    "notAvailable": "Ce chiot n'est plus disponible à la réservation en ligne (réservé ou vendu). Contactez-nous pour d'autres disponibilités.",
-    "demo": "Affichage démonstration sans base de données : ajoutez un vrai chiot dans l'admin avec PostgreSQL.",
+    "notAvailable": "Ce chiot n'est plus disponible à la réservation (réservé ou vendu). Contactez-nous pour d'autres disponibilités.",
     "onRequestTitle": "Réserver {name}",
     "onRequestBody": "Le prix se définit avec vous sur mesure. Envoyez votre demande ci-dessous : nous revenons vers vous rapidement avec une proposition claire.",
     "onRequestContactSubject": "Réservation (prix sur demande) — {name}",
     "onRequestLetter": "Je souhaite recevoir une proposition pour réserver {name} et connaître les modalités.",
     "contactUs": "Nous contacter",
     "reserveTitle": "Réserver {name}",
+    "reserveFixedSubject": "Demande de réservation — {name}",
+    "reserveFixedLetter": "Je souhaite réserver {name} et recevoir les modalités par courriel.",
     "askedPrice": "Prix demandé :",
     "simpleNote": "Remplissez ce formulaire pour envoyer votre demande de réservation.",
     "namePh": "Nom complet",
     "emailPh": "Courriel",
     "phonePh": "Téléphone",
     "messagePh": "Message (optionnel)",
-    "payStripe": "Réserver maintenant",
-    "redirecting": "Redirection vers Stripe…",
-    "payErr": "Erreur de paiement.",
-    "payOpenErr": "Impossible d’ouvrir le paiement. Contactez-nous.",
+    "reserveNow": "Réserver maintenant",
     "comingSoonInterestIntro": "Inscrivez-vous pour cette portée : nous vous recontactons avec le calendrier et les prochaines étapes.",
     "comingSoonSubject": "Intérêt portée — {name}",
     "comingSoonInterestLetter": "Je souhaite être informé(e) des nouvelles concernant la portée « {name} » et des étapes de réservation.",
     "sendingInterest": "Envoi en cours…",
     "sendInterest": "Envoyer ma demande",
     "interestSent": "Merci ! Votre demande a bien été enregistrée. Nous vous recontactons rapidement.",
-    "interestErr": "Impossible d’enregistrer la demande. Réessayez ou contactez-nous par courriel.",
-    "sendOk": "Votre demande de réservation a été envoyée avec succès.",
-    "sendErr": "Impossible d'envoyer la réservation.",
-    "sendNetErr": "Erreur réseau. Réessayez plus tard."
+    "interestErr": "Impossible d’enregistrer la demande. Réessayez ou contactez-nous par courriel."
   },
   "reservationBanner": {
-    "success": "Merci ! Paiement reçu — votre réservation est effective. Vous allez recevoir un courriel avec les moyens de paiement pour le solde et la suite des démarches (vérifiez vos indésirables).",
-    "cancel": "Paiement annulé. Vous pouvez recommencer quand vous voulez — le chiot reste disponible si personne d'autre ne réserve entre-temps.",
+    "success": "Merci pour votre retour. Si vous veniez d’une ancienne page de paiement, sachez que les demandes se font désormais uniquement par le formulaire sur la fiche du chiot ; nous vous répondrons par courriel.",
+    "cancel": "Vous pouvez fermer cet avis. Pour toute demande, utilisez le formulaire sur la fiche du chiot.",
     "close": "Fermer"
   },
   "pageAbout": {
@@ -280,10 +270,10 @@
   },
   "pageFaq": {
     "title": "Foire aux questions",
-    "body": "À partir de quel âge le chiot peut-il quitter l’élevage ? La séparation intervient au minimum aux âges et conditions prévus par la réglementation applicable ; nous visons aussi une socialisation suffisante.\n\nLes chiots sont-ils identifiés et vaccinés ? Le carnet et l’historique vous sont remis selon ce qui a été réalisé à l’élevage ; la suite du protocole est assurée avec votre vétérinaire.\n\nPuis-je visiter avant de réserver ? Les visites se planifient selon la politique sanitaire et de l’élevage ; contactez-nous pour les modalités.\n\nQue couvre l’acompte en ligne ? Il fige la réservation du chiot concerné selon les termes affichés sur la fiche et le contrat ; le solde et les détails sont confirmés avec vous.\n\nPour toute autre question, utilisez la page Contact ou le formulaire en bas de l’accueil."
+    "body": "À partir de quel âge le chiot peut-il quitter l’élevage ? La séparation intervient au minimum aux âges et conditions prévus par la réglementation applicable ; nous visons aussi une socialisation suffisante.\n\nLes chiots sont-ils identifiés et vaccinés ? Le carnet et l’historique vous sont remis selon ce qui a été réalisé à l’élevage ; la suite du protocole est assurée avec votre vétérinaire.\n\nPuis-je visiter avant de réserver ? Les visites se planifient selon la politique sanitaire et de l’élevage ; contactez-nous pour les modalités.\n\nComment se passe la réservation ? Vous envoyez une demande depuis la fiche du chiot (courriel) ; nous revenons vers vous et l’acompte éventuel est défini dans le contrat et les échanges écrits.\n\nPour toute autre question, utilisez la page Contact ou le formulaire en bas de l’accueil."
   },
   "pageReservation": {
-    "title": "Réservation en ligne & acompte",
-    "body": "Sur les fiches des chiots marqués disponibles, un encart permet de régler un acompte sécurisé via Stripe lorsque la boutique est connectée à une base de données et que les clés de paiement sont configurées.\n\nLe montant de l’acompte peut être un pourcentage du prix avec un minimum ; des montants personnalisés sont possibles selon la fiche. Après paiement, des courriels de confirmation et les instructions pour le solde peuvent être envoyés (selon configuration Resend).\n\nEn mode démonstration sans base de données, le bouton de paiement peut être désactivé : écrivez-nous alors pour réserver et convenir du versement.\n\nConservez une copie de vos échanges et du reçu Stripe ; pour toute difficulté technique, contactez-nous immédiatement."
+    "title": "Réservation & acompte",
+    "body": "Pour un chiot affiché comme disponible, la fiche propose un formulaire : votre demande est envoyée à l’élevage par courriel (via notre configuration d’envoi).\n\nNous vous répondons pour préciser la disponibilité, le cadre et, le cas échéant, le montant et les modalités d’un acompte : tout est ensuite confirmé par écrit et par contrat, pas par paiement immédiat sur le site.\n\nPour une portée à venir ou un prix sur demande, le même principe s’applique : message depuis la fiche, puis suite des échanges avec l’équipe.\n\nConservez une copie de vos messages ; en cas de difficulté technique sur le formulaire, écrivez-nous depuis la page Contact."
   }
 }
