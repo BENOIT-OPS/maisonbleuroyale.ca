@@ -100,12 +100,13 @@ function buildContent(p: BuildParams): { subject: string; html: string } {
   };
 }
 
-/** Appelé après paiement Stripe confirmé (webhook). */
+/** Appelé après paiement Stripe confirmé (webhook). Courriel envoyé au **client** (`customerEmail`). */
 export async function sendReservationConfirmedEmail(p: BuildParams): Promise<boolean> {
   const { subject, html } = buildContent(p);
-  return sendTransactionalEmail({
+  const result = await sendTransactionalEmail({
     to: p.customerEmail,
     subject,
     html,
   });
+  return result.ok;
 }

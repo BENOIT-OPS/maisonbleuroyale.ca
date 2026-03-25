@@ -1,6 +1,6 @@
 /**
- * Envoi transactionnel minimal (Resend).
- * Sans RESEND_API_KEY : log en dev, n'interrompt pas le webhook Stripe.
+ * Envoi transactionnel (Resend).
+ * Retour explicite : n’utiliser le succès front qu’avec `result.ok === true`.
  */
 
 type SendEmailParams = {
@@ -8,45 +8,84 @@ type SendEmailParams = {
   subject: string;
   html: string;
   bcc?: string;
+  /** Adresse Resend `reply_to` (ex. courriel visiteur). */
+  replyTo?: string;
 };
 
-export async function sendTransactionalEmail({ to, subject, html, bcc }: SendEmailParams): Promise<boolean> {
+export type SendEmailResult =
+  | { ok: true; resendId?: string }
+  | { ok: false; error: string; status?: number; resendRaw?: string };
+
+const LOG = "[resend]";
+
+export async function sendTransactionalEmail(params: SendEmailParams): Promise<SendEmailResult> {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const from = process.env.EMAIL_FROM?.trim() || "onboarding@resend.dev";
 
+  console.log(LOG, "EMAIL_FROM (exact):", from);
+  console.log(LOG, "Destinataire to (exact):", params.to);
+  console.log(LOG, "reply_to (exact):", params.replyTo?.trim() || "(aucun)");
+  console.log(LOG, "RESEND_API_KEY présent:", Boolean(apiKey));
+
   if (!apiKey) {
-    console.warn(
-      "[email] RESEND_API_KEY absent — courriel non envoye. Configurez Resend pour envoyer les confirmations.",
-    );
-    return false;
+    console.warn(LOG, "Échec : RESEND_API_KEY absent.");
+    return { ok: false, error: "Configuration e-mail incomplète (RESEND_API_KEY)." };
   }
 
   const body: Record<string, unknown> = {
     from,
-    to: [to],
-    subject,
-    html,
+    to: [params.to],
+    subject: params.subject,
+    html: params.html,
   };
 
-  const bccTo = bcc ?? process.env.EMAIL_BCC_ADMIN?.trim();
+  if (params.replyTo?.trim()) {
+    body.reply_to = params.replyTo.trim();
+  }
+
+  const bccTo = params.bcc ?? process.env.EMAIL_BCC_ADMIN?.trim();
   if (bccTo) {
     body.bcc = bccTo.includes(",") ? bccTo.split(",").map((s) => s.trim()) : [bccTo];
   }
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (!res.ok) {
-    const errText = await res.text().catch(() => "");
-    console.error("[email] Resend erreur:", res.status, errText);
-    return false;
+  let res: Response;
+  try {
+    res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : "Erreur réseau";
+    console.error(LOG, "Fetch Resend exception:", msg);
+    return { ok: false, error: `Resend injoignable : ${msg}` };
   }
 
-  return true;
+  const raw = await res.text().catch(() => "");
+  let parsed: Record<string, unknown> | null = null;
+  try {
+    parsed = raw ? (JSON.parse(raw) as Record<string, unknown>) : null;
+  } catch {
+    parsed = null;
+  }
+
+  console.log(LOG, "Réponse HTTP:", res.status);
+  console.log(LOG, "Réponse brute Resend:", raw.slice(0, 2000));
+
+  if (!res.ok) {
+    const message =
+      (parsed?.message as string) ||
+      (Array.isArray(parsed?.errors) ? JSON.stringify(parsed?.errors) : null) ||
+      raw ||
+      `HTTP ${res.status}`;
+    console.error(LOG, "Échec Resend:", message);
+    return { ok: false, error: message, status: res.status, resendRaw: raw };
+  }
+
+  const id = typeof parsed?.id === "string" ? parsed.id : undefined;
+  console.log(LOG, "Succès, id:", id ?? "(non renvoyé)");
+  return { ok: true, resendId: id };
 }
