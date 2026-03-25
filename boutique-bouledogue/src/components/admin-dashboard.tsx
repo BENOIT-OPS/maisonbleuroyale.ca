@@ -389,12 +389,13 @@ export function AdminDashboard({ userEmail }: { userEmail: string }) {
                 <div className="md:col-span-2">
                   <input
                     className="w-full rounded-xl border px-3 py-2"
-                    placeholder="Acompte (CAD), laisser vide = calcul auto"
+                    placeholder="Acompte affiché (CAD), optionnel"
                     value={form.depositCad}
                     onChange={(e) => setForm((f) => ({ ...f, depositCad: e.target.value }))}
                   />
                   <p className="mt-1 text-xs text-[#6f6454]">
-                    Sinon reglage global : RESERVATION_DEPOSIT_PERCENT et RESERVATION_DEPOSIT_MIN_CENTS.
+                    Montant informatif sur la fiche et le catalogue (pas de paiement sur le site). Champ vide =
+                    affichage « Sur demande ».
                   </p>
                 </div>
                 <input

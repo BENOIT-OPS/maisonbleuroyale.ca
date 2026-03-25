@@ -5,6 +5,7 @@ import { ReservationForm } from "@/components/reservation-form";
 import { ReservationStatusBanner } from "@/components/reservation-status-banner";
 import { SiteShell } from "@/components/site-shell";
 import type { AppLocale } from "@/i18n/routing";
+import { formatDepositAmountCad, publicDepositCents } from "@/lib/deposit";
 import { getPuppyBySlug } from "@/lib/puppies";
 import { PuppyStatus } from "@prisma/client";
 
@@ -21,6 +22,9 @@ export default async function PuppyDetailPage({ params }: Props) {
 
   /** DISPONIBLE → formulaire de demande par courriel ; RÉSERVÉ / VENDU → message seul (voir ReservationForm). */
   const available = puppy.status === PuppyStatus.AVAILABLE;
+  const depositCents = publicDepositCents(puppy.depositCents);
+  const depositLine =
+    depositCents != null ? formatDepositAmountCad(depositCents, loc) : t("depositOnRequest");
 
   return (
     <SiteShell>
@@ -56,6 +60,10 @@ export default async function PuppyDetailPage({ params }: Props) {
               <li>
                 <span className="text-stone-500">{t("price")} : </span>
                 <strong>{puppy.priceDisplay}</strong>
+              </li>
+              <li>
+                <span className="text-stone-500">{t("depositLabel")} : </span>
+                <strong>{depositLine}</strong>
               </li>
             </ul>
             {puppy.status === PuppyStatus.COMING_SOON ? (

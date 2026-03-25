@@ -71,6 +71,9 @@ export const HOME_UPCOMING_LITTER_LIMIT = 1;
 export type { ChiotPublic };
 export type PuppyCard = ChiotPublic;
 
+/** Acompte indicatif seeds (500 $ CAD) — modifiable par entrée via `depositCents`. */
+const SEED_DEFAULT_DEPOSIT_CENTS = 50_000;
+
 type PuppySeed = {
   id: string;
   slug: string;
@@ -85,6 +88,8 @@ type PuppySeed = {
   description: string;
   status: PuppyStatus;
   coverImage: string;
+  /** Acompte affiché (cents CAD). Défaut : 500 $. */
+  depositCents?: number | null;
 };
 
 function chiotFromSeed(seed: PuppySeed, locale: AppLocale): ChiotPublic {
@@ -99,7 +104,7 @@ function chiotFromSeed(seed: PuppySeed, locale: AppLocale): ChiotPublic {
       priceCents: seed.priceCents,
       priceOnRequest: seed.priceOnRequest,
       featured: seed.featured,
-      depositCents: null,
+      depositCents: seed.depositCents ?? SEED_DEFAULT_DEPOSIT_CENTS,
       description: seed.description,
       pedigree: "CKC",
       city: seed.city,

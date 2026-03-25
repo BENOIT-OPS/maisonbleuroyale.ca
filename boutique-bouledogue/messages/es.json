@@ -208,7 +208,9 @@
     "age": "Edad",
     "color": "Color",
     "profileCta": "Ver perfil",
-    "reserveCta": "Reservar"
+    "reserveCta": "Reservar",
+    "depositLabel": "Señal solicitada",
+    "depositOnRequest": "Bajo consulta"
   },
   "puppyDetail": {
     "sex": "Sexo",
@@ -216,6 +218,8 @@
     "color": "Color",
     "city": "Ciudad",
     "price": "Precio",
+    "depositLabel": "Señal solicitada",
+    "depositOnRequest": "Bajo consulta",
     "comingSoonNote": "Camada anunciada: contáctenos para informarse sobre nacimientos y próximos pasos."
   },
   "blogPage": {

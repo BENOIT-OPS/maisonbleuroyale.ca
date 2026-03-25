@@ -208,7 +208,9 @@
     "age": "Age",
     "color": "Color",
     "profileCta": "View profile",
-    "reserveCta": "Reserve"
+    "reserveCta": "Reserve",
+    "depositLabel": "Deposit requested",
+    "depositOnRequest": "On request"
   },
   "puppyDetail": {
     "sex": "Sex",
@@ -216,6 +218,8 @@
     "color": "Color",
     "city": "City",
     "price": "Price",
+    "depositLabel": "Deposit requested",
+    "depositOnRequest": "On request",
     "comingSoonNote": "Litter announced: contact us to be informed of births and next steps."
   },
   "blogPage": {
