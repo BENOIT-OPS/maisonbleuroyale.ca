@@ -4,6 +4,7 @@ import { z } from "zod";
 import { computeDepositCents } from "@/lib/deposit";
 import { prisma } from "@/lib/db";
 import { getStripeClient } from "@/lib/stripe";
+import { isFallbackSeedPuppyId } from "@/lib/puppies";
 
 const schema = z.object({
   puppyId: z.string().min(2),
@@ -21,6 +22,15 @@ export async function POST(request: Request) {
 
     const puppy = await prisma.puppy.findUnique({ where: { id: payload.puppyId } });
     if (!puppy) {
+      if (isFallbackSeedPuppyId(payload.puppyId)) {
+        return NextResponse.json(
+          {
+            error:
+              "Ce profil est affiché depuis les données de démonstration. Pour payer un acompte en ligne, le chiot doit exister dans la base (création via l’administration).",
+          },
+          { status: 409 },
+        );
+      }
       return NextResponse.json({ error: "Chiot introuvable." }, { status: 404 });
     }
 

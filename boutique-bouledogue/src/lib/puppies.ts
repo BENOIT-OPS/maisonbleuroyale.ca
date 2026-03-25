@@ -39,6 +39,13 @@ function catalogSlugKey(slug: string): string {
   return slug.trim().toLowerCase();
 }
 
+/** Résolution fiche : même clé que le catalogue fusionné (casse / espaces). */
+function findFallbackChiotBySlug(fallback: ChiotPublic[], slug: string): ChiotPublic | null {
+  const key = catalogSlugKey(slug);
+  const found = fallback.find((c) => catalogSlugKey(c.slug) === key);
+  return found ?? null;
+}
+
 /**
  * Fusion catalogue `/chiots` : BDD puis seeds pour les slugs manquants (mêmes filtres URL).
  * Même slug en BDD et seed → la fiche BDD est conservée. Prisma peut ne renvoyer qu’une ligne :
@@ -257,6 +264,14 @@ export const CATALOG_SEED_SLUGS: readonly string[] = FALLBACK_SEEDS.filter(
   (s) => !slugExcludedFromCatalog(s.slug),
 ).map((s) => s.slug);
 
+/** Tous les slugs présents dans les seeds (accueil + catalogue). */
+export const ALL_FALLBACK_SEED_SLUGS: readonly string[] = FALLBACK_SEEDS.map((s) => s.slug);
+
+/** `true` si l’`id` correspond à une fiche seed (ex. `mock-1`) — pas de ligne Prisma pour le paiement. */
+export function isFallbackSeedPuppyId(id: string): boolean {
+  return FALLBACK_SEEDS.some((s) => s.id === id);
+}
+
 function getFallbackChiots(locale: AppLocale): ChiotPublic[] {
   return FALLBACK_SEEDS.map((s) => chiotFromSeed(s, locale));
 }
@@ -373,16 +388,29 @@ export async function getAvailablePuppies(locale: AppLocale = "fr"): Promise<Chi
 }
 
 export async function getPuppyBySlug(slug: string, locale: AppLocale): Promise<ChiotPublic | null> {
+  const normalized = decodeURIComponent(slug).trim();
+  if (!normalized) return null;
+
   const fallback = getFallbackChiots(locale);
   if (shouldUseSeedData()) {
-    return fallback.find((c) => c.slug === slug) ?? null;
+    return findFallbackChiotBySlug(fallback, normalized);
   }
+
   try {
-    const puppy = await prisma.puppy.findUnique({ where: { slug } });
-    if (!puppy) return fallback.find((c) => c.slug === slug) ?? null;
-    return mapPuppyToPublic(puppy, locale);
+    let row = await prisma.puppy.findUnique({ where: { slug: normalized } });
+    if (!row) {
+      try {
+        row = await prisma.puppy.findFirst({
+          where: { slug: { equals: normalized, mode: "insensitive" } },
+        });
+      } catch {
+        row = null;
+      }
+    }
+    if (row) return mapPuppyToPublic(row, locale);
+    return findFallbackChiotBySlug(fallback, normalized);
   } catch {
-    return fallback.find((c) => c.slug === slug) ?? null;
+    return findFallbackChiotBySlug(fallback, normalized);
   }
 }
 
