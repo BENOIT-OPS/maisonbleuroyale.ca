@@ -290,7 +290,7 @@ function filterCatalog(list: ChiotPublic[], filters: CatalogueFilters): ChiotPub
   const sexe = filters.sexe ?? "all";
   const couleur = filters.couleur ?? "all";
   let out = list;
-  if (statut !== "all") out = out.filter((c) => c.status === statut);
+  if (statut !== "all") out = out.filter((c) => c.recordStatus === statut);
   if (sexe !== "all") out = out.filter((c) => c.gender.toLowerCase() === sexe.toLowerCase());
   if (couleur !== "all") out = out.filter((c) => c.color.toLowerCase() === couleur.toLowerCase());
   return out;
@@ -298,18 +298,14 @@ function filterCatalog(list: ChiotPublic[], filters: CatalogueFilters): ChiotPub
 
 export async function getFeaturedPuppiesForHome(locale: AppLocale): Promise<ChiotPublic[]> {
   const fallback = getFallbackChiots(locale);
-  const melanieSeed = fallback.find(
-    (c) =>
-      c.slug.trim().toLowerCase() === FEATURED_HOME_PUPPY_SLUG &&
-      c.status === PuppyStatus.AVAILABLE,
-  );
+  const melanieSeed = fallback.find((c) => c.slug.trim().toLowerCase() === FEATURED_HOME_PUPPY_SLUG);
 
   if (shouldUseSeedData()) {
     return melanieSeed ? [melanieSeed] : [];
   }
   try {
     const row = await prisma.puppy.findFirst({
-      where: { slug: FEATURED_HOME_PUPPY_SLUG, status: PuppyStatus.AVAILABLE },
+      where: { slug: FEATURED_HOME_PUPPY_SLUG },
     });
     if (row) return [mapPuppyToPublic(row, locale)];
     return melanieSeed ? [melanieSeed] : [];
@@ -365,7 +361,7 @@ export async function getPuppiesCatalog(
 export async function getUpcomingLittersForHome(locale: AppLocale): Promise<ChiotPublic[]> {
   const fallback = getFallbackChiots(locale);
   const fromSeed = fallback
-    .filter((c) => c.status === PuppyStatus.COMING_SOON && isHomePorteeSlug(c.slug))
+    .filter((c) => c.recordStatus === PuppyStatus.COMING_SOON && isHomePorteeSlug(c.slug))
     .slice(0, HOME_UPCOMING_LITTER_LIMIT);
 
   if (shouldUseSeedData()) {
@@ -388,8 +384,9 @@ export async function getUpcomingLittersForHome(locale: AppLocale): Promise<Chio
   }
 }
 
+/** Toutes les fiches catalogue (sitemap, etc.) — le site affiche chaque profil comme disponible. */
 export async function getAvailablePuppies(locale: AppLocale = "fr"): Promise<ChiotPublic[]> {
-  return getPuppiesCatalog(locale, { statut: PuppyStatus.AVAILABLE });
+  return getPuppiesCatalog(locale, {});
 }
 
 export async function getPuppyBySlug(slug: string, locale: AppLocale): Promise<ChiotPublic | null> {

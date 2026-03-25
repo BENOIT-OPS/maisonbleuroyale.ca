@@ -7,7 +7,6 @@ import { SiteShell } from "@/components/site-shell";
 import type { AppLocale } from "@/i18n/routing";
 import { formatCadFromCents } from "@/lib/deposit";
 import { getPuppyBySlug } from "@/lib/puppies";
-import { PuppyStatus } from "@prisma/client";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -66,19 +65,15 @@ export default async function PuppyDetailPage({ params }: Props) {
                 <strong>{depositLine}</strong>
               </li>
             </ul>
-            {puppy.status === PuppyStatus.COMING_SOON ? (
-              <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">
-                {t("comingSoonNote")}
-              </p>
-            ) : null}
             <ReservationForm
               puppyId={puppy.id}
               puppySlug={puppy.slug}
               puppyName={puppy.name}
               priceDisplay={puppy.priceDisplay}
               priceOnRequest={puppy.priceOnRequest}
-              puppyStatus={puppy.status}
-              statusLabel={puppy.statusLabel}
+              recordStatus={puppy.recordStatus}
+              recordStatusLabel={puppy.recordStatusLabel}
+              displayStatusLabel={puppy.statusLabel}
             />
           </div>
         </div>
