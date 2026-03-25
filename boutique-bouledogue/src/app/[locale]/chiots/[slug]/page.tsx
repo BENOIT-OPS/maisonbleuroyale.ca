@@ -5,9 +5,10 @@ import { ReservationForm } from "@/components/reservation-form";
 import { ReservationStatusBanner } from "@/components/reservation-status-banner";
 import { SiteShell } from "@/components/site-shell";
 import type { AppLocale } from "@/i18n/routing";
+import { statusLabelForLocale } from "@/lib/chiot-types";
 import { formatCadFromCents } from "@/lib/deposit";
 import { getPuppyBySlug, type ChiotPublic } from "@/lib/puppies";
-import type { PuppyStatus } from "@prisma/client";
+import { PuppyStatus } from "@prisma/client";
 
 /** Compat. : `mapPuppyToPublic` renvoie ces champs à l’exécution ; certains builds peuvent avoir un `ChiotPublic` TS plus ancien. */
 type ChiotForReservation = ChiotPublic & {
@@ -33,6 +34,7 @@ export default async function PuppyDetailPage({ params }: Props) {
     rawDeposit != null && rawDeposit >= 100 ? rawDeposit : null;
   const depositLine =
     depositCentsDisplay != null ? formatCadFromCents(depositCentsDisplay) : t("depositOnRequest");
+  const publicStatusLabel = statusLabelForLocale(PuppyStatus.AVAILABLE, loc);
 
   return (
     <SiteShell>
@@ -44,7 +46,7 @@ export default async function PuppyDetailPage({ params }: Props) {
           </div>
           <div className="flex flex-col justify-center space-y-5">
             <span className="inline-flex w-fit rounded-full border border-stone-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-stone-600">
-              {puppy.statusLabel}
+              {publicStatusLabel}
             </span>
             <h1 className="font-display text-4xl font-semibold text-ink-900">{puppy.name}</h1>
             <p className="leading-relaxed text-stone-600">{puppy.description}</p>
@@ -82,7 +84,7 @@ export default async function PuppyDetailPage({ params }: Props) {
               priceOnRequest={puppy.priceOnRequest}
               recordStatus={pr.recordStatus ?? pr.status}
               recordStatusLabel={pr.recordStatusLabel ?? pr.statusLabel}
-              displayStatusLabel={puppy.statusLabel}
+              displayStatusLabel={publicStatusLabel}
             />
           </div>
         </div>

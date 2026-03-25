@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
 import { CHIOT_COVER_PLACEHOLDER, isRemoteImageUrl } from "@/lib/chiot-media";
+import { statusLabelForLocale } from "@/lib/chiot-types";
 import { formatCadFromCents } from "@/lib/deposit";
 import type { ChiotPublic } from "@/lib/puppies";
+import { PuppyStatus } from "@prisma/client";
 
 type Props = {
   chiot: ChiotPublic;
@@ -17,6 +20,8 @@ type Props = {
 
 export function PuppyCardPremium({ chiot, className = "", primaryAction = "profile" }: Props) {
   const t = useTranslations("puppyCard");
+  const locale = useLocale() as AppLocale;
+  const badgeStatusLabel = statusLabelForLocale(PuppyStatus.AVAILABLE, locale);
   const rawDeposit = chiot.depositCents;
   const depositCentsDisplay =
     rawDeposit != null && rawDeposit >= 100 ? rawDeposit : null;
@@ -57,7 +62,7 @@ export function PuppyCardPremium({ chiot, className = "", primaryAction = "profi
         )}
         <div className="absolute left-3 top-3 flex flex-wrap gap-2">
           <span className="rounded-full bg-white/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-900 shadow-sm backdrop-blur-sm">
-            {chiot.statusLabel}
+            {badgeStatusLabel}
           </span>
         </div>
       </Link>

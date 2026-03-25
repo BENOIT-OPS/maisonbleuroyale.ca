@@ -140,6 +140,7 @@ const FALLBACK_SEEDS: PuppySeed[] = [
     birthDate: new Date(Date.now() - 110 * 24 * 60 * 60 * 1000),
     description: "Chiot calme et sociable, excellent pedigree.",
     status: PuppyStatus.AVAILABLE,
+    depositCents: 50_000,
     coverImage: seedCover("oscar-bleu", "webp"),
   },
   {
