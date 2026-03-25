@@ -118,7 +118,7 @@ function chiotFromSeed(seed: PuppySeed, locale: AppLocale): ChiotPublic {
   );
 }
 
-/** Photo locale : `public/images/chiots/{slug}.jpg` (ou autre extension) — voir public/images/chiots/LISEZMOI.txt */
+/** Photo locale : `public/images/chiots/{slug}.jpg` (ou autre extension) — voir `src/data/chiot-covers.ts`. */
 function seedCover(
   slug: string,
   extension: "jpg" | "jpeg" | "png" | "webp" = "jpg",

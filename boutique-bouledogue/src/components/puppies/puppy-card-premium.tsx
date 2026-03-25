@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { CHIOT_COVER_PLACEHOLDER, isRemoteImageUrl } from "@/lib/chiot-media";
+import { formatCadFromCents } from "@/lib/deposit";
 import type { ChiotPublic } from "@/lib/puppies";
 
 type Props = {
@@ -16,6 +17,11 @@ type Props = {
 
 export function PuppyCardPremium({ chiot, className = "", primaryAction = "profile" }: Props) {
   const t = useTranslations("puppyCard");
+  const rawDeposit = chiot.depositCents;
+  const depositCentsDisplay =
+    rawDeposit != null && rawDeposit >= 100 ? rawDeposit : null;
+  const depositDisplay =
+    depositCentsDisplay != null ? formatCadFromCents(depositCentsDisplay) : t("depositOnRequest");
   const href = `/chiots/${chiot.slug}`;
   const ctaLabel = primaryAction === "reserve" ? t("reserveCta") : t("profileCta");
   const [coverSrc, setCoverSrc] = useState(chiot.coverImage);
@@ -72,6 +78,10 @@ export function PuppyCardPremium({ chiot, className = "", primaryAction = "profi
           </div>
         </dl>
         <p className="mt-4 font-display text-lg font-semibold text-ink-900">{chiot.priceDisplay}</p>
+        <div className="mt-1 flex justify-between gap-2 text-sm text-stone-600">
+          <span className="text-stone-500">{t("depositLabel")}</span>
+          <span className="font-medium text-ink-900">{depositDisplay}</span>
+        </div>
         <Link
           href={href}
           className="mt-auto inline-flex items-center justify-center rounded-full border border-ink-900 bg-transparent py-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-900 transition-colors group-hover:bg-ink-900 group-hover:text-cream-50"
