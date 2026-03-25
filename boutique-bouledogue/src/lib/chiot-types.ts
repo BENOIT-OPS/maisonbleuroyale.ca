@@ -12,8 +12,13 @@ export type ChiotPublic = {
   ageLabel: string;
   color: string;
   city: string;
+  /** Statut tel qu’en base (filtres catalogue, e-mail, logique métier). */
+  recordStatus: PuppyStatus;
+  /** Libellé localisé du statut en base (pour e-mails internes). */
+  recordStatusLabel: string;
+  /** Toujours `AVAILABLE` côté site public (badge, UX). */
   status: PuppyStatus;
-  /** Libellé de statut localisé (selon locale passée au mapping). */
+  /** Libellé affiché sur le site (= disponible), localisé. */
   statusLabel: string;
   priceCents: number;
   priceOnRequest: boolean;
@@ -167,33 +172,45 @@ export function formatPriceDisplay(priceCents: number, priceOnRequest: boolean):
   return formatPriceDisplayForLocale(priceCents, priceOnRequest, "fr");
 }
 
+/** Acompte affiché côté site pour ces fiches (données BDD parfois incohérentes). */
+const DEPOSIT_DISPLAY_FIX_CENTS = 50_000;
+const DEPOSIT_DISPLAY_FIX_SLUGS = new Set(["melanie", "oscar-bleu"]);
+
 export function mapPuppyToPublic(p: Puppy, locale: AppLocale = "fr"): ChiotPublic {
   const row = p as Puppy & { priceOnRequest?: boolean; featured?: boolean };
   const priceOnRequest = row.priceOnRequest ?? false;
   const featured = row.featured ?? false;
+  const recordStatus = p.status;
+  const displayStatus = PuppyStatus.AVAILABLE;
+  const slugKey = p.slug.trim().toLowerCase();
+  const depositCents = DEPOSIT_DISPLAY_FIX_SLUGS.has(slugKey)
+    ? DEPOSIT_DISPLAY_FIX_CENTS
+    : p.depositCents;
   return {
     id: p.id,
     slug: p.slug,
     name: p.name,
     gender: p.gender,
     ageLabel:
-      p.status === PuppyStatus.COMING_SOON
+      recordStatus === PuppyStatus.COMING_SOON
         ? (COMING_SOON_AGE_LABELS[locale] ?? COMING_SOON_AGE_LABELS.fr)
         : formatAgeForLocale(p.birthDate, locale),
     color: p.color,
     city: p.city,
-    status: p.status,
-    statusLabel: statusLabelForLocale(p.status, locale),
+    recordStatus,
+    recordStatusLabel: statusLabelForLocale(recordStatus, locale),
+    status: displayStatus,
+    statusLabel: statusLabelForLocale(displayStatus, locale),
     priceCents: p.priceCents,
     priceOnRequest,
     priceDisplay: formatPriceDisplayForLocale(p.priceCents, priceOnRequest, locale),
     featured,
-    disponible: p.status === "AVAILABLE",
+    disponible: true,
     coverImage: normalizeCoverImageSrc(resolveChiotCoverSrc(p.slug, p.coverImage)),
     gallery: p.gallery.map((g) => normalizeCoverImageSrc(g)),
     description: p.description,
     birthDate: p.birthDate,
     pedigree: p.pedigree,
-    depositCents: p.depositCents,
+    depositCents,
   };
 }
