@@ -1,62 +1,36 @@
-"use client";
-
-import { MessageCircle } from "lucide-react";
 import Script from "next/script";
-import { usePathname } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
-import { siteConfig } from "@/lib/site";
+import { FloatingChatFallback } from "@/components/floating-chat-fallback";
 
-function whatsappHref(): string | null {
-  const raw = siteConfig.whatsappPhone?.replace(/\D/g, "");
-  if (!raw || raw.length < 8) return null;
-  return `https://wa.me/${raw}`;
+function readEnvTrim(key: string): string | undefined {
+  const raw = process.env[key];
+  if (raw == null || raw === "") return undefined;
+  const t = raw.trim();
+  return t === "" ? undefined : t;
 }
 
-function FloatingChatFallback() {
-  const t = useTranslations("chatBubble");
-  const locale = useLocale();
-  const pathname = usePathname();
-
-  if (pathname?.startsWith("/admin")) return null;
-
-  const wa = whatsappHref();
-  const href = wa ?? `/${locale}#contact`;
-  const target = wa ? "_blank" : undefined;
-  const rel = wa ? "noopener noreferrer" : undefined;
-
-  return (
-    <div className="pointer-events-none fixed bottom-5 right-5 z-[9999] flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
-      <a
-        href={href}
-        target={target}
-        rel={rel}
-        className="pointer-events-auto flex h-14 w-14 items-center justify-center rounded-full bg-ink-900 text-cream-50 shadow-[0_8px_30px_-4px_rgba(23,21,20,0.35)] ring-2 ring-cream-50/30 transition-transform hover:scale-[1.05] hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-900"
-        aria-label={wa ? t("ariaWhatsApp") : t("ariaContact")}
-        title={wa ? t("titleWhatsApp") : t("titleContact")}
-      >
-        <MessageCircle className="h-6 w-6" strokeWidth={1.75} aria-hidden />
-      </a>
-    </div>
-  );
-}
-
+/**
+ * Widget chat global : Tawk (prioritaire), sinon Crisp, sinon bulle contact.
+ * Les `NEXT_PUBLIC_*` sont lues côté serveur au build — les définir dans Vercel avant le build, puis redéployer.
+ */
 export function LiveChat() {
-  const crispWebsiteId = process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID?.trim();
-  const tawkPropertyId = process.env.NEXT_PUBLIC_TAWK_PROPERTY_ID?.trim();
-  const tawkWidgetId = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID?.trim();
+  const tawkPropertyId = readEnvTrim("NEXT_PUBLIC_TAWK_PROPERTY_ID");
+  const tawkWidgetId = readEnvTrim("NEXT_PUBLIC_TAWK_WIDGET_ID");
+  const crispWebsiteId = readEnvTrim("NEXT_PUBLIC_CRISP_WEBSITE_ID");
+
+  if (tawkPropertyId && tawkWidgetId) {
+    const src = `https://embed.tawk.to/${encodeURIComponent(tawkPropertyId)}/${encodeURIComponent(tawkWidgetId)}`;
+    return (
+      <>
+        <Script id="tawk-api-globals" strategy="afterInteractive">{`var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();`}</Script>
+        <Script id="tawk-chat" strategy="afterInteractive" src={src} />
+      </>
+    );
+  }
 
   if (crispWebsiteId) {
     return (
       <Script id="crisp-chat" strategy="afterInteractive">
-        {`window.$crisp=[];window.CRISP_WEBSITE_ID="${crispWebsiteId}";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`}
-      </Script>
-    );
-  }
-
-  if (tawkPropertyId && tawkWidgetId) {
-    return (
-      <Script id="tawk-chat" strategy="afterInteractive">
-        {`var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src="https://embed.tawk.to/${tawkPropertyId}/${tawkWidgetId}";s1.charset="UTF-8";s1.setAttribute("crossorigin","*");s0.parentNode.insertBefore(s1,s0);})();`}
+        {`window.$crisp=[];window.CRISP_WEBSITE_ID="${crispWebsiteId.replace(/"/g, '\\"')}";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`}
       </Script>
     );
   }
