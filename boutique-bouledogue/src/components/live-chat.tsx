@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { FloatingChatFallback } from "@/components/floating-chat-fallback";
 import { TawkEmbed } from "@/components/tawk-embed";
 
@@ -17,7 +18,11 @@ export function LiveChat() {
   const tawkWidgetId = readEnvTrim("NEXT_PUBLIC_TAWK_WIDGET_ID");
 
   if (tawkPropertyId && tawkWidgetId) {
-    return <TawkEmbed propertyId={tawkPropertyId} widgetId={tawkWidgetId} />;
+    return (
+      <Suspense fallback={null}>
+        <TawkEmbed propertyId={tawkPropertyId} widgetId={tawkWidgetId} />
+      </Suspense>
+    );
   }
 
   return <FloatingChatFallback />;
