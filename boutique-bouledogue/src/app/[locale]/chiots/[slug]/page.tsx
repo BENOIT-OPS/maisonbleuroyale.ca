@@ -6,7 +6,14 @@ import { ReservationStatusBanner } from "@/components/reservation-status-banner"
 import { SiteShell } from "@/components/site-shell";
 import type { AppLocale } from "@/i18n/routing";
 import { formatCadFromCents } from "@/lib/deposit";
-import { getPuppyBySlug } from "@/lib/puppies";
+import { getPuppyBySlug, type ChiotPublic } from "@/lib/puppies";
+import type { PuppyStatus } from "@prisma/client";
+
+/** Compat. : `mapPuppyToPublic` renvoie ces champs à l’exécution ; certains builds peuvent avoir un `ChiotPublic` TS plus ancien. */
+type ChiotForReservation = ChiotPublic & {
+  recordStatus?: PuppyStatus;
+  recordStatusLabel?: string;
+};
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -18,6 +25,8 @@ export default async function PuppyDetailPage({ params }: Props) {
 
   const puppy = await getPuppyBySlug(slug, loc);
   if (!puppy) return notFound();
+
+  const pr = puppy as ChiotForReservation;
 
   const rawDeposit = puppy.depositCents;
   const depositCentsDisplay =
@@ -71,8 +80,8 @@ export default async function PuppyDetailPage({ params }: Props) {
               puppyName={puppy.name}
               priceDisplay={puppy.priceDisplay}
               priceOnRequest={puppy.priceOnRequest}
-              recordStatus={puppy.recordStatus}
-              recordStatusLabel={puppy.recordStatusLabel}
+              recordStatus={pr.recordStatus ?? pr.status}
+              recordStatusLabel={pr.recordStatusLabel ?? pr.statusLabel}
               displayStatusLabel={puppy.statusLabel}
             />
           </div>
