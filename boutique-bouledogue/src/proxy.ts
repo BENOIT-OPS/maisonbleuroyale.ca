@@ -1,3 +1,4 @@
+import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { auth } from "@/auth";
@@ -8,7 +9,6 @@ const intlMiddleware = createMiddleware(routing);
 export default auth((req) => {
   const path = req.nextUrl.pathname;
 
-  /** Photos chiots (public/images/chiots) : pas de locale / auth. */
   if (path.startsWith("/images/chiots")) {
     return NextResponse.next();
   }
@@ -30,12 +30,12 @@ export default auth((req) => {
     return NextResponse.next();
   }
 
-  return intlMiddleware(req);
+  return intlMiddleware(req as NextRequest);
 });
 
 export const config = {
   matcher: [
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-    "/(api|trpc)(.*)",
+    "/((?!api|trpc|_next|_next/static|_next/image|_vercel|.*\\..*).*)",
+    "/api/admin/:path*",
   ],
 };
