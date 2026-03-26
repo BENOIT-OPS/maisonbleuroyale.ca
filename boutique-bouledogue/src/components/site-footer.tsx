@@ -51,7 +51,7 @@ export async function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className="transition-colors hover:text-cream-50">
+                <Link href="/contact" className="transition-colors hover:text-cream-50">
                   {t("contactUs")}
                 </Link>
               </li>

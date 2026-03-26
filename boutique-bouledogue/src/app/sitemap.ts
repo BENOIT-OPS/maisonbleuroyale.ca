@@ -17,6 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/conditions-de-vente",
     "/livraison",
     "/faq",
+    "/contact",
     "/reservation-acompte",
   ];
   const staticPages: MetadataRoute.Sitemap = [

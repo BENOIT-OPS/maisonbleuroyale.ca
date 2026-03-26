@@ -124,7 +124,7 @@ export async function UpcomingLittersSection({ chiots }: { chiots: ChiotPublic[]
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex h-12 shrink-0 items-center justify-center rounded-full border border-amber-800/30 bg-white px-6 text-xs font-semibold uppercase tracking-[0.12em] text-amber-950 transition-colors hover:bg-amber-100/80"
             >
               {t("contactCta")}
@@ -442,7 +442,7 @@ export async function ContactStripSection() {
             </a>
           ) : null}
           <Link
-            href="#contact"
+            href="/contact"
             className="inline-flex min-h-12 items-center justify-center rounded-full border border-stone-300 bg-white/80 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.12em] text-ink-900 hover:bg-white"
           >
             {t("fullForm")}

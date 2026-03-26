@@ -11,16 +11,14 @@ import {
   Testimonials100Section,
   WhyChooseSection,
 } from "@/components/home/sections";
-import { QuickContactForm } from "@/components/quick-contact-form";
+import { ContactFormSection } from "@/components/contact-form-section";
 import type { ChiotPublic } from "@/lib/puppies";
 import { Link } from "@/i18n/navigation";
-import { siteConfig } from "@/lib/site";
 
 type Props = { featuredPuppies: ChiotPublic[]; upcomingLitters: ChiotPublic[] };
 
 export async function PremiumHome({ featuredPuppies, upcomingLitters }: Props) {
   const tCta = await getTranslations("ctaMid");
-  const tContact = await getTranslations("contactFormSection");
 
   return (
     <>
@@ -57,25 +55,7 @@ export async function PremiumHome({ featuredPuppies, upcomingLitters }: Props) {
 
       <ContactStripSection />
 
-      <section id="contact" className="border-t border-stone-200/80 bg-white py-20 sm:py-28" aria-labelledby="contact-form-title">
-        <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-stone-500">{tContact("eyebrow")}</p>
-            <h2 id="contact-form-title" className="font-display mt-3 text-3xl font-medium text-ink-900 sm:text-4xl">
-              {tContact("title")}
-            </h2>
-            <p className="mt-4 text-stone-600">{tContact("body")}</p>
-            <p className="mt-6 text-sm text-stone-500">
-              <a href={`mailto:${siteConfig.contactEmail}`} className="font-medium text-ink-900 underline-offset-4 hover:underline">
-                {siteConfig.contactEmail}
-              </a>
-            </p>
-          </div>
-          <div className="rounded-2xl border border-stone-100 bg-cream-50 p-6 sm:p-8">
-            <QuickContactForm />
-          </div>
-        </div>
-      </section>
+      <ContactFormSection />
     </>
   );
 }

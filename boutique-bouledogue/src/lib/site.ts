@@ -66,7 +66,7 @@ export const mainNavLinks = [
   { href: "/reproducteurs", navKey: "breeders" as const },
   { href: "/a-propos", navKey: "about" as const },
   { href: "/blog", navKey: "blogTips" as const },
-  { href: "/#contact", navKey: "contact" as const },
+  { href: "/contact", navKey: "contact" as const },
 ];
 
 /** Pied de page — clés `footer.*`. */
