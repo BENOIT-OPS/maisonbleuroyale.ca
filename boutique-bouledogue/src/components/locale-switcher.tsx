@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { persistManualLocalePreference } from "@/lib/locale-preference-cookie";
 
 const labels: Record<string, string> = {
   fr: "FR",
@@ -22,6 +23,7 @@ export function LocaleSwitcher() {
           key={loc}
           href={pathname}
           locale={loc}
+          onClick={() => persistManualLocalePreference(loc)}
           className={`rounded-full px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ink-900/15 ${
             locale === loc
               ? "bg-ink-900 text-cream-50"

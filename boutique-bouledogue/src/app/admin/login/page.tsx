@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Suspense, useState } from "react";
-import { routing } from "@/i18n/routing";
-
 function AdminLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -81,7 +79,7 @@ function AdminLoginForm() {
           </button>
         </form>
 
-        <Link href={`/${routing.defaultLocale}`} className="mt-6 block text-center text-sm text-[#8c6a3f] hover:underline">
+        <Link href="/" className="mt-6 block text-center text-sm text-[#8c6a3f] hover:underline">
           Retour au site
         </Link>
       </div>
