@@ -1,8 +1,57 @@
+/** Origine HTTPS publique utilisée en production pour sitemap, robots, canonical et Open Graph si l’env est absent ou reste sur localhost au build. */
+export const CANONICAL_PRODUCTION_ORIGIN = "https://maisonbleuroyale.ca";
+
+const DEV_FALLBACK_ORIGIN = "http://localhost:3000";
+
+function isLocalOriginHostname(hostname: string): boolean {
+  const h = hostname.toLowerCase();
+  return h === "localhost" || h === "127.0.0.1" || h === "[::1]";
+}
+
+function originFromUrlString(raw: string): string | null {
+  try {
+    const u = new URL(raw);
+    if (!u.protocol.startsWith("http")) return null;
+    return `${u.protocol}//${u.host}`;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * URL de base du site (origine seule, sans slash final), unique pour metadata, sitemap, alternates et JSON-LD.
+ * - **Développement** : `NEXT_PUBLIC_APP_URL` ou `http://localhost:3000`.
+ * - **Production** : `NEXT_PUBLIC_APP_URL` si défini et non-localhost ; sinon `CANONICAL_PRODUCTION_ORIGIN`
+ *   (évite les déploiements avec build ayant gardé localhost dans les artefacts SEO).
+ */
+export function getSiteUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_APP_URL?.trim();
+  const prod = process.env.NODE_ENV === "production";
+
+  if (!prod) {
+    if (!raw) return DEV_FALLBACK_ORIGIN;
+    return originFromUrlString(raw) ?? DEV_FALLBACK_ORIGIN;
+  }
+
+  if (!raw) return CANONICAL_PRODUCTION_ORIGIN;
+  const origin = originFromUrlString(raw);
+  if (!origin) return CANONICAL_PRODUCTION_ORIGIN;
+  try {
+    const host = new URL(origin).hostname;
+    if (isLocalOriginHostname(host)) return CANONICAL_PRODUCTION_ORIGIN;
+  } catch {
+    return CANONICAL_PRODUCTION_ORIGIN;
+  }
+  return origin;
+}
+
 export const siteConfig = {
   name: "Maison Bleu Royale",
   description:
     "Elevage premium de bouledogues francais au Canada. Chiots suivis veterinairement, lignées selectes et accompagnement familial complet.",
-  url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
+  get url(): string {
+    return getSiteUrl();
+  },
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "bleuroyale@maisonbleuroyale.ca",
   /** Numero WhatsApp (chiffres, ex. 15815551234) pour le bouton wa.me */
   whatsappPhone: process.env.NEXT_PUBLIC_WHATSAPP_PHONE ?? "",
