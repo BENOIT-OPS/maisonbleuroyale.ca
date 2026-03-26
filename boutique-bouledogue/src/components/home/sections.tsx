@@ -5,7 +5,7 @@ import { avisClients100 } from "@/data/testimonials-100";
 import { PuppyCardPremium } from "@/components/puppies/puppy-card-premium";
 import type { ChiotPublic } from "@/lib/puppies";
 import { Link } from "@/i18n/navigation";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, whatsappContactHref } from "@/lib/site";
 
 const WHY_IMAGE =
   "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=85&auto=format&fit=crop";
@@ -408,15 +408,9 @@ export async function FaqAccueilSection() {
   );
 }
 
-function whatsappHref(): string | null {
-  const raw = siteConfig.whatsappPhone?.replace(/\D/g, "");
-  if (!raw || raw.length < 10) return null;
-  return `https://wa.me/${raw}`;
-}
-
 export async function ContactStripSection() {
   const t = await getTranslations("contactStrip");
-  const wa = whatsappHref();
+  const wa = whatsappContactHref();
 
   return (
     <section
@@ -445,11 +439,7 @@ export async function ContactStripSection() {
               <MessageCircle className="h-4 w-4" aria-hidden />
               {t("whatsapp")}
             </a>
-          ) : (
-            <span className="inline-flex min-h-12 items-center justify-center rounded-full border border-dashed border-stone-300 px-8 py-3.5 text-xs text-stone-500">
-              {t("whatsappHint")}
-            </span>
-          )}
+          ) : null}
           <Link
             href="#contact"
             className="inline-flex min-h-12 items-center justify-center rounded-full border border-stone-300 bg-white/80 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.12em] text-ink-900 hover:bg-white"
