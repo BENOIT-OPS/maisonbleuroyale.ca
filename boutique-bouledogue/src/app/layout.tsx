@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { headers } from "next/headers";
 import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { AuthSessionProvider } from "@/components/session-provider";
+import { htmlLangFromHeaderGetter } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -44,10 +46,13 @@ type Props = {
   children: ReactNode;
 };
 
-export default function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: Props) {
+  const h = await headers();
+  const lang = htmlLangFromHeaderGetter((name) => h.get(name));
+
   return (
     <html
-      lang="fr"
+      lang={lang}
       suppressHydrationWarning
       className={`${display.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >

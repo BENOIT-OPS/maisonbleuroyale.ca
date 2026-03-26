@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PuppyDetailCover } from "@/components/puppies/puppy-detail-cover";
@@ -8,6 +9,8 @@ import type { AppLocale } from "@/i18n/routing";
 import { statusLabelForLocale } from "@/lib/chiot-types";
 import { formatCadFromCents } from "@/lib/deposit";
 import { getPuppyBySlug, type ChiotPublic } from "@/lib/puppies";
+import { buildLocalizedPageMetadata } from "@/lib/seo-metadata";
+import { siteConfig } from "@/lib/site";
 import { PuppyStatus } from "@prisma/client";
 
 /** Compat. : `mapPuppyToPublic` renvoie ces champs à l’exécution ; certains builds peuvent avoir un `ChiotPublic` TS plus ancien. */
@@ -17,6 +20,20 @@ type ChiotForReservation = ChiotPublic & {
 };
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const loc = locale as AppLocale;
+  const puppy = await getPuppyBySlug(slug, loc);
+  if (!puppy) return {};
+  const clip = puppy.description.replace(/\s+/g, " ").trim().slice(0, 155);
+  const description =
+    clip.length > 0 ? `${clip}${puppy.description.length > 155 ? "…" : ""}` : undefined;
+  return buildLocalizedPageMetadata(loc, `/chiots/${slug}`, {
+    title: `${puppy.name} | ${siteConfig.name}`,
+    description,
+  });
+}
 
 export default async function PuppyDetailPage({ params }: Props) {
   const { locale, slug } = await params;

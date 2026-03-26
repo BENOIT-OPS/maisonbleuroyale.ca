@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SiteShell } from "@/components/site-shell";
 import { Link } from "@/i18n/navigation";
@@ -9,6 +10,7 @@ import {
   getPuppiesCatalog,
   type CatalogueFilters,
 } from "@/lib/puppies";
+import { buildLocalizedPageMetadata } from "@/lib/seo-metadata";
 import { PuppyStatus } from "@prisma/client";
 
 const STATUS_VALUES: (PuppyStatus | "all")[] = [
@@ -43,6 +45,27 @@ type Props = {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ statut?: string; sexe?: string; couleur?: string }>;
 };
+
+function catalogSearchString(sp: { statut?: string; sexe?: string; couleur?: string }): string | undefined {
+  const q = new URLSearchParams();
+  if (sp.statut && sp.statut !== "all") q.set("statut", sp.statut);
+  if (sp.sexe && sp.sexe !== "all") q.set("sexe", sp.sexe);
+  if (sp.couleur && sp.couleur !== "all") q.set("couleur", sp.couleur);
+  const s = q.toString();
+  return s.length > 0 ? s : undefined;
+}
+
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const loc = locale as AppLocale;
+  const sp = await searchParams;
+  const t = await getTranslations({ locale, namespace: "catalog" });
+  return buildLocalizedPageMetadata(loc, "/chiots", {
+    title: t("title"),
+    description: t("intro"),
+    queryString: catalogSearchString(sp),
+  });
+}
 
 export default async function ChiotsPage({ params, searchParams }: Props) {
   const { locale } = await params;

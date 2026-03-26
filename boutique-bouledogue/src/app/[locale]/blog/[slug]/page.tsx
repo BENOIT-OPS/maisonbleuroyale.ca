@@ -1,9 +1,23 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { SiteShell } from "@/components/site-shell";
+import type { AppLocale } from "@/i18n/routing";
+import { buildLocalizedPageMetadata } from "@/lib/seo-metadata";
 import { blogPosts } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const loc = locale as AppLocale;
+  const post = blogPosts.find((item) => item.slug === slug);
+  if (!post) return {};
+  return buildLocalizedPageMetadata(loc, `/blog/${slug}`, {
+    title: post.title,
+    description: post.excerpt,
+  });
+}
 
 export default async function BlogDetailPage({ params }: Props) {
   const { locale, slug } = await params;

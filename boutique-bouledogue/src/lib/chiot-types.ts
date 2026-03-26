@@ -47,22 +47,31 @@ const STATUS_LABELS: Record<AppLocale, Record<PuppyStatus, string>> = {
     SOLD: "Sold",
     COMING_SOON: "Upcoming litter",
   },
+  es: {
+    AVAILABLE: "Disponible",
+    RESERVED: "Reservado",
+    SOLD: "Vendido",
+    COMING_SOON: "Próxima camada",
+  },
 };
 
 const PRICE_ON_REQUEST: Record<AppLocale, string> = {
   fr: "Sur demande",
   en: "On request",
+  es: "Bajo consulta",
 };
 
 /** Âge affiché pour les fiches « portée à venir » (pas d’âge réel du chiot). */
 const COMING_SOON_AGE_LABELS: Record<AppLocale, string> = {
   fr: "Chiots à naître",
   en: "Puppies not yet born",
+  es: "Cachorros por nacer",
 };
 
 const NUMBER_LOCALE: Record<AppLocale, string> = {
   fr: "fr-CA",
   en: "en-CA",
+  es: "es-MX",
 };
 
 export function statusLabelForLocale(status: PuppyStatus, locale: AppLocale): string {
@@ -101,6 +110,26 @@ export function formatAgeForLocale(birthDate: Date, locale: AppLocale, reference
     const m = months % 12;
     if (m === 0) return years <= 1 ? "1 an" : `${years} ans`;
     return `${years} an${years > 1 ? "s" : ""} et ${m} mois`;
+  }
+
+  if (locale === "es") {
+    if (months < 12) {
+      const milestone = new Date(birth);
+      milestone.setMonth(milestone.getMonth() + months);
+      const extraDays = Math.max(0, Math.floor((reference.getTime() - milestone.getTime()) / MS_PER_DAY));
+      const w = Math.floor(extraDays / 7);
+      if (months <= 1) {
+        if (months === 0 && w > 0) return w === 1 ? "1 semana" : `${w} semanas`;
+        if (months === 1 && w > 0) return `1 mes y ${w} semana${w > 1 ? "s" : ""}`;
+        return months <= 1 ? "1 mes" : `${months} meses`;
+      }
+      if (w > 0) return `${months} meses y ${w} semana${w > 1 ? "s" : ""}`;
+      return months === 1 ? "1 mes" : `${months} meses`;
+    }
+    const years = Math.floor(months / 12);
+    const m = months % 12;
+    if (m === 0) return years === 1 ? "1 año" : `${years} años`;
+    return `${years} año${years > 1 ? "s" : ""} y ${m} mes${m > 1 ? "es" : ""}`;
   }
 
   // en

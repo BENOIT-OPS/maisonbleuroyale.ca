@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { LangAttribute } from "@/components/lang-attribute";
 import { LiveChat } from "@/components/live-chat";
 import { routing } from "@/i18n/routing";
-import { siteConfig } from "@/lib/site";
 
 type Props = {
   children: React.ReactNode;
@@ -23,12 +22,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: tLayout("title"),
     description: tMeta("homeDescription"),
-    alternates: { canonical: `/${locale}` },
-    openGraph: {
-      title: `${siteConfig.name} — ${tMeta("homeTitle")}`,
-      description: tMeta("homeDescription"),
-      locale,
-    },
   };
 }
 

@@ -4,21 +4,19 @@ import { PremiumHome } from "@/components/premium-home";
 import { SiteShell } from "@/components/site-shell";
 import type { AppLocale } from "@/i18n/routing";
 import { getFeaturedPuppiesForHome, getUpcomingLittersForHome } from "@/lib/puppies";
+import { buildLocalizedPageMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const loc = locale as AppLocale;
   const t = await getTranslations({ locale, namespace: "meta" });
-  return {
-    title: t("homeTitle"),
+  return buildLocalizedPageMetadata(loc, "/", {
+    title: `${siteConfig.name} | ${t("homeTitle")}`,
     description: t("homeDescription"),
-    openGraph: {
-      title: `${siteConfig.name} | ${t("homeTitle")}`,
-      description: t("homeDescription"),
-    },
-  };
+  });
 }
 
 function jsonLd() {

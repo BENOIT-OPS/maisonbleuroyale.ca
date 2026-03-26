@@ -224,6 +224,7 @@
   },
   "blogPage": {
     "title": "Consejos profesionales de cría y salud",
+    "metaDescription": "Artículos sobre bulldog francés: salud, educación y preparación para la llegada del cachorro en Canadá.",
     "read": "Leer artículo"
   },
   "reservation": {
@@ -258,26 +259,32 @@
   },
   "pageAbout": {
     "title": "Sobre nosotros",
+    "metaDescription": "Cría familiar de bulldog francés en Quebec desde 2010: salud, socialización y acompañamiento transparente para cada familia.",
     "body": "Fundada en 2010, Maison Bleu Royale es una cría familiar de bulldog francés con base en Quebec, Canadá, organizada para ofrecer cachorros equilibrados, un seguimiento sanitario riguroso y un acompañamiento claro a cada familia adoptante.\n\nAntigüedad y forma de trabajo. Desde 2010 trabajamos la raza con presencia diaria en el criadero: manejo de camadas, observación del comportamiento, coordinación con nuestro equipo veterinario y preparación progresiva de los cachorros para la vida en hogar. Esa experiencia nos permite anticipar necesidades de madres y recién nacidos, adaptar la socialización al temperamento de cada individuo y responder con precisión a futuros adoptantes, sin precipitación.\n\nDominio basado en criterios exigentes. Nuestras decisiones se apoyan en la selección de reproductores, el respeto al tipo racial y las pruebas de salud pertinentes para la línea — no en maximizar volumen. Asumimos camadas limitadas, tiempos de descanso entre celos para nuestras hembras e información objetiva sobre el estado de los cachorros en la fecha de su consulta o visita.\n\nTransparencia y marco contractual. Antes de cualquier pago, priorizamos intercambios por escrito y un contrato que fije las responsabilidades; el historial sanitario y la documentación al entrega completan esta base profesional.\n\nEste sitio es informativo y no sustituye el consejo de su veterinario."
   },
   "pageBreeders": {
     "title": "Nuestros reproductores",
+    "metaDescription": "Reproductores bulldog francés: carácter, morfología y revisiones de salud. Visitas con cita previa.",
     "body": "Seleccionamos por carácter, morfología y pruebas de salud pertinentes. Los detalles se comparten con familias serias, respetando la privacidad y el contrato.\n\nLas visitas son con cita cuando la norma y la bioseguridad lo permitan — escríbanos para coordinar.\n\nEvitamos el sobre-esfuerzo reproductivo y priorizamos el bienestar (descanso entre camadas, veterinario)."
   },
   "pageTerms": {
     "title": "Condiciones de venta",
+    "metaDescription": "Condiciones de venta y reserva: contrato, señal, garantías sanitarias y marco en Québec y Canadá.",
     "body": "La compra o reserva se formaliza por contrato (identidad del cachorro, precio, pagos y avisos legales aplicables en Québec / Canadá).\n\nLas garantías sanitarias, si las hay, figuran en el contrato; no cubren negligencia, accidentes o falta de seguimiento veterinario tras la salida.\n\nLa señal vincula según la ficha y lo acordado por escrito. Ante dudas, revise antes de pagar.\n\nEste texto resume — prevalecen el contrato firmado y la ley."
   },
   "pageDelivery": {
     "title": "Entrega",
+    "metaDescription": "Recogida en el criadero o transporte planificado. Orientación para un viaje seguro y el bienestar del cachorro.",
     "body": "Preferimos la recogida en el criadero con documentación y tiempo de intercambio.\n\nPara distancias largas, estudiamos transporte respetuoso; costes y responsabilidades se fijan antes.\n\nEvite transportes inseguros o sin pausas/hidratación. Para vuelos o trayectos largos, planifique con nosotros y su veterinario."
   },
   "pageFaq": {
     "title": "Preguntas frecuentes",
+    "metaDescription": "Preguntas frecuentes: edad de salida, vacunas, visitas al criadero y proceso de reserva del bulldog francés.",
     "body": "¿Cuándo puede irse el cachorro? Según edades mínimas legales y nuestra socialización.\n\n¿Van identificados y vacunados? Recibe el historial hecho aquí; su veterinario continúa el calendario.\n\n¿Puedo visitar antes de reservar? Depende de política y bioseguridad — consúltenos.\n\n¿Cómo funciona la reserva? Envía una solicitud desde la ficha por correo; respondemos y la señal, si aplica, se acuerda por escrito y en contrato, no con pago inmediato en la web.\n\nMás dudas: use Contacto o el formulario del inicio."
   },
   "pageReservation": {
     "title": "Reserva y señal",
+    "metaDescription": "Reservar un cachorro o mostrar interés: formulario en la ficha, seguimiento por correo y confirmación por contrato.",
     "body": "Para un cachorro mostrado como disponible, la ficha incluye un formulario: su solicitud llega a la cría por correo (según nuestra configuración de envío).\n\nRespondemos para aclarar disponibilidad, marco y, si corresponde, importe y modalidades de una señal: todo se confirma por escrito y contrato, no con pago instantáneo en el sitio.\n\nPara camadas próximas o precio bajo consulta, el mismo principio: mensaje desde la ficha y seguimiento con el equipo.\n\nGuarde copia de sus mensajes; si el formulario falla, escríbanos desde Contacto."
   }
 }

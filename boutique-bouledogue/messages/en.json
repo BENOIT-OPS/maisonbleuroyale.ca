@@ -224,6 +224,7 @@
   },
   "blogPage": {
     "title": "Professional breeding & health guidance",
+    "metaDescription": "French bulldog articles: health, training, and preparing for your puppy in Canada.",
     "read": "Read article"
   },
   "reservation": {
@@ -258,26 +259,32 @@
   },
   "pageAbout": {
     "title": "About us",
+    "metaDescription": "Family French bulldog kennel in Quebec since 2010: health follow-up, socialization, and transparent guidance for every family.",
     "body": "Founded in 2010, Maison Bleu Royale is a family French bulldog kennel based in Quebec, Canada, organized around healthy, well-balanced puppies, rigorous health follow-up and clear guidance for every adopting family.\n\nOur experience and professional practice. Since 2010, we have dedicated ourselves to the French bulldog with daily hands-on care on site: managing litters, observing behaviour, coordinating with our veterinary team and gradually preparing puppies for life in a home. That depth of experience helps us anticipate the needs of mothers and newborns, tailor socialization to each puppy’s temperament and answer future owners with accuracy — without rushing the process.\n\nGrounded expertise and demanding standards. Our breeding decisions rest on breeding-dog selection, respect for breed type and appropriate health screening for the pedigree — not on maximizing volume. We deliberately keep fewer litters, allow proper rest between cycles for our females, and share factual information about each puppy’s status at the time of your inquiry or visit.\n\nTransparency and a clear framework. Before any payment, we favour written communication and a contract that sets out each party’s responsibilities; the health file and paperwork provided at pickup complete this professional foundation.\n\nThis website is for general information only and does not replace your veterinarian’s advice."
   },
   "pageBreeders": {
     "title": "Our breeding dogs",
+    "metaDescription": "Our French bulldog breeding dogs: temperament, breed type, and health screening. Visits by appointment.",
     "body": "Breeding dogs are chosen for temperament, breed type and relevant health screening. Details and documents are shared with seriously interested families, with respect for privacy and contract terms.\n\nVisits may be scheduled by appointment where policy and regulations allow — contact us to arrange a conversation or a supervised visit.\n\nWe avoid over-breeding and prioritize the welfare of our dogs (rest between litters, veterinary care)."
   },
   "pageTerms": {
     "title": "Terms of sale",
+    "metaDescription": "Terms of sale and puppy reservation: contract, deposit, health guarantees, and framework in Quebec and Canada.",
     "body": "Purchase or reservation is documented in a written contract (identity of the puppy, price, payment terms and applicable legal notices in Quebec / Canada as relevant).\n\nAny health guarantee is defined in that contract; it does not cover poor maintenance, accidents or lack of follow-up care after pickup.\n\nDeposits secure the puppy under the terms shown on the profile and in writing. When in doubt, review before you pay.\n\nThis page is a summary — the signed contract and applicable law prevail."
   },
   "pageDelivery": {
     "title": "Delivery",
+    "metaDescription": "On-site puppy pickup or planned transport options. Guidance for safe travel and animal welfare.",
     "body": "Pickup on site is preferred, with paperwork (health, ID if applicable) and time with the breeder.\n\nFor distant families, transport options that protect welfare can be planned together. Fees and responsibilities are agreed in advance.\n\nAvoid unsafe or prolonged transport without preparation (water, breaks, temperature). For flights or long trips, plan with us and your vet if needed."
   },
   "pageFaq": {
     "title": "FAQ",
+    "metaDescription": "FAQ: go-home age, vaccines, kennel visits, and how reservation works for your French bulldog.",
     "body": "When can the puppy leave? Separation follows applicable minimum ages and our socialization goals.\n\nAre puppies ID’d and vaccinated? You receive records for what was done on our side; your vet continues the protocol.\n\nCan I visit before reserving? Visits depend on biosecurity and policy — message us for options.\n\nHow does reservation work? You send a request from the puppy page by email; we reply and any deposit is agreed in writing and in the contract, not as immediate payment on this website.\n\nMore questions? Use Contact or the form at the bottom of the home page."
   },
   "pageReservation": {
     "title": "Reservation & deposit",
+    "metaDescription": "Reserve a puppy or express interest: form on the profile, email follow-up, and confirmation by contract.",
     "body": "For puppies shown as available, the profile includes a form: your request is emailed to the kennel (through our mail setup).\n\nWe reply to confirm availability, the framework and, when relevant, the amount and terms of a deposit — everything is then confirmed in writing and by contract, not via immediate payment on this website.\n\nFor upcoming litters or price-on-request puppies, the same idea applies: message from the profile, then follow up with the team.\n\nKeep copies of your messages; if the form fails, reach us from the Contact page."
   }
 }

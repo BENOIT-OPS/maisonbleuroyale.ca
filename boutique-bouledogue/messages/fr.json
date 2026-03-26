@@ -224,6 +224,7 @@
   },
   "blogPage": {
     "title": "Conseils d'élevage et santé",
+    "metaDescription": "Articles sur le bouledogue français : Santé, éducation et préparation à l'arrivée du chiot au Canada.",
     "read": "Lire l'article"
   },
   "reservation": {
@@ -258,26 +259,32 @@
   },
   "pageAbout": {
     "title": "À propos de nous",
+    "metaDescription": "Élevage familial de bouledogues français au Québec depuis 2010 : santé, socialisation et accompagnement transparent pour chaque famille.",
     "body": "Fondée en 2010, Maison Bleu Royale est un élevage familial de bouledogues français implanté au Québec (Canada), structuré pour offrir des chiots équilibrés, un suivi de santé rigoureux et un accompagnement clair pour chaque famille adoptante.\n\nNotre ancienneté et notre façon de travailler. Depuis 2010, nous intervenons auprès du bouledogue français avec une présence quotidienne sur place : conduite des portées, observation du comportement, coordination avec notre équipe vétérinaire et préparation progressive des chiots à la vie en foyer. Cette expérience nous aide à anticiper les besoins des mères et des nouveau-nés, à ajuster la socialisation selon le tempérament de chaque individu et à répondre avec précision aux questions des futurs adoptants, sans précipitation.\n\nUne maîtrise fondée sur des critères exigeants. Nos choix d’élevage reposent sur la sélection des reproducteurs, le respect du type de la race et les démarches sanitaires adaptées à la lignée — et non sur la recherche de volume. Nous assumons volontairement des portées limitées, des temps de repos entre les saillies pour nos reproductrices, ainsi qu’une information factuelle sur l’état des chiots à la date de votre visite ou de votre prise de contact.\n\nTransparence et cadre contractuel. Avant tout engagement financier, nous privilégions des échanges écrits et un contrat qui fixe les obligations de chacun ; le dossier de santé et les documents remis au départ complètent cette assise professionnelle.\n\nLes contenus de ce site ont une valeur informative et ne remplacent pas les conseils de votre clinique vétérinaire pour votre animal."
   },
   "pageBreeders": {
     "title": "Nos reproducteurs",
+    "metaDescription": "Nos reproducteurs bouledogue français : sélection du caractère, morphologie et dépistage santé. Visites sur rendez-vous.",
     "body": "Nos reproducteurs sont sélectionnés pour le caractère, la morphologie conforme à la race et le dépistage santé recommandé pour la lignée. Les fiches détaillées et tests pertinents sont communiqués aux familles sérieusement intéressées, dans le respect de la vie privée et des accords contractuels.\n\nLes visites se font sur rendez-vous lorsque la politique de l’élevage et la réglementation le permettent ; merci de nous écrire pour convenir d’un échange ou d’une visite encadrée.\n\nNous refusons tout excès d’élevage et privilégions le bien-être des reproducteurs (repos entre portées, suivi vétérinaire)."
   },
   "pageTerms": {
     "title": "Conditions de vente",
+    "metaDescription": "Conditions de vente et réservation : contrat, acompte, garanties sanitaires et cadre applicable au Québec et au Canada.",
     "body": "La réservation ou l’achat d’un chiot fait l’objet d’un contrat écrit entre l’éleveur et l’acquéreur, incluant identité du chiot, prix, modalités de paiement et mentions légales applicables au Québec / Canada selon le cas.\n\nLes garanties sanitaires éventuelles sont précisées au contrat ; elles ne couvrent pas les pathologies liées à une mauvaise maintenance, aux accidents ou à l’absence de suivi vétérinaire après le départ.\n\nTout acompte versé confirme l’engagement de la famille sous les conditions indiquées sur la fiche du chiot et dans les échanges écrits. En cas de doute, demandez une relecture avant paiement.\n\nCe texte est une synthèse : seul le contrat signé et les lois en vigueur font foi."
   },
   "pageDelivery": {
     "title": "Livraison",
+    "metaDescription": "Retrait du chiot sur place ou options de transport sécurisées. Conseils pour un voyage conforme au bien-être animal.",
     "body": "Le retrait du chiot se fait en priorité sur place, avec remise des documents (santé, identification si applicable) et temps d’échange avec l’éleveur.\n\nPour les familles éloignées, des options de transport conformes au bien-être (véhicule, transporteur réputé) peuvent être étudiées ensemble. Les frais et la responsabilité du transport sont définis clairement avant l’engagement.\n\nNous déconseillons tout transport non sécurisé ou prolongé sans préparation (eau, pauses, température). Pour les vols ou longs trajets, planifiez avec nous et votre vétérinaire si besoin."
   },
   "pageFaq": {
     "title": "Foire aux questions",
+    "metaDescription": "FAQ : âge de départ, vaccinations, visites à l'élevage et démarches de réservation pour votre bouledogue français.",
     "body": "À partir de quel âge le chiot peut-il quitter l’élevage ? La séparation intervient au minimum aux âges et conditions prévus par la réglementation applicable ; nous visons aussi une socialisation suffisante.\n\nLes chiots sont-ils identifiés et vaccinés ? Le carnet et l’historique vous sont remis selon ce qui a été réalisé à l’élevage ; la suite du protocole est assurée avec votre vétérinaire.\n\nPuis-je visiter avant de réserver ? Les visites se planifient selon la politique sanitaire et de l’élevage ; contactez-nous pour les modalités.\n\nComment se passe la réservation ? Vous envoyez une demande depuis la fiche du chiot (courriel) ; nous revenons vers vous et l’acompte éventuel est défini dans le contrat et les échanges écrits.\n\nPour toute autre question, utilisez la page Contact ou le formulaire en bas de l’accueil."
   },
   "pageReservation": {
     "title": "Réservation & acompte",
+    "metaDescription": "Réserver un chiot ou manifester votre intérêt : formulaire sur la fiche, échanges par courriel et confirmation par contrat.",
     "body": "Pour un chiot affiché comme disponible, la fiche propose un formulaire : votre demande est envoyée à l’élevage par courriel (via notre configuration d’envoi).\n\nNous vous répondons pour préciser la disponibilité, le cadre et, le cas échéant, le montant et les modalités d’un acompte : tout est ensuite confirmé par écrit et par contrat, pas par paiement immédiat sur le site.\n\nPour une portée à venir ou un prix sur demande, le même principe s’applique : message depuis la fiche, puis suite des échanges avec l’équipe.\n\nConservez une copie de vos messages ; en cas de difficulté technique sur le formulaire, écrivez-nous depuis la page Contact."
   }
 }

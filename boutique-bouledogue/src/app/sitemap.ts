@@ -19,7 +19,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/faq",
     "/reservation-acompte",
   ];
-  const staticPages: MetadataRoute.Sitemap = [];
+  const staticPages: MetadataRoute.Sitemap = [
+    // Locale négociée sur la racine (hreflang x-default → / )
+    {
+      url: `${base}/`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+  ];
 
   for (const locale of routing.locales) {
     for (const path of staticPaths) {
