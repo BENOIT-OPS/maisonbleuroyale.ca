@@ -11,7 +11,7 @@ function readEnvTrim(key: string): string | undefined {
 
 /**
  * Tawk si les deux `NEXT_PUBLIC_*` sont définies (lues côté serveur au build) ;
- * sinon bulle contact / WhatsApp. Pas de Crisp ici.
+ * sinon bulle WhatsApp si `NEXT_PUBLIC_WHATSAPP_PHONE` est défini. Pas de Crisp ici.
  */
 export function LiveChat() {
   const tawkPropertyId = readEnvTrim("NEXT_PUBLIC_TAWK_PROPERTY_ID");

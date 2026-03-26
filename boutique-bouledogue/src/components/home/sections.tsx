@@ -5,7 +5,8 @@ import { avisClients100 } from "@/data/testimonials-100";
 import { PuppyCardPremium } from "@/components/puppies/puppy-card-premium";
 import type { ChiotPublic } from "@/lib/puppies";
 import { Link } from "@/i18n/navigation";
-import { siteConfig, whatsappContactHref } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
+import { whatsappPublicHref } from "@/lib/whatsapp-public-href";
 
 const WHY_IMAGE =
   "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=85&auto=format&fit=crop";
@@ -410,7 +411,7 @@ export async function FaqAccueilSection() {
 
 export async function ContactStripSection() {
   const t = await getTranslations("contactStrip");
-  const wa = whatsappContactHref();
+  const wa = whatsappPublicHref();
 
   return (
     <section

@@ -4,4 +4,4 @@ Mettez vos photos ici à la place :
 
   public/images/chiots/
 
-Voir : public/images/chiots/LISEZMOI.txt
+Voir : src/data/chiot-covers.ts (mapping slug → fichier).

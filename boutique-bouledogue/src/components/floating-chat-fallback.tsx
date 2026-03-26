@@ -3,7 +3,7 @@
 import { MessageCircle } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { whatsappContactHref } from "@/lib/site";
+import { whatsappPublicHref } from "@/lib/whatsapp-public-href";
 
 /** Bulle WhatsApp flottante uniquement si `NEXT_PUBLIC_WHATSAPP_PHONE` est configuré. */
 export function FloatingChatFallback() {
@@ -12,7 +12,7 @@ export function FloatingChatFallback() {
 
   if (pathname?.startsWith("/admin")) return null;
 
-  const href = whatsappContactHref();
+  const href = whatsappPublicHref();
   if (!href) return null;
 
   return (
