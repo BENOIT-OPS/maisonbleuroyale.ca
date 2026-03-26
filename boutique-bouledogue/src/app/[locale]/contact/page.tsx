@@ -1,31 +1,26 @@
-import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ContactFormSection } from "@/components/contact-form-section";
-import { ContactStripSection } from "@/components/home/sections";
-import { SiteShell } from "@/components/site-shell";
-import type { AppLocale } from "@/i18n/routing";
-import { buildLocalizedPageMetadata } from "@/lib/seo-metadata";
+"use client";
 
-type Props = { params: Promise<{ locale: string }> };
+import { hasLocale } from "next-intl";
+import { useParams } from "next/navigation";
+import { useLayoutEffect } from "react";
+import { routing } from "@/i18n/routing";
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  const loc = locale as AppLocale;
-  const t = await getTranslations({ locale, namespace: "pageContact" });
-  return buildLocalizedPageMetadata(loc, "/contact", {
-    title: t("title"),
-    description: t("metaDescription"),
-  });
-}
+/**
+ * Redirection vers la section formulaire de l’accueil (HTTP ne transmet pas # — navigation client).
+ * Ex. /fr/contact → /fr#contact
+ */
+export default function ContactRedirectPage() {
+  const params = useParams();
+  const raw = params.locale;
+  const locale = typeof raw === "string" && hasLocale(routing.locales, raw) ? raw : routing.defaultLocale;
 
-export default async function ContactPage({ params }: Props) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+  useLayoutEffect(() => {
+    window.location.replace(`/${locale}#contact`);
+  }, [locale]);
 
   return (
-    <SiteShell>
-      <ContactStripSection />
-      <ContactFormSection />
-    </SiteShell>
+    <p className="sr-only" aria-live="polite">
+      Redirection vers le formulaire de contact…
+    </p>
   );
 }
