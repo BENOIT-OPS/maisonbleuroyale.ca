@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { readContactApiError } from "@/lib/contact-api-error";
 
 export function QuickContactForm() {
   const t = useTranslations("quickContact");
@@ -26,8 +27,8 @@ export function QuickContactForm() {
         body: JSON.stringify(data),
       });
       if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
-        setMessage(typeof err.error === "string" ? err.error : t("errSend"));
+        const errBody = await res.json().catch(() => null);
+        setMessage(readContactApiError(errBody, t("errSend")));
         setStatus("err");
         return;
       }

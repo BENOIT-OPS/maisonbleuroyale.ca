@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { readContactApiError } from "@/lib/contact-api-error";
 
 const schema = z.object({
   customerName: z.string().min(2),
@@ -98,7 +99,7 @@ export function ReservationForm({
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setStatus(typeof data.error === "string" ? data.error : t("interestErr"));
+        setStatus(readContactApiError(data, t("interestErr")));
         return false;
       }
       setStatus(t("interestSent"));

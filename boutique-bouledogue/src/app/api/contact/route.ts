@@ -4,11 +4,11 @@ import { prisma } from "@/lib/db";
 import { sendTransactionalEmail } from "@/lib/send-email";
 
 const schema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
+  name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caractères" }),
+  email: z.string().email({ message: "Adresse courriel invalide" }),
   phone: z.string().optional(),
-  subject: z.string().min(2),
-  content: z.string().min(8),
+  subject: z.string().min(2, { message: "Le sujet doit contenir au moins 2 caractères" }),
+  content: z.string().trim().min(1, { message: "Le message est requis" }),
 });
 
 function escapeHtml(s: string): string {
@@ -23,8 +23,28 @@ function escapeHtml(s: string): string {
 const LOG = "[api/contact]";
 
 export async function POST(request: Request) {
+  let body: unknown;
   try {
-    const payload = schema.parse(await request.json());
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Requête invalide." }, { status: 400 });
+  }
+
+  const parsed = schema.safeParse(body);
+  if (!parsed.success) {
+    const fieldErrors = parsed.error.flatten().fieldErrors;
+    if (fieldErrors.content?.length) {
+      return NextResponse.json({ error: "Le message est requis" }, { status: 400 });
+    }
+    const first = parsed.error.issues[0];
+    const msg =
+      typeof first?.message === "string" && first.message.length > 0 ? first.message : "Données invalides.";
+    return NextResponse.json({ error: msg }, { status: 400 });
+  }
+
+  const payload = parsed.data;
+
+  try {
     const notifyRaw = process.env.RESERVATION_NOTIFY_EMAIL?.trim();
     const emailFrom = process.env.EMAIL_FROM?.trim();
 
@@ -84,7 +104,10 @@ export async function POST(request: Request) {
     }
   } catch (error) {
     const err = error instanceof Error ? error.message : "Erreur";
-    console.error(LOG, "Erreur validation / traitement:", err);
-    return NextResponse.json({ error: err }, { status: 400 });
+    console.error(LOG, "Erreur traitement:", err);
+    return NextResponse.json(
+      { error: "Une erreur est survenue. Réessayez plus tard." },
+      { status: 500 },
+    );
   }
 }
