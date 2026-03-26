@@ -4,6 +4,7 @@ import { prisma } from "@/lib/db";
 import type { AppLocale } from "@/i18n/routing";
 import { mapPuppyToPublic, type ChiotPublic } from "@/lib/chiot-types";
 import { chiotCoverPublicPath } from "@/lib/chiot-media";
+import { applyCanonicalPublicDepositCents, mapWithCanonicalPublicDepositCents } from "@/lib/puppy-deposit-display";
 
 /**
  * Chiots réservés à l’accueil (vedette Mélanie + bloc « portée à venir »), exclus du catalogue `/chiots`.
@@ -308,16 +309,16 @@ export async function getFeaturedPuppiesForHome(locale: AppLocale): Promise<Chio
   const melanieSeed = fallback.find((c) => c.slug.trim().toLowerCase() === FEATURED_HOME_PUPPY_SLUG);
 
   if (shouldUseSeedData()) {
-    return melanieSeed ? [melanieSeed] : [];
+    return mapWithCanonicalPublicDepositCents(melanieSeed ? [melanieSeed] : []);
   }
   try {
     const row = await prisma.puppy.findFirst({
       where: { slug: FEATURED_HOME_PUPPY_SLUG },
     });
-    if (row) return [mapPuppyToPublic(row, locale)];
-    return melanieSeed ? [melanieSeed] : [];
+    if (row) return mapWithCanonicalPublicDepositCents([mapPuppyToPublic(row, locale)]);
+    return mapWithCanonicalPublicDepositCents(melanieSeed ? [melanieSeed] : []);
   } catch {
-    return melanieSeed ? [melanieSeed] : [];
+    return mapWithCanonicalPublicDepositCents(melanieSeed ? [melanieSeed] : []);
   }
 }
 
@@ -334,7 +335,7 @@ export async function getPuppiesCatalog(
   const fallback = getFallbackChiots(locale);
   const seedCatalogFiltered = excludeCatalogOnlyPuppies(filterCatalog(fallback, filters));
   if (shouldUseSeedData()) {
-    return seedCatalogFiltered;
+    return mapWithCanonicalPublicDepositCents(seedCatalogFiltered);
   }
   try {
     const statut = filters.statut ?? "all";
@@ -354,13 +355,13 @@ export async function getPuppiesCatalog(
     });
     /** BDD vide pour ce filtre → seeds filtrés seuls. */
     if (rows.length === 0) {
-      return seedCatalogFiltered;
+      return mapWithCanonicalPublicDepositCents(seedCatalogFiltered);
     }
     const fromDb = excludeCatalogOnlyPuppies(rows.map((row) => mapPuppyToPublic(row, locale)));
     /** Toujours fusionner : une seule ligne Prisma ne doit pas réduire la grille à une carte. */
-    return mergeCatalogDbWithSeedDefaults(fromDb, seedCatalogFiltered);
+    return mapWithCanonicalPublicDepositCents(mergeCatalogDbWithSeedDefaults(fromDb, seedCatalogFiltered));
   } catch {
-    return seedCatalogFiltered;
+    return mapWithCanonicalPublicDepositCents(seedCatalogFiltered);
   }
 }
 
@@ -372,7 +373,7 @@ export async function getUpcomingLittersForHome(locale: AppLocale): Promise<Chio
     .slice(0, HOME_UPCOMING_LITTER_LIMIT);
 
   if (shouldUseSeedData()) {
-    return fromSeed;
+    return mapWithCanonicalPublicDepositCents(fromSeed);
   }
   try {
     const porteeSlugs = HOME_ONLY_SLUGS.filter((s) => s !== FEATURED_HOME_PUPPY_SLUG);
@@ -384,10 +385,12 @@ export async function getUpcomingLittersForHome(locale: AppLocale): Promise<Chio
       orderBy: { createdAt: "desc" },
       take: HOME_UPCOMING_LITTER_LIMIT,
     });
-    if (rows.length > 0) return rows.map((row) => mapPuppyToPublic(row, locale));
-    return fromSeed;
+    if (rows.length > 0) {
+      return mapWithCanonicalPublicDepositCents(rows.map((row) => mapPuppyToPublic(row, locale)));
+    }
+    return mapWithCanonicalPublicDepositCents(fromSeed);
   } catch {
-    return fromSeed;
+    return mapWithCanonicalPublicDepositCents(fromSeed);
   }
 }
 
@@ -402,7 +405,8 @@ export async function getPuppyBySlug(slug: string, locale: AppLocale): Promise<C
 
   const fallback = getFallbackChiots(locale);
   if (shouldUseSeedData()) {
-    return findFallbackChiotBySlug(fallback, normalized);
+    const ch = findFallbackChiotBySlug(fallback, normalized);
+    return ch ? applyCanonicalPublicDepositCents(ch) : null;
   }
 
   try {
@@ -416,10 +420,12 @@ export async function getPuppyBySlug(slug: string, locale: AppLocale): Promise<C
         row = null;
       }
     }
-    if (row) return mapPuppyToPublic(row, locale);
-    return findFallbackChiotBySlug(fallback, normalized);
+    if (row) return applyCanonicalPublicDepositCents(mapPuppyToPublic(row, locale));
+    const fb = findFallbackChiotBySlug(fallback, normalized);
+    return fb ? applyCanonicalPublicDepositCents(fb) : null;
   } catch {
-    return findFallbackChiotBySlug(fallback, normalized);
+    const fb = findFallbackChiotBySlug(fallback, normalized);
+    return fb ? applyCanonicalPublicDepositCents(fb) : null;
   }
 }
 

@@ -2,6 +2,7 @@ import { PuppyStatus, type Puppy } from "@prisma/client";
 import type { AppLocale } from "@/i18n/routing";
 import { normalizeCoverImageSrc } from "@/lib/image-url";
 import { resolveChiotCoverSrc } from "@/lib/chiot-media";
+import { resolvePublicDepositCentsForPuppy } from "@/lib/puppy-deposit-display";
 
 /** Vue publique normalisee pour cartes et fiches (evolutif). */
 export type ChiotPublic = {
@@ -172,20 +173,13 @@ export function formatPriceDisplay(priceCents: number, priceOnRequest: boolean):
   return formatPriceDisplayForLocale(priceCents, priceOnRequest, "fr");
 }
 
-/** Acompte affiché côté site pour ces fiches (données BDD parfois incohérentes). */
-const DEPOSIT_DISPLAY_FIX_CENTS = 50_000;
-const DEPOSIT_DISPLAY_FIX_SLUGS = new Set(["melanie", "oscar-bleu"]);
-
 export function mapPuppyToPublic(p: Puppy, locale: AppLocale = "fr"): ChiotPublic {
   const row = p as Puppy & { priceOnRequest?: boolean; featured?: boolean };
   const priceOnRequest = row.priceOnRequest ?? false;
   const featured = row.featured ?? false;
   const recordStatus = p.status;
   const displayStatus = PuppyStatus.AVAILABLE;
-  const slugKey = p.slug.trim().toLowerCase();
-  const depositCents = DEPOSIT_DISPLAY_FIX_SLUGS.has(slugKey)
-    ? DEPOSIT_DISPLAY_FIX_CENTS
-    : p.depositCents;
+  const depositCents = resolvePublicDepositCentsForPuppy(p.slug, p.name, p.depositCents);
   return {
     id: p.id,
     slug: p.slug,
