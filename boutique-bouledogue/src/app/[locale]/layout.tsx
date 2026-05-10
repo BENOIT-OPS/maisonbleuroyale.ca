@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { LangAttribute } from "@/components/lang-attribute";
 import { LiveChat } from "@/components/live-chat";
-import GoogleAdsTag from "@/components/google-ads-tag";
 import { routing } from "@/i18n/routing";
 
 type Props = {
@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const { locale } = await params;
 const tLayout = await getTranslations({ locale, namespace: "LocaleLayout" });
 const tMeta = await getTranslations({ locale, namespace: "meta" });
+
 return {
 title: tLayout("title"),
 description: tMeta("homeDescription"),
@@ -38,7 +39,20 @@ return (
 <LangAttribute />
 {children}
 <LiveChat />
-<GoogleAdsTag />
+
+<Script
+src="https://www.googletagmanager.com/gtag/js?id=AW-18153273551"
+strategy="afterInteractive"
+/>
+
+<Script id="google-ads" strategy="afterInteractive">
+{`
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-18153273551');
+`}
+</Script>
 </NextIntlClientProvider>
 );
 }
