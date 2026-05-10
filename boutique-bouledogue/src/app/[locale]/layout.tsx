@@ -3,7 +3,6 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { LangAttribute } from "@/components/lang-attribute";
-import { GoogleAdsTag } from "@/components/google-ads-tag";
 import { LiveChat } from "@/components/live-chat";
 import { routing } from "@/i18n/routing";
 
@@ -35,7 +34,6 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <GoogleAdsTag />
       <LangAttribute />
       {children}
       <LiveChat />
