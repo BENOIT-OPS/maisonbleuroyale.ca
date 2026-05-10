@@ -5,8 +5,6 @@ import Script from "next/script";
 export default function GoogleAdsTag() {
 const googleAdsId = "AW-18153273551";
 
-if (!googleAdsId) return null;
-
 return (
 <>
 <Script
