@@ -9,10 +9,7 @@ import { htmlLangFromHeaderGetter } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
-/** Google Ads — ID balise globale gtag.js. Si Google Ads montre AW-18153273751, remplacez la chaîne ci-dessous. */
-const GOOGLE_ADS_ID = "AW-18153273551";
-
-/** Google Tag Manager — conteneur (App Router / Vercel). */
+/** Google Tag Manager — conteneur (iframe noscript ci-dessous utilise GTM-PXF589K3). */
 const GTM_ID = "GTM-PXF589K3";
 
 const display = Cormorant_Garamond({
@@ -72,6 +69,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
+        {/* Google Ads — gtag.js (dans le head, beforeInteractive — HTML servi au client / crawl) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18153273551"
+          strategy="beforeInteractive"
+        />
+        <Script id="google-ads-gtag" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18153273551');
+          `}
+        </Script>
       </head>
       <body className="min-h-full flex flex-col">
         {/* Google Tag Manager (noscript) — immédiatement après l’ouverture du body */}
@@ -84,19 +94,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             title="Google Tag Manager"
           />
         </noscript>
-        {/* Google tag (gtag.js) — next/script garantit bon ordre en prod App Router */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-ads-gtag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GOOGLE_ADS_ID}');
-          `}
-        </Script>
         <AuthSessionProvider>
           {children}
           <Analytics />
